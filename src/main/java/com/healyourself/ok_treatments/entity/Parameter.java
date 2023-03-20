@@ -1,0 +1,57 @@
+package com.healyourself.ok_treatments.entity;
+
+import com.healyourself.ok_treatments.enums.ParameterType;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import net.minidev.json.JSONObject;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Objects;
+import java.util.UUID;
+
+import static jakarta.persistence.FetchType.LAZY;
+
+@Entity
+@Getter
+@Setter
+@Transactional
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "story_params")
+public class Parameter {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID",
+            strategy = "com.healyourself.ok_treatments.generator.UuidTimeSequenceGenerator")
+    private UUID id;
+
+    @Convert
+    private JSONObject value;
+
+    @Column(name = "type")
+    private ParameterType type;
+
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "story_id",
+            referencedColumnName = "id")
+    private Story story;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Parameter parameter)) return false;
+        return id.equals(parameter.id) && Objects.equals(value, parameter.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, value);
+    }
+}
