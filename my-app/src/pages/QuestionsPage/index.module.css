@@ -3,3 +3,8 @@
     
 
 }
+
+.btn_block {
+    display: flex;
+    justify-content: space-around;
+}
