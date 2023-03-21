@@ -1,0 +1,72 @@
+
+.btn {
+	border: 2px solid red;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: transparent;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background-color: red;
+}
+.head {
+	position: absolute;
+	top: 7%;
+	left: 24%;
+}
+
+.right_shoulder {
+	position: absolute;
+	top: 20%;
+	left: 18%;
+}
+
+.left_shoulder {
+	position: absolute;
+	top: 20%;
+	left: 30%;
+}
+
+.right_arm {
+	position: absolute;
+	top: 35%;
+	left: 15%;
+}
+
+.left_arm {
+	position: absolute;
+	top: 35%;
+	left: 33%;
+}
+
+.right_leg {
+	position: absolute;
+	bottom: 35%;
+	left: 19%;
+}
+
+.left_leg {
+	position: absolute;
+	bottom: 35%;
+	left: 29%;
+}
+
+.neck {
+	position: absolute;
+	top: 18%;
+	right: 40%;
+}
+
+.back {
+	position: absolute;
+	top: 28%;
+	right: 40%;
+}
+
+.lower_back {
+	position: absolute;
+	top: 38%;
+	right: 40%;
+}
