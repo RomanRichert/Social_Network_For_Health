@@ -1,7 +1,6 @@
 import React from 'react'
 import human_body from '../../media/human-body.png'
 import styles from './index.module.css'
-import cn from 'classnames'
 export default function BodyPartForm({body_part}) {
 
 	const submit = (event) => {

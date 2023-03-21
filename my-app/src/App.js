@@ -1,4 +1,3 @@
-import Layout from "./components/Layout";
 import './style.css';
 import { Routes, Route } from 'react-router-dom' 
 import QuestionsPage from './pages/QuestionsPage';
