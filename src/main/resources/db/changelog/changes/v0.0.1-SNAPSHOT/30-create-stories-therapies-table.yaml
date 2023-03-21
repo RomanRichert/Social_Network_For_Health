@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-stories-therapies-table
+      author: Roman Richert
+      changes:
+        - createTable:
+            tableName: stories_therapies
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: story_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: therapies_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: value
+                  type: int
+                  constraints:
+                    nullable: true
+        - addForeignKeyConstraint:
+            constraintName: stories_therapies_fk0
+            baseTableName: stories_therapies
+            baseColumnNames: story_id
+            referencedTableName: stories
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            constraintName: stories_therapies_fk1
+            baseTableName: stories_therapies
+            baseColumnNames: therapies_id
+            referencedTableName: therapies
+            referencedColumnNames: id

@@ -1,5 +1,6 @@
 package com.healyourself.ok_treatments.entity;
 
+import com.healyourself.ok_treatments.converter.JSONConverter;
 import com.healyourself.ok_treatments.enums.ParameterType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.minidev.json.JSONObject;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Objects;
@@ -32,7 +32,8 @@ public class Parameter {
             strategy = "com.healyourself.ok_treatments.generator.UuidTimeSequenceGenerator")
     private UUID id;
 
-    @Convert
+    @Convert(converter = JSONConverter.class)
+    @Column(name = "value", columnDefinition = "jsonb")
     private JSONObject value;
 
     @Column(name = "type")

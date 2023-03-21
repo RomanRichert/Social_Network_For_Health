@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-story-params-table
+      author: Roman Richert
+      changes:
+        - createTable:
+            tableName: story_params
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: value
+                  type: jsonb
+                  constraints:
+                    nullable: false
+              - column:
+                  name: type
+                  type: smallint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: story_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            constraintName: story_params_fk0
+            baseTableName: story_params
+            baseColumnNames: story_id
+            referencedTableName: stories
+            referencedColumnNames: id
