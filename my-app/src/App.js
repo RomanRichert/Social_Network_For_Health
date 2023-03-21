@@ -1,9 +1,9 @@
-import './App.css';
 import Layout from "./components/Layout";
-import './styles.css';
+import './style.css';
 import { Routes, Route } from 'react-router-dom' 
 import QuestionPage from './pages/QuestionsPage';
 import AnswersPage from './pages/AnswersPage';
+import HumanBody from './components/HumanBody';
 
 
 
@@ -11,12 +11,13 @@ import AnswersPage from './pages/AnswersPage';
 function App() {
   return (
     <div className="App">
-      <Routes>
+      <HumanBody />
+      {/* <Routes>
         <Route path='/' element={<Layout />}>
             <Route path='questions' element={<QuestionPage/>}/>
             <Route path='answers' element={<AnswersPage/>}/>
         </Route>
-      </Routes>
+      </Routes> */}
 
     </div>
   );
