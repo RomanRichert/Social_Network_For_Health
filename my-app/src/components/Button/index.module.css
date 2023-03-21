@@ -1,0 +1,24 @@
+.button_block {
+    width: 320px;
+    margin: 50px;
+    display: flex;
+    justify-content: space-evenly; 
+}
+
+.button_block button {
+    border: 1px solid rgb(115, 111, 239); 
+    background-color: rgb(115, 111, 239); 
+    color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+.button_block:hover button {
+    opacity: 1;
+}
+
+.button_block button:hover {
+    background-color: white;
+    color: black;
+}
