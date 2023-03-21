@@ -17,7 +17,7 @@ export default function QuestionsPage() {
           <Button>back</Button>
         </Link>
       ) : (
-        <Link to={`/${+id - 1}`} className={style.btn_block}>
+        <Link to={`/${+id + 1}`} className={style.btn_block}>
           <Button>next</Button>
         </Link>
       )}

@@ -16,7 +16,7 @@ export default function QuestionItem({ id, question, answers }) {
 
   return (
     <div className={style.question_item}>
-      <h2>{question}</h2>
+      <p>{question}</p>
       <form>
         {answers.map((answer) => (
           <fieldset  className={style.form}
