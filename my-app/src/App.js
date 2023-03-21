@@ -1,3 +1,4 @@
+
 import "./style.css";
 import { Routes, Route } from "react-router-dom";
 import QuestionsPage from "./pages/QuestionsPage";
@@ -6,6 +7,7 @@ import Layout from "./components/Layout";
 import HumanBody from "./components/HumanBody";
 import FirstPage from "./pages/FirstPage";
 import ResultsPage from "./pages/ResultsPage";
+
 
 function App() {
   return (

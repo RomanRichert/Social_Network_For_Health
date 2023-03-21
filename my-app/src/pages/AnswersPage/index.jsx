@@ -1,5 +1,10 @@
 import React from "react";
+import Button from "../../components/Button";
 
 export default function AnswersPage() {
-  return <div>AnswersPage</div>;
+  return (
+    <div>
+      <Button>next</Button>
+    </div>
+  );
 }
