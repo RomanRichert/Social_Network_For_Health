@@ -6,18 +6,16 @@ import AnswersPage from './pages/AnswersPage';
 import HumanBody from './components/HumanBody';
 
 
-
-
 function App() {
   return (
     <div className="App">
       <HumanBody />
-      {/* <Routes>
+      <Routes>
         <Route path='/' element={<Layout />}>
             <Route path='questions' element={<QuestionPage/>}/>
             <Route path='answers' element={<AnswersPage/>}/>
         </Route>
-      </Routes> */}
+      </Routes>
 
     </div>
   );
