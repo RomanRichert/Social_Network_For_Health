@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import style from './index.module.css'
 
 
 export default function QuestionItem({ id, question, answers }) {
@@ -15,11 +16,11 @@ export default function QuestionItem({ id, question, answers }) {
 
   return (
 	
-        <div>
+        <div className={style.question_item}>
           <legend>{question}</legend>
-          <form onSubmit={() => handleOptionChange}>
+          <form  onSubmit={() => handleOptionChange}>
           {answers.map((answer) => (
-            <fieldset key={answer.id}>
+            <fieldset className={style.form} key={answer.id}>
             <input type="radio" name='question' value={answer.id} />
               <label onClick={console.log(answer.id, answer.answer)}>
                 {answer.answer}
