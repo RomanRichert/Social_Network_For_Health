@@ -3,14 +3,23 @@ spring:
     banner-mode: off
 
   datasource:
-    url: ${datasource.url}
-    username: ${datasource.username}
-    password: ${datasource.password}
+    url: ${jdbc:mysql://localhost:3306/ok_treatments}
+    username: root
+    password: bigmir1704
+#    url: ${datasource.url}
+#    username: ${datasource.username}
+#    password: ${datasource.password}
 
   jpa:
+    generate-ddl: true
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+    sql:
+      init:
+        mode: always
+
 
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.yaml

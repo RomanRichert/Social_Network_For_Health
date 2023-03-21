@@ -29,6 +29,7 @@ public class Comment {
             strategy = "com.healyourself.ok_treatments.generator.UuidTimeSequenceGenerator")
     private UUID id;
 
+//TODO comment
     @Column(name = "text")
     private String text;
 

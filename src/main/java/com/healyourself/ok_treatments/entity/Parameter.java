@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.minidev.json.JSONObject;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Objects;
@@ -32,6 +31,7 @@ public class Parameter {
             strategy = "com.healyourself.ok_treatments.generator.UuidTimeSequenceGenerator")
     private UUID id;
 
+//    TODO JSON
     @Convert
     private JSONObject value;
 
