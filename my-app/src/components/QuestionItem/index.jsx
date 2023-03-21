@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import style from './index.module.css'
+
 
 export default function QuestionItem({ id, question, answers }) {
   const [selectedValue, setSelectedValue] = useState("");
