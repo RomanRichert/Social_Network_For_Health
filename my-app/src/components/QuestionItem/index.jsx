@@ -4,8 +4,9 @@ export default function QuestionItem({ id, question, answers }) {
   const [selectedValue, setSelectedValue] = useState("");
 
   const handleOptionChange = (event) => {
-    console.log(event.target.value);
+    console.log(event.currentTarget.name);
     //setSelectedValue(selectedValue);
+
     setSelectedValue(event.target.value);
     // const { question } = event.target;
     // console.log(question.value);
@@ -16,12 +17,16 @@ export default function QuestionItem({ id, question, answers }) {
       <legend>{question}</legend>
       <form>
         {answers.map((answer) => (
-          <fieldset key={answer.id}>
+          <fieldset
+            key={answer.id}
+            name={answer.id}
+            onClick={handleOptionChange}
+          >
             <input
               type="radio"
               name="question"
               value={answer.id}
-              onClick={handleOptionChange}
+              // onClick={handleOptionChange}
             />
             <label>{answer.answer}</label>
           </fieldset>
