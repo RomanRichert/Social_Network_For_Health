@@ -10,7 +10,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
 
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.yaml
@@ -32,5 +32,5 @@ management:
         include: "*"
 
 info:
-  name: bank
+  name: heal
   description: ${app.description}

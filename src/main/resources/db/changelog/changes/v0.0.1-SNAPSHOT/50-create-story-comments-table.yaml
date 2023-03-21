@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-story-comments-table
+      author: Roman Richert
+      changes:
+        - createTable:
+            tableName: story_comments
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: story_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: text
+                  type: text
+                  constraints:
+                    nullable: true
+        - addForeignKeyConstraint:
+            constraintName: story_comments_fk0
+            baseTableName: story_comments
+            baseColumnNames: story_id
+            referencedTableName: stories
+            referencedColumnNames: id

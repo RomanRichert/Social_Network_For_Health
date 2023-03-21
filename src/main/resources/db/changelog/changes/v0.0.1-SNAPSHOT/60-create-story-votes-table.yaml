@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-story-votes-table
+      author: Roman Richert
+      changes:
+        - createTable:
+            tableName: story_votes
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: story_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: type
+                  type: smallint
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            constraintName: story_votes_fk0
+            baseTableName: story_votes
+            baseColumnNames: story_id
+            referencedTableName: stories
+            referencedColumnNames: id
