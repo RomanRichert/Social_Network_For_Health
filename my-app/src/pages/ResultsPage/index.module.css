@@ -1,0 +1,57 @@
+.results_page {
+	margin-top: 20px;
+}
+
+.results_page h4:nth-child(2) {
+	margin-bottom: 10px;
+}
+
+.results_page p {
+	color: rgb(125, 6, 158);
+	font-weight: bold;
+}
+
+.treatments {
+	margin-top: 20px;
+}
+
+.treatments p{
+	color: black;
+	font-weight: normal;
+}
+
+.actions_btns {
+	margin-top: 30px;
+	padding-top: 10px;
+	border-top: 1px solid rgb(125, 6, 158);
+	display: flex;
+
+}
+
+.actions_btns button {
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: 1px solid rgb(125, 6, 158);
+	background-color: #fff;
+	color: rgb(125, 6, 158);
+	cursor: pointer;
+}
+.actions_btns button:last-child {
+	margin-left: 10px;
+	background-image: linear-gradient(to right, #8360c3, #2ebf91);
+	color: white;
+}
+
+.actions_btns button:hover {
+	transform: scale(1.1);
+}
+/* .actions_btns button:first-child:hover {
+	background-image: linear-gradient(to right, #8360c3, #2ebf91);
+	color: white;
+}
+.actions_btns button:last-child:hover {
+	border: 1px solid rgb(125, 6, 158);
+	background-color: #fff;
+	background-image: none;
+	color: rgb(125, 6, 158);
+} */
