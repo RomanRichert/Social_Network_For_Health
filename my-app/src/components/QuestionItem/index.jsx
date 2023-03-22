@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import style from './index.module.css'
@@ -26,17 +27,17 @@ export default function QuestionItem({ id, question, answers, isDisabled, setIsD
       <p>{question}</p>
       <form>
         {answers.map((answer) => (
-          <fieldset  className={style.form}
+          <fieldset
+            className={style.form}
             key={answer.id}
             name={answer.id}
             onClick={handleOptionChange}
           >
-            <input className={style.radio}
+            <input
+              className={style.radio}
               type="radio"
               name="question"
               value={answer.id}
-              
-              // onClick={handleOptionChange}
             />
             <label>{answer.answer}</label>
           </fieldset>
