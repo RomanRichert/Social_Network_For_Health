@@ -48,7 +48,6 @@ const ageRegister = register('age', {
     }
 });
 
-
   return (
     <div>
       <form onSubmit={handleSubmit(submit)}>
@@ -77,7 +76,6 @@ const ageRegister = register('age', {
       </div>
       </form>
       
-
       <p className={style.title}>Therapy</p>
       <div className={style.title2_block}>
         <select>
@@ -98,8 +96,7 @@ const ageRegister = register('age', {
         <textarea name="story" cols="30" rows="10" maxLength="250"></textarea>
         <Link to = '/results'>
           <button>Publish my story</button>
-        </Link>
-       
+        </Link>       
       </div>
     </div>
   );

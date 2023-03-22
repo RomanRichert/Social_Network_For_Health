@@ -1,0 +1,23 @@
+.description{
+    font-size: 20px;
+    line-height: 150%;
+    margin: 60px 0 20px 0;
+    text-align: center;
+}
+
+.start_button {
+    border: 1px solid var(--lila-primary); 
+    background-color: var(--lila-primary); 
+    color: white;
+    height: 50px;
+    width: 120px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 100px;
+}
+
+/* .start_button:hover {
+    opacity: 1;
+    background-color: white;
+    color: black;
+} */

@@ -7,6 +7,9 @@ import Layout from "./components/Layout";
 import HumanBody from "./components/HumanBody";
 import FirstPage from "./pages/FirstPage";
 import ResultsPage from "./pages/ResultsPage";
+import StartPage from "./pages/StartPage";
+
+
 
 
 function App() {
@@ -15,7 +18,8 @@ function App() {
       
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<FirstPage />} />
+          <Route index element={<StartPage />} />
+          <Route path="human" element={<FirstPage />} />
           <Route path=":id" element={<QuestionsPage />} />
           <Route path="submit" element={<SubmitPage />} />
           <Route path="results" element={<ResultsPage />} />
