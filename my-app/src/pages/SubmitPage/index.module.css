@@ -89,3 +89,20 @@
     color: black;
 }
 
+.error_message_height {
+    color: red;
+    font-size: 8px;
+    text-align: end;
+}
+
+.error_message_weight {
+    color: red;
+    font-size: 8px;
+    text-align: end;
+}
+
+.error_message_age {
+    color: red;
+    font-size: 8px;
+    text-align: end;
+}
