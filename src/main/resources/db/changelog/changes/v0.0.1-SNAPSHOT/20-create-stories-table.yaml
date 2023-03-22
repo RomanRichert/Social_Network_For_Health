@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-story-table
+      id: create-stories-table
       author: Roman Richert
       changes:
         - createTable:
@@ -24,11 +24,11 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: health_score
-                  type: int(4)
+                  type: float(53)
                   constraints:
                     nullable: false
               - column:
                   name: bmi
-                  type: int(4)
+                  type: float(53)
                   constraints:
                     nullable: false

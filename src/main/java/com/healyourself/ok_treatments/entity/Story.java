@@ -37,13 +37,13 @@ public class Story {
     private BodyPart bodyPart;
 
     @Column(name = "health_score")
-    private Integer healthScore;
+    private Double healthScore;
 
     @Column(name = "bmi")
-    private Integer bmi;
+    private Double bmi;
 
     @OneToMany(cascade =  ALL, mappedBy = "story", fetch = LAZY)
-    private Set<Parameter> params = new LinkedHashSet<>();
+    private Set<Parameter> params = new LinkedHashSet<>(2);
 
     @ManyToMany(cascade = ALL, fetch = LAZY)
     private List<Therapy> therapies = new ArrayList<>();
@@ -53,6 +53,22 @@ public class Story {
 
     @OneToMany(cascade = ALL, mappedBy = "story", fetch = LAZY)
     private List<Vote> votes = new ArrayList<>();
+
+    public void addParameter(Parameter p){
+        params.add(p);
+    }
+
+    public void addTherapy(Therapy t){
+        therapies.add(t);
+    }
+
+    public void addComment(Comment c){
+        comments.add(c);
+    }
+
+    public void addVote(Vote v){
+        votes.add(v);
+    }
 
     @Override
     public boolean equals(Object o) {
