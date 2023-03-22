@@ -67,6 +67,7 @@
     padding: 15px;
     height:150px ;
     width: 300px;
+    resize: none;
 }
 
 .story_block button {
