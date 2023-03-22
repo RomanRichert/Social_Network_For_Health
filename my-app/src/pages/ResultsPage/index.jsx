@@ -4,13 +4,16 @@ import styles from './index.module.css'
 export default function ResultsPage() {
   return (
 	<div className = {styles.results_page}>
-		<h4>Your health score: </h4>
-		<h4>Your BMI: </h4>
+		<h4>Your health score: 53</h4>
+		<h4>Your BMI: 25.0</h4>
 
 		<p>Meet your treatment buddies:</p>
 
 		<div className = {styles.treatments}>
-			<p>Story 1...</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				 Minus quaerat, magnam quibusdam id molestias quas sint 
+				 atque illum dolore dolor.
+			</p>
 
 			<div className = {styles.actions_btns}>
 				<button>Comment</button>

@@ -6,7 +6,7 @@ export default function Header() {
 
   return (
         <div className={styles.logo}>
-                <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" />
         </div>
   )
 }

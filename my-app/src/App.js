@@ -12,7 +12,7 @@ import ResultsPage from "./pages/ResultsPage";
 function App() {
   return (
     <div className="App">
-      {/* <HumanBody /> */}
+      
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<FirstPage />} />

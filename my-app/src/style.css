@@ -13,3 +13,10 @@ body {
 a {
   text-decoration: none;
 }
+
+:root {
+  --lila-primary: #5273E6;
+  --lila-border: #617FE9;
+  --pink: #C73FBD;
+  --gradient-pink: #C23EC1;
+}

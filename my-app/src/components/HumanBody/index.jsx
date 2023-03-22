@@ -23,6 +23,7 @@ export default function HumanBody() {
       {btns.map((el) => (
         <BodyPartForm key={el} body_part={el} />
       ))}
+
     </div>
   );
 }
