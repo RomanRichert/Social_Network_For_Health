@@ -5,7 +5,7 @@ import Icon2 from "./media/unamused_icon.svg";
 import Icon3 from "./media/neutral_icon.svg";
 import Icon4 from "./media/smilling_icon.svg";
 import Icon5 from "./media/beaming_icon.svg";
-
+import { Link } from 'react-router-dom';
 export default function SubmitPage() {
   return (
     <div>
@@ -37,7 +37,10 @@ export default function SubmitPage() {
 
       <div className={style.story_block}>
         <textarea name="story" cols="30" rows="10" maxLength="250"></textarea>
-        <button>Publish my story</button>
+        <Link to = '/results'>
+          <button>Publish my story</button>
+        </Link>
+       
       </div>
     </div>
   );

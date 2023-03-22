@@ -7,10 +7,6 @@ import style from "./index.module.css";
 import ResultsPage from "../ResultsPage";
 import FirstPage from "../FirstPage";
 
-
-import FirstPage from '../FirstPage';
-import ResultsPage from '../ResultsPage';
-
 export default function QuestionsPage() {
   const { id } = useParams();
 
@@ -33,10 +29,10 @@ export default function QuestionsPage() {
             
             <QuestionItem {...questions[+id-1]} />
             <div className = {style.arrows}>
-              <Link to='/' className={style.btn_block}>
+              <Link to={`/${+id - 1}`} className={style.btn_block}>
                 <Button>back</Button>
               </Link>
-              <Link to='/results' className={style.btn_block}>
+              <Link to='/submit' className={style.btn_block}>
                 <Button>next</Button>
               </Link>
             </div>
