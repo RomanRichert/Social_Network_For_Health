@@ -3,7 +3,7 @@ import human_body from "../../media/human-body.png";
 import styles from "./index.module.css";
 import BodyPartForm from "../BodyPartForm";
 
-export default function HumanBody() {
+export default function HumanBody({isDisabled, setIsDisabled}) {
   const btns = [
     "head",
     "left_shoulder",
@@ -21,7 +21,11 @@ export default function HumanBody() {
     <div className={styles.human_body}>
       <img src={human_body} alt="human_body" className={styles.body_img} />
       {btns.map((el) => (
-        <BodyPartForm key={el} body_part={el} />
+        <BodyPartForm 
+			key={el} 
+			body_part={el} 
+			isDisabled = {isDisabled} setIsDisabled = {setIsDisabled}
+		/>
       ))}
 
     </div>

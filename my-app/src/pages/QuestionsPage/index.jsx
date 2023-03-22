@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import QuestionItem from "../../components/QuestionItem";
 import { questions } from "../../data";
 import Button from "../../components/Button";
@@ -10,17 +10,26 @@ import FirstPage from "../FirstPage";
 export default function QuestionsPage() {
   const { id } = useParams();
 
+  const [isDisabled, setIsDisabled] = useState(true)
+
   const content = () => {
     if ( +id === 1) {
       return (
       <>
-        <QuestionItem {...questions[+id-1]} />
+        <QuestionItem 
+          {...questions[+id-1]} 
+          isDisabled = {isDisabled}
+          setIsDisabled = {setIsDisabled}
+        />
         <div className = {style.arrows}>
           <Link to='/' className={style.btn_block}>
             <Button>back</Button>
           </Link>
           <Link to={`/${+id + 1}`} className={style.btn_block}>
-            <Button>next</Button>
+            <Button 
+              className = {style.next_btn} 
+              disabled = {isDisabled}
+            >next</Button>
           </Link>
         </div>
     </>) 
@@ -33,7 +42,7 @@ export default function QuestionsPage() {
                 <Button>back</Button>
               </Link>
               <Link to='/submit' className={style.btn_block}>
-                <Button>next</Button>
+                <Button className = {style.next_btn} disabled = {isDisabled}>next</Button>
               </Link>
             </div>
       </>)
@@ -46,7 +55,7 @@ export default function QuestionsPage() {
             </Link>
           
             <Link to={`/${+id + 1}`} className={style.btn_block}>
-              <Button>next</Button>
+              <Button className = {style.next_btn} disabled = {isDisabled}>next</Button>
             </Link>
           </div>
     </>
