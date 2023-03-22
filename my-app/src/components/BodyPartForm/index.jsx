@@ -1,16 +1,18 @@
 import React from 'react'
 import human_body from '../../media/human-body.png'
 import styles from './index.module.css'
-
-
+import { useDispatch } from 'react-redux';
+import { getBodyPartAction } from '../../store/actions/getBodyPartAction';
 
 export default function BodyPartForm({ body_part, isDisabled, setIsDisabled }) {
-  const submit = (event) => {
-    event.preventDefault();
-    const { part } = event.target;
-    console.log(part.value);
-	setIsDisabled(false)
-  };
+	const dispatch = useDispatch()
+
+	const submit = (event) => {
+		event.preventDefault();
+		const { part } = event.target;
+		dispatch(getBodyPartAction(part.value));
+		setIsDisabled(false)
+	};
 
   return (
     <form onSubmit={submit}>
