@@ -3,6 +3,10 @@
     grid-template-columns: repeat(1, 1fr); */
     gap: 35px;
     overflow: scroll;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .btn_block {
@@ -22,3 +26,7 @@
     font-weight: 700;
     text-align: justify;
 }
+
+/* .next_btn {
+    disabled: true;
+} */

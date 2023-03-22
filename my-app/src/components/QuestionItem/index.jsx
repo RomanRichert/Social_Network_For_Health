@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import style from './index.module.css'
 
 
-export default function QuestionItem({ id, question, answers }) {
+export default function QuestionItem({ id, question, answers, isDisabled, setIsDisabled }) {
   const [selectedValue, setSelectedValue] = useState("");
 
+  // useEffect(() => document.querySelectorAll)
+  
   const handleOptionChange = (event) => {
     console.log(event.currentTarget.name);
     //setSelectedValue(selectedValue);
-
+    setIsDisabled(!isDisabled)
     setSelectedValue(event.target.value);
+    
     // const { question } = event.target;
     // console.log(question.value);
+    // console.log(document.querySelectorAll('.next_btn'))
   };
 
   return (
@@ -28,6 +33,7 @@ export default function QuestionItem({ id, question, answers }) {
               type="radio"
               name="question"
               value={answer.id}
+              
               // onClick={handleOptionChange}
             />
             <label>{answer.answer}</label>
