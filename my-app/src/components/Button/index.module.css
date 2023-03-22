@@ -1,17 +1,18 @@
 .button_block {
-    width: 320px;
-    margin: 50px;
+    /* width: 320px; */
+    /* margin: 50px; */
     display: flex;
-    justify-content: space-evenly; 
+    justify-content: center; 
 }
 
 .button_block button {
-    border: 1px solid rgb(115, 111, 239); 
-    background-color: rgb(115, 111, 239); 
+    border: 1px solid var(--lila-primary); 
+    background-color: var(--lila-primary); 
     color: white;
     height: 50px;
     width: 50px;
     border-radius: 50px;
+    cursor: pointer;
 }
 
 .button_block:hover button {
@@ -22,3 +23,4 @@
     background-color: white;
     color: black;
 }
+

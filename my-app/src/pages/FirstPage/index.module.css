@@ -1,0 +1,12 @@
+.first_page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+}
+.description {
+	font-size: 12px;
+	margin-bottom: 10px;
+	color: black;
+	font-weight: bold;
+}

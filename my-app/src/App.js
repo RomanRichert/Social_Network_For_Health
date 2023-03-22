@@ -12,6 +12,7 @@ import ResultsPage from "./pages/ResultsPage";
 function App() {
   return (
     <div className="App">
+      
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<FirstPage />} />

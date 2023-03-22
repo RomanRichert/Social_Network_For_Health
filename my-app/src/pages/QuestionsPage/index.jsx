@@ -7,65 +7,93 @@ import style from "./index.module.css";
 import ResultsPage from "../ResultsPage";
 import FirstPage from "../FirstPage";
 
+
+import FirstPage from '../FirstPage';
+import ResultsPage from '../ResultsPage';
+
 export default function QuestionsPage() {
   const { id } = useParams();
 
-  //   if (+id === 1) {
-  //     <Navigate to={<FirstPage />} />;
-  //   }
-  //   if (+id === 35) {
-  //     <Navigate to={<ResultsPage />} />;
-  //   }
+  const content = () => {
+    if ( +id === 1) {
+      return (
+      <>
+        <QuestionItem {...questions[+id-1]} />
+        <div className = {style.arrows}>
+          <Link to='/' className={style.btn_block}>
+            <Button>back</Button>
+          </Link>
+          <Link to={`/${+id + 1}`} className={style.btn_block}>
+            <Button>next</Button>
+          </Link>
+        </div>
+    </>) 
+    } else if ( +id === 36) {
+      return (<>
+            
+            <QuestionItem {...questions[+id-1]} />
+            <div className = {style.arrows}>
+              <Link to='/' className={style.btn_block}>
+                <Button>back</Button>
+              </Link>
+              <Link to='/results' className={style.btn_block}>
+                <Button>next</Button>
+              </Link>
+            </div>
+      </>)
+    }
+    return <>
+        <QuestionItem {...questions[+id-1]} />
+          <div className = {style.arrows}>
+            <Link to={`/${+id - 1}`} className={style.btn_block}>
+              <Button>back</Button>
+            </Link>
+          
+            <Link to={`/${+id + 1}`} className={style.btn_block}>
+              <Button>next</Button>
+            </Link>
+          </div>
+    </>
+  }
+
+  const text_description = () => {
+    switch (+id) {
+      case 3:
+        return <p className = {style.description}>The following items are about activities you might do during a 
+        typical day. Does your health now limit you in these activities? If 
+        so, how much?</p>
+      case 13: 
+        return <p className = {style.description}>During the past 4 weeks, have you 
+        had any of the following problems with your work or other regular daily 
+        activities as a result of your physical health?</p>
+      case 17:
+        return <p className = {style.description}>During the past 4 weeks, have 
+        you had any of the following problems with your work or other regular 
+        daily activities as a result of any emotional problems (such as feeling
+        depressed or anxious)?</p>
+      case 23:
+        return <>
+          <p className = {style.description}>These questions are about how 
+            you feel and how things have been with you during the past 4 weeks. For 
+            each question, please give the one answer that comes closest to the way
+            you have been feeling.</p>
+
+          <p className = {style.description}>How much of the time during the past 4 weeks...</p>
+        </>
+      case 33:
+        return <p className = {style.description}>How TRUE or FALSE is each of the following 
+              statements for you.</p>
+
+      default:
+        return ''
+    }
+  }
 
   return (
     <div className={style.questions_page}>
-      {<QuestionItem {...questions[+id - 1]} />}
-      {+id === 1 ? (
-        <>
-          <Link to={"/"} className={style.btn_block}>
-            <Button>back</Button>
-          </Link>
-          <Link to={`/${+id + 1}`} className={style.btn_block}>
-            <Button>next</Button>
-          </Link>
-        </>
-      ) : (
-        <>
-          <Link to={`/${+id - 1}`} className={style.btn_block}>
-            <Button>back</Button>
-          </Link>
-
-          <Link to={`/${+id + 1}`} className={style.btn_block}>
-            <Button>next</Button>
-          </Link>
-        </>
-      )}
-      {/* if ( +id === 36 ) */}
-      {
-        <Link to={"results"} className={style.btn_block}>
-          <Button>next</Button>
-        </Link>
-      }
-      {+id === 36 ? (
-        <>
-          <Link to={"results"} className={style.btn_block}>
-            <Button>next</Button>
-          </Link>
-          <Link to={`/${+id - 1}`} className={style.btn_block}>
-            <Button>back</Button>
-          </Link>
-        </>
-      ) : (
-        <>
-          <Link to={`/${+id - 1}`} className={style.btn_block}>
-            <Button>back</Button>
-          </Link>
-
-          <Link to={`/${+id + 1}`} className={style.btn_block}>
-            <Button>next</Button>
-          </Link>
-        </>
-      )}
+      {text_description()}
+      {content()}
+      
     </div>
   );
 }

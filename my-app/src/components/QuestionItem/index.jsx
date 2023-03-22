@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import style from './index.module.css'
+
 
 export default function QuestionItem({ id, question, answers }) {
   const [selectedValue, setSelectedValue] = useState("");
@@ -13,16 +15,16 @@ export default function QuestionItem({ id, question, answers }) {
   };
 
   return (
-    <div>
-      <legend>{question}</legend>
+    <div className={style.question_item}>
+      <p>{question}</p>
       <form>
         {answers.map((answer) => (
-          <fieldset
+          <fieldset  className={style.form}
             key={answer.id}
             name={answer.id}
             onClick={handleOptionChange}
           >
-            <input
+            <input className={style.radio}
               type="radio"
               name="question"
               value={answer.id}
