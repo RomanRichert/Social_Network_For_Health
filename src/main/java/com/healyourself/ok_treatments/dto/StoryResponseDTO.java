@@ -9,6 +9,8 @@ public class StoryResponseDTO {
 
     String id;
 
+    String age;
+
     String description;
 
     String bodyPart;

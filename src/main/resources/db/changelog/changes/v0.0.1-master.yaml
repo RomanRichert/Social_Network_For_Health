@@ -11,3 +11,5 @@ databaseChangeLog:
       file: db/changelog/changes/v0.0.1-SNAPSHOT/50-create-story-comments-table.yaml
   - include:
       file: db/changelog/changes/v0.0.1-SNAPSHOT/60-create-story-votes-table.yaml
+  - include:
+      file: db/changelog/changes/v0.0.1-SNAPSHOT/70-create-sequence-for-uuid-generator.yaml

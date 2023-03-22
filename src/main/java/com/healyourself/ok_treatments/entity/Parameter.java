@@ -3,10 +3,7 @@ package com.healyourself.ok_treatments.entity;
 import com.healyourself.ok_treatments.converter.JSONConverter;
 import com.healyourself.ok_treatments.enums.ParameterType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import net.minidev.json.JSONObject;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,5 +51,11 @@ public class Parameter {
     @Override
     public int hashCode() {
         return Objects.hash(id, value);
+    }
+
+    public Parameter(JSONObject value, ParameterType type, Story story) {
+        this.value = value;
+        this.type = type;
+        this.story = story;
     }
 }

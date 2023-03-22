@@ -30,6 +30,9 @@ public class Story {
             strategy = "com.healyourself.ok_treatments.generator.UuidTimeSequenceGenerator")
     private UUID id;
 
+    @Column(name = "age")
+    private int age;
+
     @Column(name = "description")
     private String description;
 

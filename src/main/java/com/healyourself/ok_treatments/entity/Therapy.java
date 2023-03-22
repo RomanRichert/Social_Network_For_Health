@@ -28,10 +28,13 @@ public class Therapy {
     private UUID id;
 
     @Column(name = "name")
-    String name;
+    public String name;
 
     @Column(name = "description")
-    String description;
+    private String description;
+
+    @Column(name = "value")
+    private int value;
 
     @Override
     public boolean equals(Object o) {

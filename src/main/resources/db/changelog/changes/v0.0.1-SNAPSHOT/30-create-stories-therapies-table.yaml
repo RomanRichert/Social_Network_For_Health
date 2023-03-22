@@ -39,3 +39,9 @@ databaseChangeLog:
             baseColumnNames: therapies_id
             referencedTableName: therapies
             referencedColumnNames: id
+        - addForeignKeyConstraint:
+            constraintName: stories_therapies_fk2
+            baseTableName: stories_therapies
+            baseColumnNames: value
+            referencedTableName: therapies
+            referencedColumnNames: value

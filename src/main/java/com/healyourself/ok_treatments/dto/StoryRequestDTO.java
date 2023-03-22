@@ -6,12 +6,11 @@ import java.util.Map;
 
 @Value
 public class StoryRequestDTO {
+    int age;
 
     String description;
 
     String bodyPart;
-
-    Integer smile;
 
     Map<String, Double> bmiAnswers;
 

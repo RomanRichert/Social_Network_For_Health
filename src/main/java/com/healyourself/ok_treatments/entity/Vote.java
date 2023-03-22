@@ -48,4 +48,9 @@ public class Vote {
     public int hashCode() {
         return Objects.hash(id, story);
     }
+
+    public Vote(VoteType type, Story story) {
+        this.type = type;
+        this.story = story;
+    }
 }
