@@ -8,9 +8,6 @@ import ResultsPage from "../ResultsPage";
 import FirstPage from "../FirstPage";
 
 
-import FirstPage from '../FirstPage';
-import ResultsPage from '../ResultsPage';
-
 export default function QuestionsPage() {
   const { id } = useParams();
 
