@@ -2,7 +2,7 @@
 import "./style.css";
 import { Routes, Route } from "react-router-dom";
 import QuestionsPage from "./pages/QuestionsPage";
-import AnswersPage from "./pages/AnswersPage";
+import SubmitPage from "./pages/SubmitPage";
 import Layout from "./components/Layout";
 import HumanBody from "./components/HumanBody";
 import FirstPage from "./pages/FirstPage";
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<FirstPage />} />
           <Route path=":id" element={<QuestionsPage />} />
-          <Route path="answers" element={<AnswersPage />} />
+          <Route path="submit" element={<SubmitPage />} />
           <Route path="results" element={<ResultsPage />} />
         </Route>
       </Routes>

@@ -2,11 +2,15 @@ import React from "react";
 import QuestionItem from "../../components/QuestionItem";
 import { questions } from "../../data";
 import Button from "../../components/Button";
-import { useParams, Link, Navigate} from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
 import style from "./index.module.css";
+import ResultsPage from "../ResultsPage";
+import FirstPage from "../FirstPage";
+
 
 import FirstPage from '../FirstPage';
 import ResultsPage from '../ResultsPage';
+
 export default function QuestionsPage() {
   const { id } = useParams();
 
@@ -89,6 +93,7 @@ export default function QuestionsPage() {
     <div className={style.questions_page}>
       {text_description()}
       {content()}
+      
     </div>
   );
 }

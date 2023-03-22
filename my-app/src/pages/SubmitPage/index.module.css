@@ -1,0 +1,91 @@
+.title_block {
+    margin-top: 50px;
+    display: flex;
+    justify-content: start;
+    gap: 50px;
+    padding-left: 30px;
+}
+
+.title_block p {
+    font-weight: 900;
+
+}
+
+.submit_block {
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.submit_block input {
+    padding: 5px;
+    border: 1px solid rgb(27, 83, 225);
+    width: 80px;
+    height: 35px;
+}
+
+.title {
+    margin-left: 15px;
+    
+}
+
+.title2_block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+
+}
+
+.title2_block select {
+    width: 100px;
+    height: 45px;
+    outline: none;
+    border: none;
+
+
+}
+
+.img_block {
+    display: flex;
+    flex-direction: row;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.story_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.story_block textarea {
+    padding: 15px;
+    height:150px ;
+    width: 300px;
+}
+
+.story_block button {
+    border: 1px solid rgb(27, 83, 225);
+    background-color: rgb(27, 83, 225);
+    border-radius: 10px;
+    color: white;
+    width: 150px;
+    height: 36px;
+    margin-left: 150px;
+    cursor: pointer;
+}
+
+.story_block:hover button {
+    opacity: 1;
+}
+
+.story_block button:hover {
+    background-color: white;
+    color: black;
+}
+
