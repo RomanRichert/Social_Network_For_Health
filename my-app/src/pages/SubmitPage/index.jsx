@@ -6,11 +6,11 @@ import Icon3 from "./media/neutral_icon.svg";
 import Icon4 from "./media/smilling_icon.svg";
 import Icon5 from "./media/beaming_icon.svg";
 
-import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { sendAnswers } from '../../requests/sendAnswersRequest';
-import { getAllStoriesAction } from '../../store/actions/getAllStoriesAction';
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { sendAnswers } from "../../requests/sendAnswersRequest";
+import { getAllStoriesAction } from "../../store/actions/getAllStoriesAction";
 
 export default function SubmitPage() {
   const dispatch = useDispatch();
@@ -29,11 +29,9 @@ export default function SubmitPage() {
     },
   });
 
-
   const body_part = useSelector((state) => state.bodyPart);
   const answers = useSelector((state) => state.answers);
-  // const bmi = useSelector((state) => state.bmi);
-
+  //const bmi = useSelector((state) => state.bmi);
 
   const submit = (data) => {
     data.height = data.height / 100;
@@ -41,21 +39,20 @@ export default function SubmitPage() {
     data.age = +data.age;
 
     const allAnswers = Object.assign(
+      {},
+      { age: data.age },
+      { description: data.story },
+      { bodyPart: body_part.toUpperCase() },
+      { bmiAnswers: { weight: data.weight, height: data.height } },
+      { sf36Answers: answers }
+    );
 
-      {}, 
-      {bodyPart: body_part.toUpperCase()},
-      {age: data.age},
-      {description: data.story},
-      {bmiAnswers: {weight: data.weight, height: data.height}}, 
-      {sf36Answers: answers})
-
-    
-    dispatch(sendAnswers(allAnswers));
-    dispatch(getAllStoriesAction)
-    navigate('/results')
-    reset();            
-}
-
+    console.log(allAnswers);
+    dispatch(sendAnswers("http://localhost:8080/story", allAnswers));
+    dispatch(getAllStoriesAction);
+    navigate("/results");
+    reset();
+  };
 
   const heightRegister = register("height", {
     required: "*The field is required",
