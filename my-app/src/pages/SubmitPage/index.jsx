@@ -51,7 +51,7 @@ const ageRegister = register('age', {
 });
 
 const selectRegister = register('therapy');
-const textareaRegister = register ('story')
+const textareaRegister = register ('story');
 
   return (
     <div>
@@ -81,7 +81,6 @@ const textareaRegister = register ('story')
       </div>
       
       
-
       <p className={style.title}>Therapy</p>
       <div className={style.title2_block}>
         <select {...selectRegister}>
@@ -100,11 +99,13 @@ const textareaRegister = register ('story')
       </div>
 
       <div className={style.story_block}>
+      
         <textarea name="story" cols="30" rows="10" maxLength="250" {...textareaRegister}></textarea>
 
         <button type = 'submit' >
           Publish my story
         </button>
+        
       </div>
       </form>
     </div>

@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
 
+import React, { useState, useEffect } from "react";
 import style from "./index.module.css";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAnswerAction } from '../../store/actions/getAnswerAction';
+
+
 export default function QuestionItem({
   id,
   question,
@@ -9,19 +12,17 @@ export default function QuestionItem({
   isDisabled,
   setIsDisabled,
 }) {
-  const [selectedValue, setSelectedValue] = useState("");
 
-const stateAnswers = useSelector(state => state.answers)
-console.log(stateAnswers)
-// useEffect(() => setSelectedValue(stateAnswers))
+  const [selectedValue, setSelectedValue] = useState("");
+  const stateAnswers = useSelector(state => state.answers)
+  const dispatch = useDispatch()
+  
   const handleOptionChange = (event) => {
-    console.log(event.currentTarget.name, isDisabled);
     if (isDisabled) {
       setIsDisabled(!isDisabled);
     }
-
-    setSelectedValue(event.currentTarget.value);
-    event.currentTarget.value = null
+    dispatch(getAnswerAction(answers1));
+    setSelectedValue(event.currentTarget.value); 
   };
 
   return (

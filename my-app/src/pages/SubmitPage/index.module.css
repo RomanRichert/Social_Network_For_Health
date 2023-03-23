@@ -70,6 +70,7 @@
     height:150px ;
     width: 300px;
     border: 1px solid var(--lila-border)
+    resize: none;
 }
 
 .story_block button {
