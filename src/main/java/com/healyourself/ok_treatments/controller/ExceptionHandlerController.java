@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -19,6 +20,7 @@ import java.util.Map;
 import static java.util.stream.Collectors.*;
 import static org.springframework.http.HttpStatus.*;
 
+@CrossOrigin
 @RestControllerAdvice
 public class ExceptionHandlerController {
 

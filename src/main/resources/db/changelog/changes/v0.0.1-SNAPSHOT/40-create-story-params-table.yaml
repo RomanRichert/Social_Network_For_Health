@@ -13,7 +13,7 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: value
+                  name: params
                   type: varchar
                   constraints:
                     nullable: false

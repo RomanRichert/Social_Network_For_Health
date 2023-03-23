@@ -20,6 +20,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 
 @Validated
+@CrossOrigin
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/story")
@@ -27,7 +28,6 @@ import static org.springframework.http.HttpStatus.OK;
 public class StoryController {
 
     private final StoryService storyService;
-
 
     @PostMapping
     @ResponseStatus(CREATED)
@@ -94,4 +94,6 @@ public class StoryController {
                                                         @RequestParam String bodyPart){
         return storyService.getSimilarStories(age, weight, height, bodyPart);
     }
+
+
 }

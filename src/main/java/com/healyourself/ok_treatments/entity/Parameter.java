@@ -30,8 +30,8 @@ public class Parameter {
     private UUID id;
 
     @Convert(converter = JSONConverter.class)
-    @Column(name = "value", columnDefinition = "jsonb")
-    private JSONObject value;
+    @Column(name = "params", columnDefinition = "jsonb")
+    private JSONObject params;
 
     @Column(name = "type")
     private ParameterType type;
@@ -45,16 +45,16 @@ public class Parameter {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Parameter parameter)) return false;
-        return id.equals(parameter.id) && Objects.equals(value, parameter.value);
+        return id.equals(parameter.id) && Objects.equals(params, parameter.params);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, value);
+        return Objects.hash(id, params);
     }
 
-    public Parameter(JSONObject value, ParameterType type, Story story) {
-        this.value = value;
+    public Parameter(JSONObject params, ParameterType type, Story story) {
+        this.params = params;
         this.type = type;
         this.story = story;
     }
