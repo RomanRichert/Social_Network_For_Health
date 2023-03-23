@@ -18,7 +18,15 @@ export default function QuestionItem({
   // const [selectedValue, setSelectedValue] = useState("");
   const stateAnswers = useSelector(state => state.answers)
   const dispatch = useDispatch()
-  
+
+  useEffect(() => {
+    const inputs = document.querySelectorAll('input')
+    inputs.forEach(el => el.checked = false)
+    if (stateAnswers[id] != '') {
+      inputs[stateAnswers[id] - 1].checked = true
+    }
+  }, [id])
+
   const handleOptionChange = (event) => {
     if (isDisabled) {
       setIsDisabled(!isDisabled);
@@ -26,7 +34,7 @@ export default function QuestionItem({
 
     dispatch(getAnswerAction(stateAnswers[id] = event.currentTarget.name));
     setSelectedValue(event.currentTarget.value); 
-  
+
   };
 
   return (
@@ -45,8 +53,8 @@ export default function QuestionItem({
               className={style.radio}
               type="radio"
               name="question"
-              value={answer.id}
-              
+              // value={answer.id}
+              value = {selectedValue}
             />
             <label>{answer.answer}</label>
           </fieldset>

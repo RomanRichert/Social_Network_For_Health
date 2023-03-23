@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useEffect} from "react";
 import human_body from "../../media/human-body.png";
 import styles from "./index.module.css";
 import BodyPartForm from "../BodyPartForm";
+import { useSelector } from 'react-redux';
 
 export default function HumanBody({isDisabled, setIsDisabled}) {
   const btns = [
