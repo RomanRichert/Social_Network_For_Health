@@ -6,68 +6,63 @@
 	border-radius: 50%;
 	background: transparent;
 	cursor: pointer;
+	position: absolute;
 }
 
 .btn:hover {
 	background-color: var(--pink);
 }
 
+.active {
+	background: var(--pink);
+}
+
 .head {
-	position: absolute;
 	top: 7%;
 	left: 28.5%;
 }
 
 .right_shoulder {
-	position: absolute;
 	top: 20%;
 	left: 21%;
 }
 
 .left_shoulder {
-	position: absolute;
 	top: 20%;
 	left: 36%;
 }
 
 .right_arm {
-	position: absolute;
 	top: 35%;
 	left: 17%;
 }
 
 .left_arm {
-	position: absolute;
 	top: 35%;
 	left: 39%;
 }
 
 .right_leg {
-	position: absolute;
 	bottom: 35%;
 	left: 22%;
 }
 
 .left_leg {
-	position: absolute;
 	bottom: 35%;
 	left: 34%;
 }
 
 .neck {
-	position: absolute;
 	top: 18%;
 	right: 29%;
 }
 
 .back {
-	position: absolute;
 	top: 28%;
 	right: 29%;
 }
 
 .lower_back {
-	position: absolute;
 	top: 38%;
 	right: 29%;
 }

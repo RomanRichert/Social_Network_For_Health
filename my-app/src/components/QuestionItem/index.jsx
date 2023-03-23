@@ -1,25 +1,28 @@
 
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import style from './index.module.css'
+import React, { useState, useEffect } from "react";
+import style from "./index.module.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAnswerAction } from '../../store/actions/getAnswerAction';
 
-export default function QuestionItem({ id, question, answers, isDisabled, setIsDisabled }) {
 
+export default function QuestionItem({
+  id,
+  question,
+  answers,
+  isDisabled,
+  setIsDisabled,
+}) {
+
+  const [selectedValue, setSelectedValue] = useState("");
+  const stateAnswers = useSelector(state => state.answers)
   const dispatch = useDispatch()
-  const answers1 = useSelector(state => state.answers)
-  // console.log(id)
+  
   const handleOptionChange = (event) => {
-    // console.log(event.currentTarget)
-    answers1[id] = event.currentTarget.name
+    if (isDisabled) {
+      setIsDisabled(!isDisabled);
+    }
     dispatch(getAnswerAction(answers1));
-    
-    setIsDisabled(!isDisabled)
-
-    // const { question } = event.target;
-    // console.log(question.value);
-    // console.log(document.querySelectorAll('.next_btn'))
+    setSelectedValue(event.currentTarget.value); 
   };
 
   return (

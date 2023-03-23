@@ -8,7 +8,6 @@
 
 .title_block p {
     font-weight: 900;
-
 }
 
 .submit_block {
@@ -20,7 +19,7 @@
 
 .submit_block input {
     padding: 5px;
-    border: 1px solid rgb(27, 83, 225);
+    border: 1px solid var(--lila-border);
     width: 80px;
     height: 35px;
 }
@@ -41,11 +40,11 @@
 
 .title2_block select {
     width: 100px;
-    height: 45px;
+    height: 30px;
     outline: none;
     border: none;
-
-
+    border-bottom: 1px solid var(--lila-border);
+    font-size: 11px;
 }
 
 .img_block {
@@ -53,9 +52,12 @@
     flex-direction: row;
     width: 30px;
     height: 30px;
-    cursor: pointer;
-}
 
+}
+.img_block img{
+    cursor: pointer;
+    margin: 0 2px;
+}
 .story_block {
     display: flex;
     flex-direction: column;
@@ -67,12 +69,13 @@
     padding: 15px;
     height:150px ;
     width: 300px;
+    border: 1px solid var(--lila-border)
     resize: none;
 }
 
 .story_block button {
-    border: 1px solid rgb(27, 83, 225);
-    background-color: rgb(27, 83, 225);
+    border: 1px solid var(--lila-primary);
+    background-color: var(--lila-primary);
     border-radius: 10px;
     color: white;
     width: 150px;
