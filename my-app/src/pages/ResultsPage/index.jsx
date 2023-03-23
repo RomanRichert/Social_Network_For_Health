@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import HumanBody from "../../components/HumanBody";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllStories } from '../../requests/getAllStoriesRequest';
 import styles from "./index.module.css";
 export default function ResultsPage() {
   const [text, setText] = useState([]);
 
+  const stories = useSelector(state => state.stories)
 
   const submit = (event) => {
     event.preventDefault();
@@ -14,9 +16,6 @@ export default function ResultsPage() {
     message.value = "";
   };
 
-  //   useEffect(() => {
-  // 	setText()
-  //   }, [text]);
 
   return (
     <div className={styles.results_page}>

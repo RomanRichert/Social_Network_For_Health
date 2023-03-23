@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendAnswers } from '../../requests/sendAnswersRequest';
-
+import { getAllStoriesAction } from '../../store/actions/getAllStoriesAction';
 export default function SubmitPage() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -24,7 +24,7 @@ export default function SubmitPage() {
 
   const body_part = useSelector(state => state.bodyPart)
   const answers = useSelector(state => state.answers)
-  const bmi = useSelector(state => state.bmi)
+  // const bmi = useSelector(state => state.bmi)
 
 const submit = (data) => {
     data.height = data.height / 100
@@ -34,9 +34,14 @@ const submit = (data) => {
     const allAnswers = Object.assign(
       {}, 
       {bodyPart: body_part.toUpperCase()},
-      answers,
-      data)
+      {age: data.age},
+      {description: data.story},
+      {bmiAnswers: {weight: data.weight, height: data.height}}, 
+      {sf36Answers: answers})
+
+    
     dispatch(sendAnswers(allAnswers));
+    dispatch(getAllStoriesAction)
     navigate('/results')
     reset();            
 }
