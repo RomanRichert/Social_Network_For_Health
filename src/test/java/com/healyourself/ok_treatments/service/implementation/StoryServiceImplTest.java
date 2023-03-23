@@ -49,4 +49,8 @@ class StoryServiceImplTest {
     @Test
     void testGetSimilarStories() {
     }
+
+    @Test
+    void commentStory() {
+    }
 }

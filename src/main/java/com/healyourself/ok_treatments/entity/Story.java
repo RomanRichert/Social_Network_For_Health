@@ -88,4 +88,12 @@ public class Story {
     public int hashCode() {
         return Objects.hash(id, description, comments);
     }
+
+    public Story(int age, String description, BodyPart bodyPart, Double healthScore, Double bmi) {
+        this.age = age;
+        this.description = description;
+        this.bodyPart = bodyPart;
+        this.healthScore = healthScore;
+        this.bmi = bmi;
+    }
 }

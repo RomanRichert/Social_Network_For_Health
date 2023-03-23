@@ -58,4 +58,11 @@ public class Therapy {
     public int hashCode() {
         return Objects.hash(id, description);
     }
+
+    public Therapy(String name, String description, int smiley, Story story) {
+        this.name = name;
+        this.description = description;
+        this.smiley = smiley;
+        this.story = story;
+    }
 }
