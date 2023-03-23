@@ -1,7 +1,7 @@
 const url = "http://localhost:8080/story";
 //
 export const sendAnswers = (body) => {
-  console.log(body);
+  console.log(body, typeof body);
   return (dispatch) => {
     fetch(url, {
       headers: {
@@ -9,10 +9,12 @@ export const sendAnswers = (body) => {
         "Content-Type": "application/json",
       },
       method: "POST",
-      body: JSON.stringify(body),
       dataType: "json",
+      mode: "no-cors",
+      body: JSON.stringify(body),
     })
       .then((res) => res.json())
-      .then((json) => dispatch(json));
+      .then((json) => dispatch(json))
+      .catch((err) => console.log(err));
   };
 };

@@ -1,0 +1,94 @@
+23.03.2023 20:09:10.768 [main] INFO  c.h.o.OkTreatmentsApplication - Starting OkTreatmentsApplication v0.0.1-SNAPSHOT using Java 20 with PID 38763 (/Users/vlad/Health_front/Heal_yourself_front/OK_Treatments-0.0.1-SNAPSHOT.jar started by vlad in /Users/vlad/Health_front/Heal_yourself_front)
+23.03.2023 20:09:10.771 [main] INFO  c.h.o.OkTreatmentsApplication - No active profile set, falling back to 1 default profile: "default"
+23.03.2023 20:09:11.381 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+23.03.2023 20:09:11.382 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+23.03.2023 20:09:11.401 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.healyourself.ok_treatments.repository.StoryCommentRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+23.03.2023 20:09:11.402 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.healyourself.ok_treatments.repository.StoryParameterRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+23.03.2023 20:09:11.402 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.healyourself.ok_treatments.repository.StoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+23.03.2023 20:09:11.403 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.healyourself.ok_treatments.repository.StoryVoteRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+23.03.2023 20:09:11.403 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.healyourself.ok_treatments.repository.TherapyRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+23.03.2023 20:09:11.404 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 0 JDBC repository interfaces.
+23.03.2023 20:09:11.409 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+23.03.2023 20:09:11.410 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+23.03.2023 20:09:11.434 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 5 JPA repository interfaces.
+23.03.2023 20:09:11.864 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+23.03.2023 20:09:11.872 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+23.03.2023 20:09:11.872 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+23.03.2023 20:09:11.931 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+23.03.2023 20:09:11.931 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1132 ms
+23.03.2023 20:09:12.096 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+23.03.2023 20:09:12.240 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+23.03.2023 20:09:12.241 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+23.03.2023 20:09:12.281 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+23.03.2023 20:09:12.569 [main] INFO  l.lockservice - Successfully acquired change log lock
+23.03.2023 20:09:12.682 [main] INFO  liquibase.changelog - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+23.03.2023 20:09:12.684 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+23.03.2023 20:09:12.748 [main] INFO  liquibase.changelog - Table stories created
+23.03.2023 20:09:12.748 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/10-create-stories-table.yaml::create-stories-table::Roman Richert ran successfully in 2ms
+23.03.2023 20:09:12.751 [main] INFO  liquibase.changelog - Table therapies created
+23.03.2023 20:09:12.755 [main] INFO  liquibase.changelog - Foreign key constraint added to therapies (story_id)
+23.03.2023 20:09:12.755 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/20-create-therapies-table.yaml::create-therapies-table::Roman Richert ran successfully in 4ms
+23.03.2023 20:09:12.757 [main] INFO  liquibase.changelog - Table stories_therapies created
+23.03.2023 20:09:12.758 [main] INFO  liquibase.changelog - Foreign key constraint added to stories_therapies (story_id)
+23.03.2023 20:09:12.759 [main] INFO  liquibase.changelog - Foreign key constraint added to stories_therapies (therapies_id)
+23.03.2023 20:09:12.759 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/30-create-stories-therapies-table.yaml::create-stories-therapies-table::Roman Richert ran successfully in 3ms
+23.03.2023 20:09:12.760 [main] INFO  liquibase.changelog - Table story_params created
+23.03.2023 20:09:12.761 [main] INFO  liquibase.changelog - Foreign key constraint added to story_params (story_id)
+23.03.2023 20:09:12.761 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/40-create-story-params-table.yaml::create-story-params-table::Roman Richert ran successfully in 1ms
+23.03.2023 20:09:12.763 [main] INFO  liquibase.changelog - Table story_comments created
+23.03.2023 20:09:12.764 [main] INFO  liquibase.changelog - Foreign key constraint added to story_comments (story_id)
+23.03.2023 20:09:12.765 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/50-create-story-comments-table.yaml::create-story-comments-table::Roman Richert ran successfully in 3ms
+23.03.2023 20:09:12.766 [main] INFO  liquibase.changelog - Table story_votes created
+23.03.2023 20:09:12.767 [main] INFO  liquibase.changelog - Foreign key constraint added to story_votes (story_id)
+23.03.2023 20:09:12.767 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/60-create-story-votes-table.yaml::create-story-votes-table::Roman Richert ran successfully in 2ms
+23.03.2023 20:09:12.769 [main] INFO  liquibase.changelog - Sequence seq_for_uuid_generator created
+23.03.2023 20:09:12.769 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/70-create-sequence-for-uuid-generator.yaml::create-sequence-for-uuid-generator::Roman Richert ran successfully in 1ms
+23.03.2023 20:09:12.771 [main] INFO  l.lockservice - Successfully released change log lock
+23.03.2023 20:09:12.833 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+23.03.2023 20:09:12.862 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+23.03.2023 20:09:13.019 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+23.03.2023 20:09:13.554 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+23.03.2023 20:09:13.560 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+23.03.2023 20:09:14.029 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+23.03.2023 20:09:14.960 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver - Exposing 15 endpoint(s) beneath base path '/actuator'
+23.03.2023 20:09:15.014 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+23.03.2023 20:09:15.024 [main] INFO  c.h.o.OkTreatmentsApplication - Started OkTreatmentsApplication in 4.616 seconds (process running for 4.912)
+23.03.2023 20:13:40.962 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+23.03.2023 20:13:40.962 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+23.03.2023 20:13:40.963 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 1 ms
+23.03.2023 20:13:41.004 [http-nio-8080-exec-1] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story
+HTTP_METHOD : GET
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.getAllStories
+23.03.2023 20:13:41.011 [http-nio-8080-exec-1] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.getAllStories
+23.03.2023 20:13:41.057 [http-nio-8080-exec-1] INFO  c.h.o.a.LoggingAspect - Return value: []
+END OF REQUEST
+23.03.2023 20:13:53.159 [http-nio-8080-exec-2] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story
+HTTP_METHOD : GET
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.getAllStories
+23.03.2023 20:13:53.159 [http-nio-8080-exec-2] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.getAllStories
+23.03.2023 20:13:53.162 [http-nio-8080-exec-2] INFO  c.h.o.a.LoggingAspect - Return value: []
+END OF REQUEST
+23.03.2023 20:15:19.098 [http-nio-8080-exec-4] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story
+HTTP_METHOD : GET
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.getAllStories
+23.03.2023 20:15:19.099 [http-nio-8080-exec-4] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.getAllStories
+23.03.2023 20:15:19.100 [http-nio-8080-exec-4] INFO  c.h.o.a.LoggingAspect - Return value: []
+END OF REQUEST
+23.03.2023 20:15:22.936 [http-nio-8080-exec-5] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story
+HTTP_METHOD : GET
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.getAllStories
+23.03.2023 20:15:22.936 [http-nio-8080-exec-5] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.getAllStories
+23.03.2023 20:15:22.938 [http-nio-8080-exec-5] INFO  c.h.o.a.LoggingAspect - Return value: []
+END OF REQUEST
