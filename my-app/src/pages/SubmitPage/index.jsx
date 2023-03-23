@@ -6,11 +6,11 @@ import Icon3 from "./media/neutral_icon.svg";
 import Icon4 from "./media/smilling_icon.svg";
 import Icon5 from "./media/beaming_icon.svg";
 
-import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { sendAnswers } from '../../requests/sendAnswersRequest';
-import { getAllStoriesAction } from '../../store/actions/getAllStoriesAction';
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { sendAnswers } from "../../requests/sendAnswersRequest";
+import { getAllStoriesAction } from "../../store/actions/getAllStoriesAction";
 
 export default function SubmitPage() {
   const dispatch = useDispatch();
@@ -29,11 +29,9 @@ export default function SubmitPage() {
     },
   });
 
-
   const body_part = useSelector((state) => state.bodyPart);
   const answers = useSelector((state) => state.answers);
-  // const bmi = useSelector((state) => state.bmi);
-
+  //const bmi = useSelector((state) => state.bmi);
 
   const submit = (data) => {
     data.height = data.height / 100;
@@ -41,66 +39,20 @@ export default function SubmitPage() {
     data.age = +data.age;
 
     const allAnswers = Object.assign(
+      {},
+      { age: data.age },
+      { description: data.story },
+      { bodyPart: body_part.toUpperCase() },
+      { bmiAnswers: { weight: data.weight, height: data.height } },
+      { sf36Answers: answers }
+    );
 
-      {}, 
-      {bodyPart: body_part.toUpperCase()},
-      {age: data.age},
-      {description: data.story},
-      {bmiAnswers: {weight: data.weight, height: data.height}}, 
-      {sf36Answers: answers})
 
-      const allAnswers1 = {
-        "age": "27",
-        "description": "something",
-        "bodyPart": "NECK",
-        "bmiAnswers": {
-               "weight": "77",
-               "height": "1.81"
-               },
-        "sf36Answers":{
-           "1": "1",
-           "2": "1",
-           "3": "1",
-           "4": "1",
-           "5": "1",
-           "6": "1",
-           "7": "1",
-           "8": "1",
-           "9": "1",
-           "10": "1",
-           "11": "1",
-           "12": "1",
-           "13": "1",
-           "14": "1",
-           "15": "1",
-           "16": "1",
-           "17": "1",
-           "18": "1",
-           "19": "1",
-           "20": "1",
-           "21": "1",
-           "22": "1",
-           "23": "1",
-           "24": "1",
-           "25": "1",
-           "26": "1",
-           "27": "1",
-           "28": "1",
-           "29": "1",
-           "30": "1",
-           "31": "1",
-           "32": "1",
-           "33": "1",
-           "34": "1",
-           "35": "1",
-           "36": "1"
-       }}
-    dispatch(sendAnswers(allAnswers1));
-    dispatch(getAllStoriesAction)
-    navigate('/results')
-    reset();            
-}
-
+    dispatch(sendAnswers("http://localhost:8080/story", allAnswers));
+    dispatch(getAllStoriesAction);
+    navigate("/results");
+    reset();
+  };
 
   const heightRegister = register("height", {
     required: "*The field is required",
