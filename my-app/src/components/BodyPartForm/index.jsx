@@ -1,3 +1,4 @@
+
 import React from 'react'
 import human_body from '../../media/human-body.png'
 import styles from './index.module.css'
@@ -13,6 +14,7 @@ export default function BodyPartForm({ body_part, isDisabled, setIsDisabled }) {
 		dispatch(getBodyPartAction(part.value));
 		setIsDisabled(false)
 	};
+
 
   return (
     <form onSubmit={submit}>
