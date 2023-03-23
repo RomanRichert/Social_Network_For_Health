@@ -13,11 +13,11 @@ public class StoryResponseDTO {
 
     String description;
 
-    double bodyPart;
+    String bodyPart;
 
     double healthScore;
 
-    String bmi;
+    double bmi;
 
     List<String> therapies;
 

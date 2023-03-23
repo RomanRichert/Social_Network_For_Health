@@ -239,7 +239,17 @@ public class HealthScoreCalculator {
             case 5 -> bp8 = 1.0;
         }
 
-        if (bp.get(0) == 0) bp7 = bp8;
+        if (bp.get(0) == 0) {
+            switch (bp.get(1)) {
+                case 1 -> bp8 = 6.0;
+                case 2 -> bp8 = 4.75;
+                case 3 -> bp8 = 3.5;
+                case 4 -> bp8 = 2.25;
+                case 5 -> bp8 = 1.0;
+            }
+            bp7 = bp8;
+        }
+
         if (bp.get(1) == 0) bp8 = bp7;
 
         bpSum = (((bp7 + bp8) - 2) / 10) * 100;

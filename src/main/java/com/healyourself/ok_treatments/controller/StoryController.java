@@ -66,7 +66,7 @@ public class StoryController {
     @ResponseStatus(OK)
     @ApiResponse(responseCode = "200", description = "Successfully voted the story!")
     @Operation(summary = "PUT-Request for voting a specific story.", description = "Putting a Vote into Story.")
-    public void reactToStory(@PathVariable String id, @RequestParam() String vote){
+    public void reactToStory(@PathVariable String id, @RequestParam String vote){
         storyService.putVote(id, vote);
     }
 
