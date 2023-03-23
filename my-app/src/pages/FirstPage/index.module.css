@@ -4,6 +4,12 @@
 	justify-content: center;
 	
 }
+
+.first_page p {
+	font-weight: bold;
+	text-align: center;
+}
+
 .description {
 	font-size: 12px;
 	margin-bottom: 10px;
