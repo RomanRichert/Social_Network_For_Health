@@ -1,4 +1,4 @@
-import { GET_ANSWER, SEND_ANSWERS } from '../actionsTypes';
+import { GET_ANSWER } from '../actionsTypes';
 
 const initialState = {
 					1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '', 8: '', 9: '', 10: '',
@@ -7,17 +7,13 @@ const initialState = {
 					31: '', 32: '', 33: '', 34: '', 35: '', 36: ''	
 				}
 
-export const answersReducer = (state = initialState, action) => {
+export const sendAnswersReducer = (state = initialState, action) => {
 	const {payload, type} = action
 
 	switch (type) {
 		case GET_ANSWER:
 			console.log('answer reducer', payload, state)
 			return state
-
-		case SEND_ANSWERS:
-			console.log('send answers reducer', payload, state)
-			return payload
 
 		default:
 			return state

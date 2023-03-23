@@ -11,9 +11,11 @@ export default function QuestionItem({
   answers,
   isDisabled,
   setIsDisabled,
+  selectedValue,
+  setSelectedValue
 }) {
 
-  const [selectedValue, setSelectedValue] = useState("");
+  // const [selectedValue, setSelectedValue] = useState("");
   const stateAnswers = useSelector(state => state.answers)
   const dispatch = useDispatch()
   
@@ -21,8 +23,10 @@ export default function QuestionItem({
     if (isDisabled) {
       setIsDisabled(!isDisabled);
     }
-    dispatch(getAnswerAction(event.currentTarget.value));
+
+    dispatch(getAnswerAction(stateAnswers[id] = event.currentTarget.name));
     setSelectedValue(event.currentTarget.value); 
+  
   };
 
   return (
@@ -34,6 +38,7 @@ export default function QuestionItem({
             className={style.form}
             key={answer.id}
             name={answer.id}
+            
             onClick={handleOptionChange}
           >
             <input
@@ -41,6 +46,7 @@ export default function QuestionItem({
               type="radio"
               name="question"
               value={answer.id}
+              
             />
             <label>{answer.answer}</label>
           </fieldset>
