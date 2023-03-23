@@ -6,7 +6,14 @@
 	margin-bottom: 10px;
 }
 
+.results_page img {
+	width: 320px;
+	object-fit: cover;
+
+}
+
 .results_page p {
+	margin-top: 15px;
 	color: var(--lila-primary);
 	font-weight: 900;
 }
@@ -19,12 +26,13 @@
 }
 
 .treatments textarea {
+	border-radius: 5px;
+	border: 1px solid lightgray;
 	width: 320px;
 	outline: none;
 	height: 70px;
 	margin-top: 15px;
-	border: none;
-	border-bottom: 1px solid var(--lila-border);
+	/* border-bottom: 1px solid var(--lila-border); */
 	resize: none;
 }
 
