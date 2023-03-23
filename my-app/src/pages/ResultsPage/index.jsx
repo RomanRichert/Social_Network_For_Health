@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import HumanBody from "../../components/HumanBody";
+import { useDispatch } from 'react-redux';
 import styles from "./index.module.css";
 import Img from "./media/BMI.jpg";
 export default function ResultsPage() {
   const [text, setText] = useState([]);
+
 
   const submit = (event) => {
     event.preventDefault();
