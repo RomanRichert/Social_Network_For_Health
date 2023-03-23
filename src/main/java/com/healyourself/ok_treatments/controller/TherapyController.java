@@ -27,14 +27,14 @@ public class TherapyController {
 
     private final TherapyService therapyService;
 
-    @PostMapping
+    @PostMapping("/{storyId}")
     @ResponseStatus(CREATED)
     @ApiResponse(responseCode = "201", description = "Successfully created a therapy!", content = {
             @Content(mediaType = "application/json",
                     schema = @Schema(implementation = TherapyDTO.class))
     })
     @Operation(summary = "Creating a new therapy", description = "Requires JSON with name, description and an int between 0 and 4, that represent a smiley, and id of the story that creates this therapy. Creates a therapy. Returns the created therapy.")
-    public TherapyDTO createTherapy(@RequestBody @Valid TherapyDTO therapyDTO, String storyId){
+    public TherapyDTO createTherapy(@RequestBody @Valid TherapyDTO therapyDTO, @PathVariable String storyId){
         return therapyService.createTherapy(therapyDTO, storyId);
     }
 
