@@ -7,9 +7,11 @@ import Icon4 from "./media/smilling_icon.svg";
 import Icon5 from "./media/beaming_icon.svg";
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { sendAnswers } from '../../requests/sendAnswersRequest';
 
 export default function SubmitPage() {
-
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const {register, handleSubmit, formState: {errors}, reset } = useForm({
     mode: 'onBlur',
@@ -20,8 +22,21 @@ export default function SubmitPage() {
         }
   });
 
+  const body_part = useSelector(state => state.bodyPart)
+  const answers = useSelector(state => state.answers)
+  const bmi = useSelector(state => state.bmi)
+
 const submit = (data) => {
-    console.log(data);
+    data.height = data.height / 100
+    data.weight = +data.weight
+    data.age = +data.age
+
+    const allAnswers = Object.assign(
+      {}, 
+      {bodyPart: body_part.toUpperCase()},
+      answers,
+      data)
+    dispatch(sendAnswers(allAnswers));
     navigate('/results')
     reset();            
 }
