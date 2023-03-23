@@ -21,7 +21,7 @@ export default function QuestionItem({
     if (isDisabled) {
       setIsDisabled(!isDisabled);
     }
-    dispatch(getAnswerAction(answers1));
+    dispatch(getAnswerAction(event.currentTarget.value));
     setSelectedValue(event.currentTarget.value); 
   };
 
