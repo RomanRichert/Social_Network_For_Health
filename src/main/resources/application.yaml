@@ -1,11 +1,18 @@
 spring:
   main:
     banner-mode: off
-
   datasource:
-    url: ${datasource.url}
-    username: ${datasource.username}
-    password: ${datasource.password}
+    url: "jdbc:h2:mem:testdb"
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  database-platform: org.hibernate.dialect.H2Dialect
+#  datasource:
+#    url: ${datasource.url}
+#    username: ${datasource.username}
+#    password: ${datasource.password}
+
+
 
   jpa:
     show-sql: true

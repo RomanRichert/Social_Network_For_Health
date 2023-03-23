@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -32,9 +33,9 @@ public class TherapyController {
             @Content(mediaType = "application/json",
                     schema = @Schema(implementation = TherapyDTO.class))
     })
-    @Operation(summary = "Creating a new therapy", description = "Requires JSON with name and description to create a therapy. Returns the created therapy.")
-    public TherapyDTO createTherapy(TherapyDTO therapyDTO){
-        return therapyService.createTherapy(therapyDTO);
+    @Operation(summary = "Creating a new therapy", description = "Requires JSON with name, description and an int between 0 and 4, that represent a smiley, and id of the story that creates this therapy. Creates a therapy. Returns the created therapy.")
+    public TherapyDTO createTherapy(@RequestBody @Valid TherapyDTO therapyDTO, String storyId){
+        return therapyService.createTherapy(therapyDTO, storyId);
     }
 
     @GetMapping("/{name}")
@@ -43,14 +44,14 @@ public class TherapyController {
             @Content(mediaType = "application/json",
                     schema = @Schema(implementation = TherapyDTO.class))
     })
-    @Operation(summary = "Request for a specific therapy ", description = "Getting an existing therapy by name")
+    @Operation(summary = "Request for a specific therapy ", description = "Getting an existing therapy by name.")
     public TherapyDTO getTherapy(@PathVariable String name){
         return therapyService.getTherapyByName(name);
     }
 
     @GetMapping()
     @ResponseStatus(OK)
-    @ApiResponse(responseCode = "200", description = "Successfully returned list with therapy names", content = {
+    @ApiResponse(responseCode = "200", description = "Successfully returned list with therapy names.", content = {
             @Content(mediaType = "application/json",
                     array = @ArraySchema(schema = @Schema(implementation = TherapyDTO.class)))
     })

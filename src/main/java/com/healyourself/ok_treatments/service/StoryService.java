@@ -14,4 +14,7 @@ public interface StoryService {
     StoryResponseDTO getStoryById(String id);
 
     void putVote(String id, String vote);
+
+    List<StoryResponseDTO> getSimilarStories(String storyId);
+    List<StoryResponseDTO> getSimilarStories(int age, double weight, double height, String bodyPart);
 }

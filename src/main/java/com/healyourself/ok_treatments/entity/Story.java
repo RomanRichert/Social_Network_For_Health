@@ -2,6 +2,8 @@ package com.healyourself.ok_treatments.entity;
 
 import com.healyourself.ok_treatments.enums.BodyPart;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,6 +33,8 @@ public class Story {
     private UUID id;
 
     @Column(name = "age")
+    @Min(value = 1, message = "Age should be between 1 and 122")
+    @Max(value = 122, message = "Age should be between 1 and 122")
     private int age;
 
     @Column(name = "description")

@@ -1,6 +1,8 @@
 package com.healyourself.ok_treatments.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Objects;
 import java.util.UUID;
+
+import static jakarta.persistence.FetchType.LAZY;
 
 @Getter
 @Setter
@@ -34,7 +38,14 @@ public class Therapy {
     private String description;
 
     @Column(name = "value")
-    private int value;
+    @Min(value = 0, message = "Smiley-value should be between 0 and 4")
+    @Max(value = 4, message = "Smiley-value should be between 0 and 4")
+    private int smiley;
+
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "story_id",
+            referencedColumnName = "id")
+    private Story story;
 
     @Override
     public boolean equals(Object o) {

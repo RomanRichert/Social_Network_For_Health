@@ -26,5 +26,15 @@ databaseChangeLog:
                   name: value
                   type: int
                   constraints:
-                    unique: true
                     nullable: true
+              - column:
+                  name: story_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            constraintName: therapies_fk0
+            baseTableName: therapies
+            baseColumnNames: story_id
+            referencedTableName: stories
+            referencedColumnNames: id

@@ -6,7 +6,9 @@ import com.healyourself.ok_treatments.dto.StoryResponseDTO;
 import com.healyourself.ok_treatments.entity.Parameter;
 import com.healyourself.ok_treatments.entity.Story;
 import com.healyourself.ok_treatments.entity.Vote;
+import com.healyourself.ok_treatments.enums.BodyPart;
 import com.healyourself.ok_treatments.enums.VoteType;
+import com.healyourself.ok_treatments.exception.StoryNotFoundException;
 import com.healyourself.ok_treatments.mapper.StoryMapper;
 import com.healyourself.ok_treatments.repository.StoryRepository;
 import com.healyourself.ok_treatments.repository.StoryVoteRepository;
@@ -19,6 +21,7 @@ import java.util.UUID;
 
 import static com.healyourself.ok_treatments.enums.ParameterType.BMI;
 import static com.healyourself.ok_treatments.enums.ParameterType.SF36;
+import static com.healyourself.ok_treatments.service.util.BMICalculator.calculateBmi;
 
 @Service
 @RequiredArgsConstructor
@@ -57,18 +60,38 @@ public class StoryServiceImpl implements StoryService {
 
     @Override
     public StoryResponseDTO getStoryById(String id) {
-        return storyMapper.toDTO(storyRepository.findById(UUID.fromString(id)).orElseThrow(() -> new RuntimeException()));
+        return storyMapper.toDTO(storyRepository.findById(UUID.fromString(id)).orElseThrow(() -> new StoryNotFoundException(id)));
     }
 
     @Override
     public void putVote(String id, String vote) {
-        voteRepository.save(new Vote(VoteType.valueOf(vote), storyRepository.findById(UUID.fromString(id)).orElseThrow(() -> new RuntimeException())));
+        voteRepository.save(new Vote(VoteType.valueOf(vote), storyRepository.findById(UUID.fromString(id)).orElseThrow(() -> new StoryNotFoundException(id))));
     }
 
-    public static double calculateBmi(StoryRequestDTO story) {
-        double weight = story.getBmiAnswers().get("weight");
-        double height = story.getBmiAnswers().get("height");
+    @Override
+    public List<StoryResponseDTO> getSimilarStories(String storyId) {
+        Story story = storyRepository.findById(UUID.fromString(storyId)).orElseThrow(() -> new StoryNotFoundException(storyId));
+        return storyMapper.storiesToDTOs(storyRepository.findSimilarStoriesByRequestedParams(
+                story.getAge()-6,
+                story.getAge()+6,
+                story.getBodyPart(),
+                story.getHealthScore()-5,
+                story.getHealthScore()+5,
+                story.getBmi()-3,
+                story.getBmi()+3
+        ));
+    }
 
-        return weight / Math.pow(height, 2);
+    @Override
+    public List<StoryResponseDTO> getSimilarStories(int age, double weight, double height, String bodyPart) {
+        double bmi = calculateBmi(weight, height);
+
+        return storyMapper.storiesToDTOs(storyRepository.findSimilarStoriesByOriginalStoryId(
+                age-6,
+                age+6,
+                BodyPart.valueOf(bodyPart),
+                bmi-3,
+                bmi+3
+        ));
     }
 }

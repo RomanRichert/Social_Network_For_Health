@@ -19,7 +19,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: text
-                  type: text
+                  type: varchar
                   constraints:
                     nullable: true
         - addForeignKeyConstraint:

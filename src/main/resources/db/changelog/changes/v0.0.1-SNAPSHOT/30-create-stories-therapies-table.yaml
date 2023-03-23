@@ -25,6 +25,7 @@ databaseChangeLog:
               - column:
                   name: value
                   type: int
+                  valueComputed: (SELECT value FROM therapies AS t WHERE t.story_id = 'story_id')
                   constraints:
                     nullable: true
         - addForeignKeyConstraint:
@@ -39,9 +40,3 @@ databaseChangeLog:
             baseColumnNames: therapies_id
             referencedTableName: therapies
             referencedColumnNames: id
-        - addForeignKeyConstraint:
-            constraintName: stories_therapies_fk2
-            baseTableName: stories_therapies
-            baseColumnNames: value
-            referencedTableName: therapies
-            referencedColumnNames: value

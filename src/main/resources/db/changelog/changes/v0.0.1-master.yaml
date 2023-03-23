@@ -1,8 +1,8 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/changes/v0.0.1-SNAPSHOT/10-create-therapies-table.yaml
+      file: db/changelog/changes/v0.0.1-SNAPSHOT/10-create-stories-table.yaml
   - include:
-      file: db/changelog/changes/v0.0.1-SNAPSHOT/20-create-stories-table.yaml
+      file: db/changelog/changes/v0.0.1-SNAPSHOT/20-create-therapies-table.yaml
   - include:
       file: db/changelog/changes/v0.0.1-SNAPSHOT/30-create-stories-therapies-table.yaml
   - include:

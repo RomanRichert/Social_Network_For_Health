@@ -63,7 +63,35 @@ public class StoryController {
     }
 
     @PutMapping("/{id}")
+    @ResponseStatus(OK)
+    @ApiResponse(responseCode = "200", description = "Successfully voted the story!")
+    @Operation(summary = "PUT-Request for voting a specific story.", description = "Putting a Vote into Story.")
     public void reactToStory(@PathVariable String id, @RequestParam() String vote){
         storyService.putVote(id, vote);
+    }
+
+    @GetMapping("/similar-stories/{storyId}")
+    @ResponseStatus(OK)
+    @ApiResponse(responseCode = "200", description = "Successfully returned list of similar stories!", content = {
+            @Content(mediaType = "application/json",
+                    array = @ArraySchema(schema = @Schema(implementation = StoryResponseDTO.class)))
+    })
+    @Operation(summary = "Request for similar stories", description = "Getting all stories where (age+-6 & body part is equal & health score+-5 & bmi+-3) in comparison with the original story.")
+    public List<StoryResponseDTO> getSimilarStoriesById(@PathVariable String storyId){
+        return storyService.getSimilarStories(storyId);
+    }
+
+    @GetMapping("/similar-stories")
+    @ResponseStatus(OK)
+    @ApiResponse(responseCode = "200", description = "Successfully returned list of similar stories!", content = {
+            @Content(mediaType = "application/json",
+                    array = @ArraySchema(schema = @Schema(implementation = StoryResponseDTO.class)))
+    })
+    @Operation(summary = "Request for similar stories", description = "Getting all stories where (age+-6 & body part is equal & bmi+-3) in comparison with the original story.")
+    public List<StoryResponseDTO> getSimilarStoriesByRequestedParams(@RequestParam int age,
+                                                        @RequestParam double weight,
+                                                        @RequestParam double height,
+                                                        @RequestParam String bodyPart){
+        return storyService.getSimilarStories(age, weight, height, bodyPart);
     }
 }

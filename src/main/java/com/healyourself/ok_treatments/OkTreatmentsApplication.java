@@ -9,5 +9,4 @@ public class OkTreatmentsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OkTreatmentsApplication.class, args);
 	}
-
 }
