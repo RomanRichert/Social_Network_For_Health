@@ -17,3 +17,8 @@
 .radio{
     margin:  10px 20px;
 }
+
+.required{
+	font-size: 12px;
+	color: darkgrey;
+}
