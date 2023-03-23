@@ -6,8 +6,9 @@
     padding-left: 30px;
 }
 
-.title_block p {
-    font-weight: 900;
+.submit_block p {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .submit_block {
@@ -17,16 +18,26 @@
     gap: 10px;
 }
 
+.descr {
+    color: gray;
+    font-size: 10px;
+    font-weight: normal !important;
+}
+
 .submit_block input {
+    border-radius: 5px;
     padding: 5px;
     border: 1px solid var(--lila-border);
     width: 80px;
     height: 35px;
+    outline: none;
+
 }
 
 .title {
-    margin-left: 15px;
-    
+    margin-top: 15px;
+    margin-left: 15px; 
+    font-weight: bold;
 }
 
 .title2_block {
@@ -65,12 +76,19 @@
     gap: 25px;
 }
 
+.story_block  p {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
 .story_block textarea {
     padding: 15px;
     height:150px ;
     width: 300px;
     border: 1px solid var(--lila-border);
+    border-radius: 5px;
     resize: none;
+    outline: none;
 }
 
 .story_block button {
