@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import HumanBody from "../../components/HumanBody";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import styles from "./index.module.css";
 import Img from "./media/BMI.jpg";
+
 export default function ResultsPage() {
   const [text, setText] = useState([]);
-
 
   const submit = (event) => {
     event.preventDefault();
@@ -18,6 +18,15 @@ export default function ResultsPage() {
   //   useEffect(() => {
   // 	setText()
   //   }, [text]);
+
+  useEffect(() => {
+    const getStory = async () => {
+      const response = await fetch("http://localhost:8080/story");
+      const data = await response.json();
+      console.log(data, "sfsff");
+    };
+    getStory();
+  }, []);
 
   return (
     <div className={styles.results_page}>
