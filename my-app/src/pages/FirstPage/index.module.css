@@ -16,3 +16,8 @@
 .link {
 	margin-top: 50px;
 }
+
+.required{
+	font-size: 15px;
+	color: darkgrey;
+}

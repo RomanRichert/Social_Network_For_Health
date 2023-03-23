@@ -10,8 +10,6 @@ import ResultsPage from "./pages/ResultsPage";
 import StartPage from "./pages/StartPage";
 
 
-
-
 function App() {
   return (
     <div className="App">

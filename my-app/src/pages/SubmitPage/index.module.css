@@ -75,9 +75,10 @@
 
 .story_block button {
     border: 1px solid var(--lila-primary);
-    background-color: var(--lila-primary);
+    border: 1px solid transparent; 
+    background-image: linear-gradient(to right, var(--pink), var(--lila-border));
+	color: white;
     border-radius: 10px;
-    color: white;
     width: 150px;
     height: 36px;
     margin-left: 150px;
