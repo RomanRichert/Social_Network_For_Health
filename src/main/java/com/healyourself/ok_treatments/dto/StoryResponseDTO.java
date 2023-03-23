@@ -9,13 +9,13 @@ public class StoryResponseDTO {
 
     String id;
 
-    String age;
+    int age;
 
     String description;
 
-    String bodyPart;
+    double bodyPart;
 
-    String healthScore;
+    double healthScore;
 
     String bmi;
 
