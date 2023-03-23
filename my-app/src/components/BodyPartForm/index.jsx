@@ -11,10 +11,9 @@ export default function BodyPartForm({ body_part, isDisabled, setIsDisabled }) {
   const submit = (event) => {
     event.preventDefault();
     const { part } = event.target;
-    // console.log(event.target.part.classList);
-    console.log(part.value);
+
     setIsDisabled(false);
-dispatch(getBodyPartAction(part.value));
+	dispatch(getBodyPartAction(part.value));
 	const btns = document.getElementsByClassName(styles.btn)
 	Array.from(btns).forEach(el => el.classList.remove(styles.active))
 	part.classList.add(styles.active)

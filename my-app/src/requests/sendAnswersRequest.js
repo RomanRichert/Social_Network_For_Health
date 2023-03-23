@@ -10,7 +10,6 @@ console.log(body, typeof body)
 			},
 			method: "POST",
 			'dataType': 'json',
-			mode: 'no-cors',
 			body: JSON.stringify(body)
 		})
 			.then(res => res.json())

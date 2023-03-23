@@ -29,7 +29,7 @@ export default function QuestionsPage() {
             setSelectedValue = {setSelectedValue}
           />
           <div className={style.arrows}>
-            <Link to="/" className={style.btn_block}>
+            <Link to="/human" className={style.btn_block}>
               <Button>back</Button>
             </Link>
             <Link to={`/${+id + 1}`} className={style.btn_block}>
