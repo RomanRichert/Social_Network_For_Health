@@ -1,9 +1,7 @@
-
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import style from "./index.module.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAnswerAction } from '../../store/actions/getAnswerAction';
-
 
 export default function QuestionItem({
   id,
@@ -15,7 +13,6 @@ export default function QuestionItem({
   setSelectedValue
 }) {
 
-  // const [selectedValue, setSelectedValue] = useState("");
   const stateAnswers = useSelector(state => state.answers)
   const dispatch = useDispatch()
 
@@ -46,14 +43,12 @@ export default function QuestionItem({
             className={style.form}
             key={answer.id}
             name={answer.id}
-            
             onClick={handleOptionChange}
           >
             <input
               className={style.radio}
               type="radio"
               name="question"
-              // value={answer.id}
               value = {selectedValue}
             />
             <label>{answer.answer}</label>

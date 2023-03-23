@@ -1,6 +1,4 @@
 .questions_page{
-    /* display: grid;
-    grid-template-columns: repeat(1, 1fr); */
     gap: 35px;
     overflow: scroll;
     min-height: 75vh;
@@ -26,7 +24,3 @@
     font-weight: 700;
     text-align: justify;
 }
-
-/* .next_btn {
-    disabled: true;
-} */

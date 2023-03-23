@@ -1,6 +1,5 @@
-
+import { getAllAnswersAction } from '../store/actions/getAllAnswersAction';
 export const sendAnswers = (url, body) => {
-  console.log(body, typeof body);
   return (dispatch) => {
     fetch(url, {
       headers: {
@@ -12,7 +11,7 @@ export const sendAnswers = (url, body) => {
       body: JSON.stringify(body),
     })
       .then((res) => res.json())
-      .then((json) => dispatch(json))
+      .then((json) => dispatch(getAllAnswersAction(json)))
       .catch((err) => console.log(err));
   };
 };

@@ -1,7 +1,6 @@
-
 import React from 'react'
-import human_body from '../../media/human-body.png'
 import styles from './index.module.css'
+
 import { useDispatch } from 'react-redux';
 import { getBodyPartAction } from '../../store/actions/getBodyPartAction';
 
@@ -19,8 +18,6 @@ export default function BodyPartForm({ body_part, isDisabled, setIsDisabled }) {
 	part.classList.add(styles.active)
 
   };
-
-
 
   return (
     <form onSubmit={submit}>

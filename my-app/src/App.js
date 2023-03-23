@@ -1,16 +1,11 @@
-
 import "./style.css";
 import { Routes, Route } from "react-router-dom";
 import QuestionsPage from "./pages/QuestionsPage";
 import SubmitPage from "./pages/SubmitPage";
 import Layout from "./components/Layout";
-import HumanBody from "./components/HumanBody";
 import FirstPage from "./pages/FirstPage";
 import ResultsPage from "./pages/ResultsPage";
 import StartPage from "./pages/StartPage";
-
-
-
 
 function App() {
   return (
