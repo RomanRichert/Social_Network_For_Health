@@ -8,7 +8,7 @@
 .start_button {
     border: 1px solid transparent; 
     background-image: linear-gradient(to right, var(--pink), var(--lila-border));
-	color: white;
+	  color: white;
     height: 50px;
     width: 120px;
     border-radius: 10px;

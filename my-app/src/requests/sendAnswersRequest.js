@@ -1,13 +1,19 @@
-export const sendAnswers = (body, callback) => {
-	const url = 'http://localhost:6000'
 
-	fetch(url, {
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		method: "POST",
-		body: JSON.stringify(data)
-	})
-		.then(res => res.json())
-		.then(json => callback(json))
-}
+export const sendAnswers = (url, body) => {
+  console.log(body, typeof body);
+  return (dispatch) => {
+    fetch(url, {
+      headers: {
+        accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      dataType: "json",
+      body: JSON.stringify(body),
+    })
+      .then((res) => res.json())
+      .then((json) => dispatch(json))
+      .catch((err) => console.log(err));
+  };
+};
+

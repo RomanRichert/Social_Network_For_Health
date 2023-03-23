@@ -9,11 +9,12 @@ import FirstPage from "../FirstPage";
 
 export default function QuestionsPage() {
   const { id } = useParams();
-
+  const [selectedValue, setSelectedValue] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
 
   const handleNextQuestion = () => {
     setIsDisabled(true);
+    setSelectedValue('')
   };
 
   const content = () => {
@@ -24,6 +25,8 @@ export default function QuestionsPage() {
             {...questions[+id - 1]}
             isDisabled={isDisabled}
             setIsDisabled={setIsDisabled}
+            selectedValue = {selectedValue}
+            setSelectedValue = {setSelectedValue}
           />
           <div className={style.arrows}>
             <Link to="/human" className={style.btn_block}>
@@ -48,6 +51,8 @@ export default function QuestionsPage() {
             {...questions[+id - 1]}
             isDisabled={isDisabled}
             setIsDisabled={setIsDisabled}
+            selectedValue = {selectedValue}
+            setSelectedValue = {setSelectedValue}
           />
           <div className={style.arrows}>
             <Link to={`/${+id - 1}`} className={style.btn_block}>
@@ -72,6 +77,8 @@ export default function QuestionsPage() {
           {...questions[+id - 1]}
           isDisabled={isDisabled}
           setIsDisabled={setIsDisabled}
+          selectedValue = {selectedValue}
+          setSelectedValue = {setSelectedValue}
         />
         <div className={style.arrows}>
           <Link to={`/${+id - 1}`} className={style.btn_block}>

@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import HumanBody from "../../components/HumanBody";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllStories } from "../../requests/getAllStoriesRequest";
 import styles from "./index.module.css";
+import Img from "./media/BMI.jpg";
+
 export default function ResultsPage() {
   const [text, setText] = useState([]);
+
+  const stories = useSelector((state) => state.stories);
 
   const submit = (event) => {
     event.preventDefault();
@@ -12,14 +18,20 @@ export default function ResultsPage() {
     message.value = "";
   };
 
-  //   useEffect(() => {
-  // 	setText()
-  //   }, [text]);
+  useEffect(() => {
+    const getStory = async () => {
+      const response = await fetch("http://localhost:8080/story");
+      const data = await response.json();
+      console.log(data, "sfsff");
+    };
+    getStory();
+  }, []);
 
   return (
     <div className={styles.results_page}>
       <h4>Your health score: 53</h4>
       <h4>Your BMI: 25.0</h4>
+      <img src={Img} alt="" />
 
       <p>Meet your treatment buddies:</p>
 
@@ -34,7 +46,7 @@ export default function ResultsPage() {
             name="message"
             cols="30"
             rows="10"
-            maxLength="50"
+            maxLength="100"
           ></textarea>
           <div className={styles.message}>
             {text.map((el, index) => (
