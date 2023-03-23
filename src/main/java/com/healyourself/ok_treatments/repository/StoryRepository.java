@@ -22,6 +22,7 @@ public interface StoryRepository extends JpaRepository<Story, UUID> {
             select s from Story s
             where s.age between ?1 and ?2 and s.bodyPart = ?3 and s.healthScore between ?4 and ?5 and s.bmi between ?6 and ?7""")
     List<Story> findSimilarStoriesByRequestedParams(int ageStart, int ageEnd, BodyPart bodyPart, Double healthScoreStart, Double healthScoreEnd, Double bmiStart, Double bmiEnd);
+
     @Transactional
     @Modifying
     @Query("update Story s set s.votes = ?1 where s.id = ?2")

@@ -35,7 +35,7 @@ public class TherapyController {
                     schema = @Schema(implementation = TherapyDTO.class))
     })
     @Operation(summary = "Creating a new therapy", description = "Requires JSON with name, description and an int between 0 and 4, that represent a smiley, and id of the story that creates this therapy. Creates a therapy. Returns the created therapy.")
-    public TherapyDTO createTherapy(@RequestBody @Valid TherapyDTO therapyDTO, @PathVariable String storyId){
+    public TherapyDTO createTherapy(@RequestBody @Valid TherapyDTO therapyDTO, @PathVariable String storyId) {
         return therapyService.createTherapy(therapyDTO, storyId);
     }
 
@@ -46,7 +46,7 @@ public class TherapyController {
                     schema = @Schema(implementation = TherapyDTO.class))
     })
     @Operation(summary = "Request for a specific therapy ", description = "Getting an existing therapy by name.")
-    public TherapyDTO getTherapy(@PathVariable String name){
+    public TherapyDTO getTherapy(@PathVariable String name) {
         return therapyService.getTherapyByName(name);
     }
 
@@ -57,7 +57,7 @@ public class TherapyController {
                     array = @ArraySchema(schema = @Schema(implementation = TherapyDTO.class)))
     })
     @Operation(summary = "Request for all stories", description = "Getting all therapies")
-    public List<String> getAllTherapies(){
+    public List<String> getAllTherapies() {
         return therapyService.getAllTherapies();
     }
 }

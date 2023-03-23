@@ -11,7 +11,7 @@ import java.util.Map;
 @UtilityClass
 public class HealthScoreCalculator {
 
-    public static double calculateHealthScore(StoryRequestDTO story){
+    public static double calculateHealthScore(StoryRequestDTO story) {
         Map<Integer, Integer> sf36Answers = story.getSf36Answers();
 
         List<Integer> pf = List.of(
@@ -76,7 +76,7 @@ public class HealthScoreCalculator {
         return (calculateMentalHealth(pf, rp, bp, gh, vt, sf, re, mh) + calculatePhysicalHealth(pf, rp, bp, gh, vt, sf, re, mh)) / 2;
     }
 
-    private static double calculateMentalHealth(List<Integer> pf, List<Integer> rp, List<Integer> bp, List<Integer> gh, List<Integer> vt, List<Integer> sf, List<Integer> re, List<Integer> mh){
+    private static double calculateMentalHealth(List<Integer> pf, List<Integer> rp, List<Integer> bp, List<Integer> gh, List<Integer> vt, List<Integer> sf, List<Integer> re, List<Integer> mh) {
         return (pfz(pf) * -0.22999) + (rpz(rp) * -0.12329) + (bpz(bp) * -0.09731) + (getSocialFunctioning(sf) * 0.26876) + (mhz(mh)
                 * 0.48581) + (rez(re) * 0.43407) + (vtz(vt) * 0.23534) + (ghz(gh) * -0.01571);
     }
@@ -159,7 +159,7 @@ public class HealthScoreCalculator {
         double re5B = re.get(1);
         double re5V = re.get(2);
 
-        reSum = (((re5A + re5B +re5V) - 3) / 3) * 100 ;
+        reSum = (((re5A + re5B + re5V) - 3) / 3) * 100;
 
         return (reSum - 81.29467) / 33.02717;
     }
@@ -190,16 +190,16 @@ public class HealthScoreCalculator {
             case 6 -> mh9Z = 1.0;
         }
 
-        mhSum = (((mh9B + mh9V +mh9G +mh9E + mh9Z) - 5) / 25) * 100;
+        mhSum = (((mh9B + mh9V + mh9G + mh9E + mh9Z) - 5) / 25) * 100;
 
-        return (mhSum - 74.84212)/ 18.01189;
+        return (mhSum - 74.84212) / 18.01189;
     }
 
     private static double sfz(List<Integer> sf) {
         return (getSocialFunctioning(sf) - 83.59753) / 22.37642;
     }
 
-    private static double getSocialFunctioning(List<Integer> sf){
+    private static double getSocialFunctioning(List<Integer> sf) {
         double sf6 = 0.0;
         double sf10 = sf.get(1);
 
@@ -211,7 +211,7 @@ public class HealthScoreCalculator {
             case 5 -> sf6 = 1.0;
         }
 
-        return  ((sf10 + sf6 - 2) / 8) * 100;
+        return ((sf10 + sf6 - 2) / 8) * 100;
     }
 
     private static double bpz(List<Integer> bp) {

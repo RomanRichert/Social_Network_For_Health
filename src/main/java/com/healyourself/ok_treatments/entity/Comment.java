@@ -47,4 +47,9 @@ public class Comment {
     public int hashCode() {
         return Objects.hash(id, text);
     }
+
+    public Comment(String text, Story story) {
+        this.text = text;
+        this.story = story;
+    }
 }

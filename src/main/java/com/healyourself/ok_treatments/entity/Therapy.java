@@ -37,7 +37,7 @@ public class Therapy {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "value")
+    @Column(name = "smiley")
     @Min(value = 0, message = "Smiley-value should be between 0 and 4")
     @Max(value = 4, message = "Smiley-value should be between 0 and 4")
     private int smiley;

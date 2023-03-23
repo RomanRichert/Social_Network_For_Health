@@ -51,49 +51,55 @@ public class StoryController {
         return storyService.getAllStories();
     }
 
-    @GetMapping("/{id}")
     @ResponseStatus(OK)
+    @GetMapping("/{id}")
     @ApiResponse(responseCode = "200", description = "Successfully returned the story!", content = {
             @Content(mediaType = "application/json",
                     schema = @Schema(implementation = StoryResponseDTO.class))
     })
     @Operation(summary = "Request for a specific story ", description = "Getting an existing story by id")
-    public StoryResponseDTO getStory(@PathVariable String id){
+    public StoryResponseDTO getStory(@PathVariable String id) {
         return storyService.getStoryById(id);
     }
 
-    @PutMapping("/{id}")
     @ResponseStatus(OK)
+    @PutMapping("/{id}")
     @ApiResponse(responseCode = "200", description = "Successfully voted the story!")
     @Operation(summary = "PUT-Request for voting a specific story.", description = "Putting a Vote into Story.")
-    public void reactToStory(@PathVariable String id, @RequestParam String vote){
+    public void reactToStory(@PathVariable String id, @RequestParam String vote) {
         storyService.putVote(id, vote);
     }
 
-    @GetMapping("/similar-stories/{storyId}")
     @ResponseStatus(OK)
+    @GetMapping("/similar-stories/{storyId}")
     @ApiResponse(responseCode = "200", description = "Successfully returned list of similar stories!", content = {
             @Content(mediaType = "application/json",
                     array = @ArraySchema(schema = @Schema(implementation = StoryResponseDTO.class)))
     })
     @Operation(summary = "Request for similar stories", description = "Getting all stories where (age+-6 & body part is equal & health score+-5 & bmi+-3) in comparison with the original story.")
-    public List<StoryResponseDTO> getSimilarStoriesById(@PathVariable String storyId){
+    public List<StoryResponseDTO> getSimilarStoriesById(@PathVariable String storyId) {
         return storyService.getSimilarStories(storyId);
     }
 
-    @GetMapping("/similar-stories")
     @ResponseStatus(OK)
+    @GetMapping("/similar-stories")
     @ApiResponse(responseCode = "200", description = "Successfully returned list of similar stories!", content = {
             @Content(mediaType = "application/json",
                     array = @ArraySchema(schema = @Schema(implementation = StoryResponseDTO.class)))
     })
     @Operation(summary = "Request for similar stories", description = "Getting all stories where (age+-6 & body part is equal & bmi+-3) in comparison with the original story.")
     public List<StoryResponseDTO> getSimilarStoriesByRequestedParams(@RequestParam int age,
-                                                        @RequestParam double weight,
-                                                        @RequestParam double height,
-                                                        @RequestParam String bodyPart){
+                                                                     @RequestParam double weight,
+                                                                     @RequestParam double height,
+                                                                     @RequestParam String bodyPart) {
         return storyService.getSimilarStories(age, weight, height, bodyPart);
     }
 
-
+    @ResponseStatus(OK)
+    @PutMapping("/comment/{id}")
+    @ApiResponse(responseCode = "200", description = "Successfully voted the story!")
+    @Operation(summary = "PUT-Request for voting a specific story.", description = "Putting a Vote into Story.")
+    public void commentStory(@PathVariable String id, @RequestParam String comment) {
+        storyService.commentStory(id, comment);
+    }
 }

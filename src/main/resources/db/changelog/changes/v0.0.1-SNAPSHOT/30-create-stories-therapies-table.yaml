@@ -23,9 +23,9 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: value
+                  name: smiley
                   type: int
-                  valueComputed: (SELECT value FROM therapies AS t WHERE t.story_id = 'story_id')
+                  valueComputed: (SELECT smiley FROM therapies AS t WHERE t.story_id = 'story_id')
                   constraints:
                     nullable: true
         - addForeignKeyConstraint:

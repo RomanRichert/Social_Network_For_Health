@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface CommentMapper {
 
-    static String toString(Comment comment){
+    static String toString(Comment comment) {
         return comment.toString();
     }
 }

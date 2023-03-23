@@ -49,7 +49,7 @@ public class Story {
     @Column(name = "bmi")
     private Double bmi;
 
-    @OneToMany(cascade =  ALL, mappedBy = "story", fetch = LAZY)
+    @OneToMany(cascade = ALL, mappedBy = "story", fetch = LAZY)
     private Set<Parameter> params = new LinkedHashSet<>(2);
 
     @ManyToMany(cascade = ALL, fetch = LAZY)
@@ -61,19 +61,19 @@ public class Story {
     @OneToMany(cascade = ALL, mappedBy = "story", fetch = LAZY)
     private List<Vote> votes = new ArrayList<>();
 
-    public void addParameter(Parameter p){
+    public void addParameter(Parameter p) {
         params.add(p);
     }
 
-    public void addTherapy(Therapy t){
+    public void addTherapy(Therapy t) {
         therapies.add(t);
     }
 
-    public void addComment(Comment c){
+    public void addComment(Comment c) {
         comments.add(c);
     }
 
-    public void addVote(Vote v){
+    public void addVote(Vote v) {
         votes.add(v);
     }
 

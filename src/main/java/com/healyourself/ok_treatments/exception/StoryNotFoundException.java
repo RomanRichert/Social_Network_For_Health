@@ -5,6 +5,6 @@ import static com.healyourself.ok_treatments.exception.messages.ErrorMessage.STO
 public class StoryNotFoundException extends EntityNotFoundException {
 
     public StoryNotFoundException(String storyId) {
-        super(STORY_NOT_FOUND.getMessage()+storyId);
+        super(STORY_NOT_FOUND.getMessage() + storyId);
     }
 }

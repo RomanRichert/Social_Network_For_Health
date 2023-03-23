@@ -5,6 +5,6 @@ import static com.healyourself.ok_treatments.exception.messages.ErrorMessage.THE
 public class TherapyNotFoundException extends EntityNotFoundException {
 
     public TherapyNotFoundException(String name) {
-        super(THERAPY_NOT_FOUND.getMessage()+name);
+        super(THERAPY_NOT_FOUND.getMessage() + name);
     }
 }
