@@ -1,4 +1,3 @@
-
 export const sendAnswers = (url, body) => {
   console.log(body, typeof body);
   return (dispatch) => {
@@ -16,4 +15,3 @@ export const sendAnswers = (url, body) => {
       .catch((err) => console.log(err));
   };
 };
-

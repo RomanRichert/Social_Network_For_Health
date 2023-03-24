@@ -47,7 +47,6 @@ export default function SubmitPage() {
       { sf36Answers: answers }
     );
 
-
     dispatch(sendAnswers("http://localhost:8080/story", allAnswers));
     dispatch(getAllStoriesAction);
     navigate("/results");

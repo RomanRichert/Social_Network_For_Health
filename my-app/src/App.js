@@ -1,4 +1,3 @@
-
 import "./style.css";
 import { Routes, Route } from "react-router-dom";
 import QuestionsPage from "./pages/QuestionsPage";
@@ -9,13 +8,9 @@ import FirstPage from "./pages/FirstPage";
 import ResultsPage from "./pages/ResultsPage";
 import StartPage from "./pages/StartPage";
 
-
-
-
 function App() {
   return (
     <div className="App">
-      
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<StartPage />} />
