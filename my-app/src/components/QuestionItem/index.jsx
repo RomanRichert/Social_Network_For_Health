@@ -29,8 +29,8 @@ export default function QuestionItem({
     if (isDisabled) {
       setIsDisabled(!isDisabled);
     }
-
-    dispatch(getAnswerAction(stateAnswers[id] = event.currentTarget.name));
+console.log('log', event.currentTarget.name)
+    dispatch(getAnswerAction(stateAnswers[id] = event.currentTarget.value));
     setSelectedValue(event.currentTarget.value); 
 
   };
@@ -50,7 +50,7 @@ export default function QuestionItem({
               className={style.radio}
               type="radio"
               name="question"
-    onClick={handleOptionChange}
+              onClick={handleOptionChange}
               value={answer.id}
 
             />
