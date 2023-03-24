@@ -14,7 +14,7 @@ export default function QuestionItem({
 
   const stateAnswers = useSelector(state => state.answers)
   const dispatch = useDispatch()
-  
+
   const handleOptionChange = (event) => {
     if (isDisabled) {
       setIsDisabled(!isDisabled);
@@ -23,8 +23,8 @@ export default function QuestionItem({
     console.log('log', event.currentTarget.name)
     dispatch(getAnswerAction(stateAnswers[id] = event.currentTarget.value));
 
-    setSelectedValue(event.currentTarget.value); 
   };
+
 
   return (
     <div className={style.question_item}>
