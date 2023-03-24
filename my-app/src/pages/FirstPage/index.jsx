@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Button from "../../components/Button";
 import HumanBody from "../../components/HumanBody";
-import { Link } from "react-router-dom";
 import style from "./index.module.css";
+
+import { Link } from "react-router-dom";
 
 export default function FirstPage() {
   const [isDisabled, setIsDisabled] = useState(true);
+  
   return (
     <div className={style.first_page}>
       <p>Choose a body part that bothers you.</p>

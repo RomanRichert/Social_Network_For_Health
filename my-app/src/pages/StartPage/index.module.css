@@ -16,8 +16,6 @@
     margin: 100px;
 }
 
-/* .start_button:hover {
-    opacity: 1;
-    background-color: white;
-    color: black;
-} */
+.description p:nth-child(2) {
+    margin: 30px 10px;
+}
