@@ -1,5 +1,5 @@
 const url = 'http://localhost:8080/story'
-//
+
 export const getAllStories = () => {
 
 	return dispatch => {

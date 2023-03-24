@@ -6,9 +6,9 @@
 }
 
 .start_button {
-    border: 1px solid var(--lila-primary); 
+    border: 1px solid transparent; 
     background-image: linear-gradient(to right, var(--pink), var(--lila-border));
-	color: white;
+	  color: white;
     height: 50px;
     width: 120px;
     border-radius: 10px;
@@ -16,8 +16,6 @@
     margin: 100px;
 }
 
-/* .start_button:hover {
-    opacity: 1;
-    background-color: white;
-    color: black;
-} */
+.description p:nth-child(2) {
+    margin: 30px 10px;
+}

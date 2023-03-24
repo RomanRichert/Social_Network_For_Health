@@ -1,4 +1,4 @@
-import { GET_ANSWER, SEND_ANSWERS } from '../actionsTypes';
+import { GET_ANSWER, SEND_ANSWERS, GET_ALL_ANSWERS } from '../actionsTypes';
 
 const initialState = {
 					1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '', 8: '', 9: '', 10: '',
@@ -19,6 +19,10 @@ export const answersReducer = (state = initialState, action) => {
 			console.log('send answers reducer', payload, state)
 			return payload
 
+		case GET_ALL_ANSWERS:
+			console.log('all answers reducer', payload)
+			return payload
+			
 		default:
 			return state
 	}

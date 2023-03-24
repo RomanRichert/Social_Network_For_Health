@@ -2,7 +2,6 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	
 }
 
 .first_page p {
@@ -21,4 +20,9 @@
 
 .link {
 	margin-top: 50px;
+}
+
+.required{
+	font-size: 15px;
+	color: darkgrey;
 }

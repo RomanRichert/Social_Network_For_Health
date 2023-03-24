@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import QuestionItem from "../../components/QuestionItem";
-import { questions } from "../../data";
 import Button from "../../components/Button";
-import { useParams, Navigate, Link } from "react-router-dom";
 import style from "./index.module.css";
-import ResultsPage from "../ResultsPage";
-import FirstPage from "../FirstPage";
+
+import { questions } from "../../data";
+import { useParams, Link } from "react-router-dom";
 
 export default function QuestionsPage() {
   const { id } = useParams();
@@ -159,3 +158,4 @@ export default function QuestionsPage() {
     </div>
   );
 }
+
