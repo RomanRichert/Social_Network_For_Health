@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+
+import React, { useState, useEffect } from "react";
 import style from "./index.module.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAnswerAction } from '../../store/actions/getAnswerAction';
@@ -37,24 +38,27 @@ export default function QuestionItem({
   return (
     <div className={style.question_item}>
       <p>{question}</p>
+      <p className={style.required}>*The answer for the question is required.</p>
       <form>
         {answers.map((answer) => (
           <fieldset
             className={style.form}
             key={answer.id}
             name={answer.id}
-            onClick={handleOptionChange}
           >
             <input
               className={style.radio}
               type="radio"
               name="question"
-              value = {selectedValue}
+    onClick={handleOptionChange}
+              value={answer.id}
+
             />
             <label>{answer.answer}</label>
           </fieldset>
         ))}
       </form>
+      <p>{ id } from 36</p>
     </div>
   );
 }

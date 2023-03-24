@@ -169,16 +169,10 @@ export default function SubmitPage() {
             }
           </div>
         </div>
+      <div className={style.story_block}>
+      
+        <textarea name="story" cols="30" rows="10" maxLength="250" placeholder='*The commentary must contain no more than 250 characters'{...textareaRegister}></textarea>
 
-        <div className={style.story_block}>
-          <p>Describe your problem.</p>
-          <textarea
-            name="story"
-            cols="30"
-            rows="10"
-            maxLength="250"
-            {...textareaRegister}
-          ></textarea>
 
           <button type="submit">Publish my story</button>
         </div>
