@@ -15,6 +15,14 @@ export default function QuestionItem({
   const stateAnswers = useSelector(state => state.answers)
   const dispatch = useDispatch()
 
+  useEffect(() => {
+    const inputs = document.querySelectorAll('input')
+    inputs.forEach(el => el.checked = false)
+    if (stateAnswers[id] != '') {
+      inputs[stateAnswers[id] - 1].checked = true
+    }
+  }, [id])
+
   const handleOptionChange = (event) => {
     if (isDisabled) {
       setIsDisabled(!isDisabled);
