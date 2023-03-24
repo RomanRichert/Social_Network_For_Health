@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllStories } from "../../requests/getAllStoriesRequest";
 import styles from "./index.module.css";
 import Img from "./media/BMI.jpg";
+import { Link } from 'react-router-dom'
 
 export default function ResultsPage() {
   const [text, setText] = useState([]);
@@ -46,7 +47,8 @@ export default function ResultsPage() {
             name="message"
             cols="30"
             rows="10"
-            maxLength="100"
+            maxLength="250"
+            placeholder="*The commentary must contain no more than 250 characters"
           ></textarea>
           <div className={styles.message}>
             {text.map((el, index) => (
@@ -59,6 +61,9 @@ export default function ResultsPage() {
           </div>
         </form>
       </div>
+      <Link to='/'>
+            <button className={styles.back_button}>back to start</button>
+        </Link>
     </div>
   );
 }

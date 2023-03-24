@@ -18,6 +18,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    align-items: center;
 }
 
 .description {
@@ -30,3 +31,8 @@
 /* .next_btn {
     disabled: true;
 } */
+
+.progress{
+    font-size: 15px;
+	color: darkgrey;
+}
