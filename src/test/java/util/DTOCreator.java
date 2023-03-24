@@ -2,11 +2,13 @@ package util;
 
 import com.healyourself.ok_treatments.dto.StoryRequestDTO;
 import com.healyourself.ok_treatments.dto.StoryResponseDTO;
+import com.healyourself.ok_treatments.dto.TherapyDTO;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static util.EntityCreator.STORY;
+import static util.EntityCreator.THERAPY;
 
 public class DTOCreator {
 
@@ -73,5 +75,11 @@ public class DTOCreator {
             STORY.getBodyPart().name(),
             BMI,
             SF36
+    );
+
+    public final static TherapyDTO THERAPY_DTO = new TherapyDTO(
+            THERAPY.getName(),
+            null,
+            THERAPY.getSmiley()
     );
 }

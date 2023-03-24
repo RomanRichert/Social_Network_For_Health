@@ -21,7 +21,7 @@ databaseChangeLog:
                   name: description
                   type: varchar
                   constraints:
-                    nullable: false
+                    nullable: true
               - column:
                   name: smiley
                   type: int
