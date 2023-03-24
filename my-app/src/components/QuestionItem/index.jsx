@@ -10,29 +10,20 @@ export default function QuestionItem({
   answers,
   isDisabled,
   setIsDisabled,
-  selectedValue,
-  setSelectedValue
 }) {
 
   const stateAnswers = useSelector(state => state.answers)
   const dispatch = useDispatch()
-
-  useEffect(() => {
-    const inputs = document.querySelectorAll('input')
-    inputs.forEach(el => el.checked = false)
-    if (stateAnswers[id] != '') {
-      inputs[stateAnswers[id] - 1].checked = true
-    }
-  }, [id])
-
+  
   const handleOptionChange = (event) => {
     if (isDisabled) {
       setIsDisabled(!isDisabled);
     }
-console.log('log', event.currentTarget.name)
+    
+    console.log('log', event.currentTarget.name)
     dispatch(getAnswerAction(stateAnswers[id] = event.currentTarget.value));
-    setSelectedValue(event.currentTarget.value); 
 
+    setSelectedValue(event.currentTarget.value); 
   };
 
   return (
@@ -45,20 +36,20 @@ console.log('log', event.currentTarget.name)
             className={style.form}
             key={answer.id}
             name={answer.id}
+            
           >
             <input
               className={style.radio}
               type="radio"
               name="question"
-              onClick={handleOptionChange}
               value={answer.id}
+              onClick={handleOptionChange}
 
             />
             <label>{answer.answer}</label>
           </fieldset>
         ))}
       </form>
-      <p>{ id } from 36</p>
     </div>
   );
 }

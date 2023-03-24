@@ -31,6 +31,7 @@ export default function QuestionsPage() {
             <Link to="/human" className={style.btn_block}>
               <Button>back</Button>
             </Link>
+            <p className={style.progress}>{ id } from 36</p>
             <Link to={`/${+id + 1}`} className={style.btn_block}>
               <Button
                 className={style.next_btn}
@@ -57,6 +58,7 @@ export default function QuestionsPage() {
             <Link to={`/${+id - 1}`} className={style.btn_block}>
               <Button>back</Button>
             </Link>
+            <p className={style.progress}>{ id } from 36</p>
             <Link to="/submit" className={style.btn_block}>
               <Button
                 className={style.next_btn}
@@ -83,7 +85,7 @@ export default function QuestionsPage() {
           <Link to={`/${+id - 1}`} className={style.btn_block}>
             <Button>back</Button>
           </Link>
-
+          <p className={style.progress}>{ id } from 36</p>
           <Link to={`/${+id + 1}`} className={style.btn_block}>
             <Button
               className={style.next_btn}

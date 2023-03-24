@@ -16,6 +16,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    align-items: center;
 }
 
 .description {
@@ -23,4 +24,13 @@
     font-size: 12px;
     font-weight: 700;
     text-align: justify;
+}
+
+/* .next_btn {
+    disabled: true;
+} */
+
+.progress{
+    font-size: 15px;
+	color: darkgrey;
 }
