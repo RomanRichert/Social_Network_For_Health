@@ -12,15 +12,15 @@ export const answersReducer = (state = initialState, action) => {
 
 	switch (type) {
 		case GET_ANSWER:
-			console.log('answer reducer', payload, state)
+			//console.log('answer reducer', payload, state)
 			return state
 
 		case SEND_ANSWERS:
-			console.log('send answers reducer', payload, state)
+			//console.log('send answers reducer', payload, state)
 			return payload
 
 		case GET_ALL_ANSWERS:
-			console.log('all answers reducer', payload)
+			//console.log('all answers reducer', payload)
 			return payload
 			
 		default:

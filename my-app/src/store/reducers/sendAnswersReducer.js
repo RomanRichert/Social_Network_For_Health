@@ -44,7 +44,7 @@ export const sendAnswersReducer = (state = initialState, action) => {
 
   switch (type) {
     case GET_ANSWER:
-      console.log("answer reducer", payload, state);
+      //console.log("answer reducer", payload, state);
       return state;
 
     default:

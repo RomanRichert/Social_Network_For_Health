@@ -144,7 +144,7 @@
     width: 100px;
     padding: 5px 15px;
     border-radius: 15px;
-    background-color: orange; 
+    /* background-color: orange;  */
     color: white;
     font-size: 10px;
     font-weight: bold;
@@ -157,4 +157,24 @@
     top: 20%;
     right: 10%;
     cursor: pointer;
+}
+
+.Icon1 {
+    background-color: #FF0200;
+}
+
+.Icon2 {
+    background-color: #FFAA47;
+}
+
+.Icon3 {
+    background-color: #F7FF6B;
+}
+
+.Icon4 {
+    background-color: #9DFB7E;
+}
+
+.Icon5 {
+    background-color: #58E940;
 }

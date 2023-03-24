@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sendAnswers } from "../../requests/sendAnswersRequest";
-import { getAllStoriesAction } from "../../store/actions/getAllStoriesAction";
+import { getStoryAction } from "../../store/actions/getStoryAction";
 
 export default function SubmitPage() {
   const dispatch = useDispatch();
@@ -50,7 +50,7 @@ export default function SubmitPage() {
     );
 
     dispatch(sendAnswers("http://localhost:8080/story", allAnswers));
-    dispatch(getAllStoriesAction);
+    dispatch(getStoryAction);
     navigate("/results");
     reset();
   };
@@ -83,7 +83,7 @@ export default function SubmitPage() {
   const textareaRegister = register("story");
 
   const [therapyOptions, setTherapyOptions] = useState([])
-  const [selectedImages, setSelectedImages] = useState([])
+  const [selectedImage, setSelectedImage] = useState('Icon5')
 
   const onSelect = (event) => {
     setTherapyOptions([...therapyOptions, 
@@ -92,7 +92,8 @@ export default function SubmitPage() {
 
   const selectImage = (event) => {
     if (therapyOptions.length > 0) {
-      setSelectedImages([...selectedImages, +event.target.alt])
+       setSelectedImage(event.target.alt)
+
     } 
   }
   return (
@@ -139,7 +140,7 @@ export default function SubmitPage() {
         <div className = {style.tagsBlock}>
           {
             therapyOptions.map((el, ind) => <div 
-              className = {style.tags} 
+              className = {[style.tags, style[selectedImage]].join(' ')} 
               key = {ind}>
                 <p>{el[0].toUpperCase() + el.slice(1)}</p>
                 <p 
@@ -163,7 +164,7 @@ export default function SubmitPage() {
               images.map(el => <img 
                 key = {el.id} 
                 src = {el.img} 
-                alt = {el.id}
+                alt = {`Icon${el.id+1}`}
                 onClick = {selectImage}
               />)
             }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HumanBody from "../../components/HumanBody";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllStories } from "../../requests/getAllStoriesRequest";
+import { getStory } from "../../requests/getStoryRequest";
 import styles from "./index.module.css";
 import Img from "./media/BMI.jpg";
 import { Link } from 'react-router-dom'
@@ -11,7 +11,7 @@ export default function ResultsPage() {
   const [text, setText] = useState([]);
 
   const allAnswers = useSelector(state => state.answers)
-  console.log('results', allAnswers)
+//   console.log('results', allAnswers)
 
   const submit = (event) => {
     event.preventDefault();
@@ -20,7 +20,7 @@ export default function ResultsPage() {
 		setText([...text, message.value]);
 	}
 
-    console.log(text);
+    // console.log(text);
     message.value = "";
   };
 
@@ -34,7 +34,8 @@ export default function ResultsPage() {
     };
     getStory();
   }, []);
-  console.log(stories.slice(0, 2), "stories");
+//   console.log(stories.slice(0, 2), "stories");
+  
   return (
     <div className={styles.results_page}>
 		{

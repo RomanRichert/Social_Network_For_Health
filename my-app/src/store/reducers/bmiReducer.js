@@ -7,7 +7,7 @@ export const bmiReducer = (state = initialState, action) => {
 
 	switch (type) {
 		case GET_BMI_DATA:
-			console.log('bmi reducer', payload, state)
+			//console.log('bmi reducer', payload, state)
 			return state
 
 		default:
