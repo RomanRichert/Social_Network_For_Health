@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import style from "./index.module.css";
 import Icon1 from "./media/anguished_icon.svg";
 import Icon2 from "./media/unamused_icon.svg";
@@ -7,7 +7,7 @@ import Icon4 from "./media/smilling_icon.svg";
 import Icon5 from "./media/beaming_icon.svg";
 
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sendAnswers } from "../../requests/sendAnswersRequest";
 import { getAllStoriesAction } from "../../store/actions/getAllStoriesAction";
@@ -29,15 +29,17 @@ export default function SubmitPage() {
     },
   });
 
+  const images = [
+    {id: 0, img: Icon1}, {id: 1, img:Icon2}, 
+    {id: 2, img: Icon3}, {id: 3, img: Icon4}, {id: 4, img: Icon5}]
   const body_part = useSelector((state) => state.bodyPart);
   const answers = useSelector((state) => state.answers);
-  //const bmi = useSelector((state) => state.bmi);
 
   const submit = (data) => {
     data.height = data.height / 100;
     data.weight = +data.weight;
     data.age = +data.age;
-
+    console.log(data)
     const allAnswers = Object.assign(
       {},
       { age: data.age },
@@ -46,7 +48,6 @@ export default function SubmitPage() {
       { bmiAnswers: { weight: data.weight, height: data.height } },
       { sf36Answers: answers }
     );
-
 
     dispatch(sendAnswers("http://localhost:8080/story", allAnswers));
     dispatch(getAllStoriesAction);
@@ -81,6 +82,19 @@ export default function SubmitPage() {
   const selectRegister = register("therapy");
   const textareaRegister = register("story");
 
+  const [therapyOptions, setTherapyOptions] = useState([])
+  const [selectedImages, setSelectedImages] = useState([])
+
+  const onSelect = (event) => {
+    setTherapyOptions([...therapyOptions, 
+      event.target.options[event.target.selectedIndex].value])
+  }
+
+  const selectImage = (event) => {
+    if (therapyOptions.length > 0) {
+      setSelectedImages([...selectedImages, +event.target.alt])
+    } 
+  }
   return (
     <div>
       <form onSubmit={handleSubmit(submit)}>
@@ -122,19 +136,37 @@ export default function SubmitPage() {
         </div>
 
         <p className={style.title}>Therapy</p>
+        <div className = {style.tagsBlock}>
+          {
+            therapyOptions.map((el, ind) => <div 
+              className = {style.tags} 
+              key = {ind}>
+                <p>{el[0].toUpperCase() + el.slice(1)}</p>
+                <p 
+                  className = {style.close} 
+                  onClick = {() => {
+                    setTherapyOptions(therapyOptions.filter(o => o != el))
+                    }}>x</p>
+              </div>)
+          }
+          
+        </div>
         <div className={style.title2_block}>
-          <select {...selectRegister}>
+          <select {...selectRegister} onChange = {onSelect}>
             <option value="">Select therapy</option>
             <option value="running">Running</option>
             <option value="yoga">Yoga</option>
             <option value="swimming">Swimming</option>
           </select>
           <div className={style.img_block}>
-            <img src={Icon1} alt="" />
-            <img src={Icon2} alt="" />
-            <img src={Icon3} alt="" />
-            <img src={Icon4} alt="" />
-            <img src={Icon5} alt="" />
+            {
+              images.map(el => <img 
+                key = {el.id} 
+                src = {el.img} 
+                alt = {el.id}
+                onClick = {selectImage}
+              />)
+            }
           </div>
         </div>
       <div className={style.story_block}>
