@@ -4,10 +4,7 @@ import com.healyourself.ok_treatments.enums.BodyPart;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +16,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @Getter
 @Setter
 @Entity
+@ToString
 @Transactional
 @NoArgsConstructor
 @AllArgsConstructor
@@ -50,15 +48,19 @@ public class Story {
     private Double bmi;
 
     @OneToMany(cascade = ALL, mappedBy = "story", fetch = LAZY)
+    @ToString.Exclude
     private Set<Parameter> params = new LinkedHashSet<>(2);
 
     @ManyToMany(cascade = ALL, fetch = LAZY)
+    @ToString.Exclude
     private List<Therapy> therapies = new ArrayList<>();
 
     @OneToMany(cascade = ALL, mappedBy = "story", fetch = LAZY)
+    @ToString.Exclude
     private List<Comment> comments = new ArrayList<>();
 
     @OneToMany(cascade = ALL, mappedBy = "story", fetch = LAZY)
+    @ToString.Exclude
     private List<Vote> votes = new ArrayList<>();
 
     public void addParameter(Parameter p) {

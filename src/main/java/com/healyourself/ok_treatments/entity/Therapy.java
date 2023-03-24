@@ -3,10 +3,7 @@ package com.healyourself.ok_treatments.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +15,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @Getter
 @Setter
 @Entity
+@ToString
 @Transactional
 @NoArgsConstructor
 @AllArgsConstructor
@@ -32,7 +30,7 @@ public class Therapy {
     private UUID id;
 
     @Column(name = "name")
-    public String name;
+    private String name;
 
     @Column(name = "description")
     private String description;
@@ -45,13 +43,14 @@ public class Therapy {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "story_id",
             referencedColumnName = "id")
+    @ToString.Exclude
     private Story story;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Therapy therapy)) return false;
-        return id.equals(therapy.id) && description.equals(therapy.description);
+        return id.equals(therapy.id) && name.equals(therapy.name);
     }
 
     @Override
