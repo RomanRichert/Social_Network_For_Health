@@ -7,9 +7,18 @@
     justify-content: space-between;
 }
 
-.btn_block {
+.btn_blocks {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around
+}
+
+.btn_block {
+    border-radius: 30px;
+}
+
+.btn_block:hover {
+    background-color: white;
+    color: black;
 }
 
 .arrows {
@@ -25,10 +34,6 @@
     font-weight: 700;
     text-align: justify;
 }
-
-/* .next_btn {
-    disabled: true;
-} */
 
 .progress{
     font-size: 15px;

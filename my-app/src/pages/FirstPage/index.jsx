@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function FirstPage() {
   const [isDisabled, setIsDisabled] = useState(true);
-  
+
   return (
     <div className={style.first_page}>
       <p>Choose a body part that bothers you.</p>
@@ -17,7 +17,9 @@ export default function FirstPage() {
       </p>
       <p className={style.required}>*Required.</p>
       <Link to="/1" className={style.link}>
-        <Button disabled={isDisabled}>next</Button>
+        <Button className={style.btn} disabled={isDisabled}>
+          next
+        </Button>
       </Link>
     </div>
   );

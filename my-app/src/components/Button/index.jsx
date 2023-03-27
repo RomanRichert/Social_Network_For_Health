@@ -1,11 +1,11 @@
 import React from "react";
 import style from "./index.module.css";
 
-export default function Button({ children, ...props }) {
+export default function Button({ children, className, ...props }) {
   return (
-    <div className={style.button_block}>
-      <button {...props}>{children}</button>
-    </div>
+    <button {...props} className={[style.button_block, className].join(" ")}>
+      {children}
+    </button>
   );
 }
 

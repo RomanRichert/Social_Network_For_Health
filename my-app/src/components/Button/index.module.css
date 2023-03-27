@@ -1,28 +1,18 @@
-.button_block {
-    display: flex;
-    justify-content: center; 
-}
-
-.button_block button {
+.button_block  {
     border: 1px solid var(--lila-primary); 
     background-color: var(--lila-primary); 
     color: white;
-    height: 50px;
-    width: 50px;
-    border-radius: 50px;
+    height: 60px;
+    width: 60px;
     cursor: pointer;
+    
+}
+  
+.button_block:hover {
+   transform: scale(1.1);
 }
 
-.button_block:hover button {
-    opacity: 1;
-}
-
-.button_block button:hover {
-    background-color: white;
-    color: black;
-}
-
-button:disabled {
+.button_block:disabled {
     background-color: white;
     color: var(--lila-border);
     cursor: not-allowed;

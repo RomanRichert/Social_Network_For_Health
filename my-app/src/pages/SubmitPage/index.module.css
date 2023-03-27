@@ -95,25 +95,14 @@
     outline: none;
 }
 
-.story_block button {
-    border: 1px solid var(--lila-primary);
-    border: 1px solid transparent; 
+.btn {
+    /* border: 1px solid transparent;  */
     background-image: linear-gradient(to right, var(--pink), var(--lila-border));
 	color: white;
     border-radius: 10px;
-    width: 150px;
-    height: 36px;
+    width: 150px !important;
+    height: 36px !important;
     margin-left: 150px;
-    cursor: pointer;
-}
-
-.story_block:hover button {
-    opacity: 1;
-}
-
-.story_block button:hover {
-    background-color: white;
-    color: black;
 }
 
 .error_message_height {
