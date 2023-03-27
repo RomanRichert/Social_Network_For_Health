@@ -51,9 +51,6 @@
 
 .actions_btns {
 	margin-top: 15px;
-	/* padding-top: 10px; */
-	/* padding: 10px 10px; */
-	/* border-top: 1px solid var(--lila-border); */
 	display: flex;
 	justify-content: space-between;
 }
@@ -86,7 +83,6 @@
 	cursor: pointer;
 }
 .actions_btns div:last-child {
-	/* margin-right: 10px; */
 	background-image: linear-gradient(to right, var(--pink), var(--lila-border));
 	color: white;
 }
@@ -95,13 +91,16 @@
 	transform: scale(1.1);
 }
 
+.btn_back {
+	display: flex;
+	justify-content: start;
+}
+
 .back_button {
-    border: 1px solid transparent; 
+	border: 1px solid transparent;
     background-image: linear-gradient(to right, var(--pink), var(--lila-border));
-	color: white;
     height: 50px;
-    width: 120px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 30px 100px 0 100px;
+    width: 100px;
+    border-radius: 30px;
+    margin-top: 30px;
 }

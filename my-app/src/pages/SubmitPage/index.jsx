@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import style from "./index.module.css";
 import Icon1 from "./media/anguished_icon.svg";
 import Icon2 from "./media/unamused_icon.svg";
@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sendAnswers } from "../../requests/sendAnswersRequest";
 import { getStoryAction } from "../../store/actions/getStoryAction";
+import Button from "../../components/Button";
 
 export default function SubmitPage() {
   const dispatch = useDispatch();
@@ -30,8 +31,12 @@ export default function SubmitPage() {
   });
 
   const images = [
-    {id: 0, img: Icon1}, {id: 1, img:Icon2}, 
-    {id: 2, img: Icon3}, {id: 3, img: Icon4}, {id: 4, img: Icon5}]
+    { id: 0, img: Icon1 },
+    { id: 1, img: Icon2 },
+    { id: 2, img: Icon3 },
+    { id: 3, img: Icon4 },
+    { id: 4, img: Icon5 },
+  ];
   const body_part = useSelector((state) => state.bodyPart);
   const answers = useSelector((state) => state.answers);
 
@@ -39,7 +44,7 @@ export default function SubmitPage() {
     data.height = data.height / 100;
     data.weight = +data.weight;
     data.age = +data.age;
-    console.log(data)
+    console.log(data);
     const allAnswers = Object.assign(
       {},
       { age: data.age },
@@ -82,20 +87,21 @@ export default function SubmitPage() {
   const selectRegister = register("therapy");
   const textareaRegister = register("story");
 
-  const [therapyOptions, setTherapyOptions] = useState([])
-  const [selectedImage, setSelectedImage] = useState('Icon5')
+  const [therapyOptions, setTherapyOptions] = useState([]);
+  const [selectedImage, setSelectedImage] = useState("Icon5");
 
   const onSelect = (event) => {
-    setTherapyOptions([...therapyOptions, 
-      event.target.options[event.target.selectedIndex].value])
-  }
+    setTherapyOptions([
+      ...therapyOptions,
+      event.target.options[event.target.selectedIndex].value,
+    ]);
+  };
 
   const selectImage = (event) => {
     if (therapyOptions.length > 0) {
-       setSelectedImage(event.target.alt)
-
-    } 
-  }
+      setSelectedImage(event.target.alt);
+    }
+  };
   return (
     <div>
       <form onSubmit={handleSubmit(submit)}>
@@ -137,45 +143,54 @@ export default function SubmitPage() {
         </div>
 
         <p className={style.title}>Therapy</p>
-        <div className = {style.tagsBlock}>
-          {
-            therapyOptions.map((el, ind) => <div 
-              className = {[style.tags, style[selectedImage]].join(' ')} 
-              key = {ind}>
-                <p>{el[0].toUpperCase() + el.slice(1)}</p>
-                <p 
-                  className = {style.close} 
-                  onClick = {() => {
-                    setTherapyOptions(therapyOptions.filter(o => o != el))
-                    }}>x</p>
-              </div>)
-          }
-          
+        <div className={style.tagsBlock}>
+          {therapyOptions.map((el, ind) => (
+            <div
+              className={[style.tags, style[selectedImage]].join(" ")}
+              key={ind}
+            >
+              <p>{el[0].toUpperCase() + el.slice(1)}</p>
+              <p
+                className={style.close}
+                onClick={() => {
+                  setTherapyOptions(therapyOptions.filter((o) => o != el));
+                }}
+              >
+                x
+              </p>
+            </div>
+          ))}
         </div>
         <div className={style.title2_block}>
-          <select {...selectRegister} onChange = {onSelect}>
+          <select {...selectRegister} onChange={onSelect}>
             <option value="">Select therapy</option>
             <option value="running">Running</option>
             <option value="yoga">Yoga</option>
             <option value="swimming">Swimming</option>
           </select>
           <div className={style.img_block}>
-            {
-              images.map(el => <img 
-                key = {el.id} 
-                src = {el.img} 
-                alt = {`Icon${el.id+1}`}
-                onClick = {selectImage}
-              />)
-            }
+            {images.map((el) => (
+              <img
+                key={el.id}
+                src={el.img}
+                alt={`Icon${el.id + 1}`}
+                onClick={selectImage}
+              />
+            ))}
           </div>
         </div>
-      <div className={style.story_block}>
-      
-        <textarea name="story" cols="30" rows="10" maxLength="250" placeholder='*The commentary must contain no more than 250 characters'{...textareaRegister}></textarea>
-
-
-          <button type="submit">Publish my story</button>
+        <div className={style.story_block}>
+          <textarea
+            name="story"
+            cols="30"
+            rows="10"
+            maxLength="250"
+            placeholder="*The commentary must contain no more than 250 characters"
+            {...textareaRegister}
+          ></textarea>
+          <Button className={style.btn} type="submit">
+            Publish my story
+          </Button>
         </div>
       </form>
     </div>

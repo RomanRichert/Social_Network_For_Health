@@ -1,3 +1,9 @@
+.start_page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .description{
     font-size: 20px;
     line-height: 150%;
@@ -8,14 +14,14 @@
 .start_button {
     border: 1px solid transparent; 
     background-image: linear-gradient(to right, var(--pink), var(--lila-border));
-	  color: white;
-    height: 50px;
-    width: 120px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 100px;
+    border-radius: 30px;
+    margin-top: 100px;
 }
 
 .description p:nth-child(2) {
     margin: 30px 10px;
+}
+
+.start_page a {
+    margin: 0 auto;
 }

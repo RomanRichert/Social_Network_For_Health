@@ -13,7 +13,7 @@ export default function QuestionsPage() {
 
   const handleNextQuestion = () => {
     setIsDisabled(true);
-    setSelectedValue('')
+    setSelectedValue("");
   };
 
   const content = () => {
@@ -24,17 +24,17 @@ export default function QuestionsPage() {
             {...questions[+id - 1]}
             isDisabled={isDisabled}
             setIsDisabled={setIsDisabled}
-            selectedValue = {selectedValue}
-            setSelectedValue = {setSelectedValue}
+            selectedValue={selectedValue}
+            setSelectedValue={setSelectedValue}
           />
           <div className={style.arrows}>
-            <Link to="/human" className={style.btn_block}>
-              <Button>back</Button>
+            <Link to="/human" className={style.btn_blocks}>
+              <Button className={style.btn_block}> go back</Button>
             </Link>
-            <p className={style.progress}>{ id } from 36</p>
+            <p className={style.progress}>{id} from 36</p>
             <Link to={`/${+id + 1}`} className={style.btn_block}>
               <Button
-                className={style.next_btn}
+                className={style.btn_block}
                 disabled={isDisabled}
                 onClick={handleNextQuestion}
               >
@@ -51,17 +51,17 @@ export default function QuestionsPage() {
             {...questions[+id - 1]}
             isDisabled={isDisabled}
             setIsDisabled={setIsDisabled}
-            selectedValue = {selectedValue}
-            setSelectedValue = {setSelectedValue}
+            selectedValue={selectedValue}
+            setSelectedValue={setSelectedValue}
           />
           <div className={style.arrows}>
-            <Link to={`/${+id - 1}`} className={style.btn_block}>
-              <Button>back</Button>
+            <Link to={`/${+id - 1}`} className={style.btn_blocks}>
+              <Button className={style.btn_block}> go back</Button>
             </Link>
-            <p className={style.progress}>{ id } from 36</p>
+            <p className={style.progress}>{id} from 36</p>
             <Link to="/submit" className={style.btn_block}>
               <Button
-                className={style.next_btn}
+                className={style.btn_block}
                 disabled={isDisabled}
                 onClick={handleNextQuestion}
               >
@@ -78,17 +78,17 @@ export default function QuestionsPage() {
           {...questions[+id - 1]}
           isDisabled={isDisabled}
           setIsDisabled={setIsDisabled}
-          selectedValue = {selectedValue}
-          setSelectedValue = {setSelectedValue}
+          selectedValue={selectedValue}
+          setSelectedValue={setSelectedValue}
         />
         <div className={style.arrows}>
-          <Link to={`/${+id - 1}`} className={style.btn_block}>
-            <Button>back</Button>
+          <Link to={`/${+id - 1}`} className={style.btn_blocks}>
+            <Button className={style.btn_block}> go back</Button>
           </Link>
-          <p className={style.progress}>{ id } from 36</p>
-          <Link to={`/${+id + 1}`} className={style.btn_block}>
+          <p className={style.progress}>{id} from 36</p>
+          <Link to={`/${+id + 1}`} className={style.btn_blocks}>
             <Button
-              className={style.next_btn}
+              className={style.btn_block}
               disabled={isDisabled}
               onClick={handleNextQuestion}
             >
@@ -160,4 +160,3 @@ export default function QuestionsPage() {
     </div>
   );
 }
-
