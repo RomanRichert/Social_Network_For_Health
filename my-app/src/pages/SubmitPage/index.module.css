@@ -12,10 +12,8 @@
 }
 
 .submit_block {
-    margin: 10px;
     display: flex;
     justify-content: space-around;
-    gap: 10px;
 }
 
 .descr {
@@ -28,7 +26,7 @@
     border-radius: 5px;
     padding: 5px;
     border: 1px solid var(--lila-border);
-    width: 80px;
+    width: 90px;
     height: 35px;
     outline: none;
 
@@ -105,22 +103,11 @@
     margin-left: 150px;
 }
 
-.error_message_height {
+.error_message p{
     color: red;
     font-size: 8px;
     text-align: end;
-}
-
-.error_message_weight {
-    color: red;
-    font-size: 8px;
-    text-align: end;
-}
-
-.error_message_age {
-    color: red;
-    font-size: 8px;
-    text-align: end;
+    height: 10px;
 }
 
 .tagsBlock {

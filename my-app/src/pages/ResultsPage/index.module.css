@@ -100,7 +100,9 @@
 	border: 1px solid transparent;
     background-image: linear-gradient(to right, var(--pink), var(--lila-border));
     height: 50px;
-    width: 100px;
-    border-radius: 30px;
-    margin-top: 30px;
+    width: 120px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 30px 100px;
+
 }

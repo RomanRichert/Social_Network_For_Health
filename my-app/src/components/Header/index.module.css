@@ -1,7 +1,6 @@
-.logo{
-    margin: 50px 0;
+.header{
+    margin: 40px 0 30px;
     display: flex;
     justify-content: center;
-    width: 300px;
     height: 40px;
 }

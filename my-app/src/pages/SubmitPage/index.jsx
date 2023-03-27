@@ -115,8 +115,12 @@ export default function SubmitPage() {
               placeholder="cm"
               {...heightRegister}
             />
-            <div className={style.error_message_height}>
-              {errors.height && <p>{errors.height?.message}</p>}
+            <div className={style.error_message}>
+              {
+                errors.height
+                ? <p>{errors.height?.message}</p>
+                : <p></p>
+              }
             </div>
           </label>
           <label>
@@ -128,16 +132,24 @@ export default function SubmitPage() {
               placeholder="kg"
               {...weightRegister}
             />
-            <div className={style.error_message_weight}>
-              {errors.weight && <p>{errors.weight?.message}</p>}
+            <div className={style.error_message}>
+              {
+                errors.weight
+                ? <p>{errors.weight?.message}</p>
+                : <p></p>
+              }
             </div>
           </label>
           <label>
             <p>Age</p>
             <p className={style.descr}>From 18+</p>
             <input type="number" name="age" {...ageRegister} />
-            <div className={style.error_message_age}>
-              {errors.age && <p>{errors.age?.message}</p>}
+            <div className={style.error_message}>
+              {
+                errors.age
+                ? <p>{errors.age?.message}</p>
+                : <p></p>
+              }
             </div>
           </label>
         </div>
