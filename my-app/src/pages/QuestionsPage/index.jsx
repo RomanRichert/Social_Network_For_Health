@@ -76,21 +76,21 @@ export default function QuestionsPage() {
       <>
         <QuestionItem
           {...questions[+id - 1]}
-          isDisabled={isDisabled}
-          setIsDisabled={setIsDisabled}
+          isDisabled = {isDisabled}
+          setIsDisabled = {setIsDisabled}
           selectedValue = {selectedValue}
           setSelectedValue = {setSelectedValue}
         />
         <div className={style.arrows}>
-          <Link to={`/${+id - 1}`} className={style.btn_block}>
+          <Link to = {`/${+id - 1}`} className = {style.btn_block}>
             <Button>back</Button>
           </Link>
           <p className={style.progress}>{ id } from 36</p>
-          <Link to={`/${+id + 1}`} className={style.btn_block}>
+          <Link to = {`/${+id + 1}`} className = {style.btn_block}>
             <Button
-              className={style.next_btn}
-              disabled={isDisabled}
-              onClick={handleNextQuestion}
+              className = {style.next_btn}
+              disabled = {isDisabled}
+              onClick = {handleNextQuestion}
             >
               next
             </Button>
@@ -100,62 +100,10 @@ export default function QuestionsPage() {
     );
   };
 
-  const text_description = () => {
-    switch (+id) {
-      case 3:
-        return (
-          <p className={style.description}>
-            The following items are about activities you might do during a
-            typical day. Does your health now limit you in these activities? If
-            so, how much?
-          </p>
-        );
-      case 13:
-        return (
-          <p className={style.description}>
-            During the past 4 weeks, have you had any of the following problems
-            with your work or other regular daily activities as a result of your
-            physical health?
-          </p>
-        );
-      case 17:
-        return (
-          <p className={style.description}>
-            During the past 4 weeks, have you had any of the following problems
-            with your work or other regular daily activities as a result of any
-            emotional problems (such as feeling depressed or anxious)?
-          </p>
-        );
-      case 23:
-        return (
-          <>
-            <p className={style.description}>
-              These questions are about how you feel and how things have been
-              with you during the past 4 weeks. For each question, please give
-              the one answer that comes closest to the way you have been
-              feeling.
-            </p>
 
-            <p className={style.description}>
-              How much of the time during the past 4 weeks...
-            </p>
-          </>
-        );
-      case 33:
-        return (
-          <p className={style.description}>
-            How TRUE or FALSE is each of the following statements for you.
-          </p>
-        );
-
-      default:
-        return "";
-    }
-  };
 
   return (
     <div className={style.questions_page}>
-      {text_description()}
       {content()}
     </div>
   );

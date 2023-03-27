@@ -5,7 +5,7 @@ import logo from './media/logo.svg'
 export default function Header() {
 
   return (
-    <div className={styles.logo}>
+    <div className={styles.header}>
       <img src={logo} alt="logo" />
     </div>
   )

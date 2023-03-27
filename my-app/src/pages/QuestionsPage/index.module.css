@@ -19,17 +19,6 @@
     align-items: center;
 }
 
-.description {
-    margin: 0 0 20px;
-    font-size: 12px;
-    font-weight: 700;
-    text-align: justify;
-}
-
-/* .next_btn {
-    disabled: true;
-} */
-
 .progress{
     font-size: 15px;
 	color: darkgrey;
