@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useEffect} from "react";
 import human_body from "../../media/human-body.png";
 import styles from "./index.module.css";
 import BodyPartForm from "../BodyPartForm";
+import { useSelector } from 'react-redux';
 
 export default function HumanBody({isDisabled, setIsDisabled}) {
   const btns = [
@@ -19,14 +20,17 @@ export default function HumanBody({isDisabled, setIsDisabled}) {
 
   return (
     <div className={styles.human_body}>
-      <img src={human_body} alt="human_body" className={styles.body_img} />
-      {btns.map((el) => (
-        <BodyPartForm 
-			key={el} 
-			body_part={el} 
-			isDisabled = {isDisabled} setIsDisabled = {setIsDisabled}
-		/>
-      ))}
+    	<img src={human_body} alt="human_body" className={styles.body_img} />
+      	{
+	  		btns.map((el) => (
+        		<BodyPartForm 
+					key={el} 
+					body_part={el} 
+					isDisabled = {isDisabled} 
+					setIsDisabled = {setIsDisabled}
+				/>
+      		))
+		}
 
     </div>
   );

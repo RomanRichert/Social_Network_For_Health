@@ -100,8 +100,6 @@ export default function QuestionsPage() {
     );
   };
 
-
-
   return (
     <div className={style.questions_page}>
       {content()}
