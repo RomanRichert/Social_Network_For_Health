@@ -63,7 +63,7 @@ public class StoryController {
     }
 
     @ResponseStatus(OK)
-    @PutMapping("/{id}")
+    @PutMapping("vote/{id}")
     @ApiResponse(responseCode = "200", description = "Successfully voted the story!")
     @Operation(summary = "PUT-Request for voting a specific story.", description = "Putting a Vote into Story.")
     public void reactToStory(@PathVariable String id, @RequestParam String vote) {
@@ -98,7 +98,7 @@ public class StoryController {
     @ResponseStatus(OK)
     @PutMapping("/comment/{id}")
     @ApiResponse(responseCode = "200", description = "Successfully voted the story!")
-    @Operation(summary = "PUT-Request for voting a specific story.", description = "Putting a Vote into Story.")
+    @Operation(summary = "PUT-Request for commenting a specific story.", description = "Putting a Comment into Story.")
     public void commentStory(@PathVariable String id, @RequestParam String comment) {
         storyService.commentStory(id, comment);
     }
