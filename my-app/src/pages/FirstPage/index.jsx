@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import Button from "../../components/Button";
 import HumanBody from "../../components/HumanBody";
 import style from "./index.module.css";
-
-import { Link } from "react-router-dom";
 
 export default function FirstPage() {
   const [isDisabled, setIsDisabled] = useState(true);
@@ -16,11 +13,6 @@ export default function FirstPage() {
         Choose one option for each questionnaire item.
       </p>
       <p className={style.required}>*Required.</p>
-      <Link to="/1" className={style.link}>
-        <Button className={style.btn} disabled={isDisabled}>
-          next
-        </Button>
-      </Link>
     </div>
   );
 }

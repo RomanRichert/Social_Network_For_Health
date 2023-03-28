@@ -1,36 +1,30 @@
-
 import React, { useState, useEffect } from "react";
 import style from "./index.module.css";
-import { useDispatch, useSelector } from 'react-redux';
-import { getAnswerAction } from '../../store/actions/getAnswerAction';
+import { useDispatch, useSelector } from "react-redux";
+import { getAnswerAction } from "../../store/actions/getAnswerAction";
+import { useNavigate } from "react-router-dom";
 
-export default function QuestionItem({
-  id,
-  question,
-  answers,
-  isDisabled,
-  setIsDisabled,
-}) {
-
-  const stateAnswers = useSelector(state => state.answers)
-  const dispatch = useDispatch()
+export default function QuestionItem({ id, question, answers }) {
+  const stateAnswers = useSelector((state) => state.answers);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const inputs = document.querySelectorAll('input')
-    inputs.forEach(el => el.checked = false)
-    if (stateAnswers[id] != '') {
-      inputs[stateAnswers[id] - 1].checked = true
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach((el) => (el.checked = false));
+    if (stateAnswers[id] != "") {
+      inputs[stateAnswers[id] - 1].checked = true;
     }
-  }, [id])
+  }, [id]);
 
   const handleOptionChange = (event) => {
-    if (isDisabled) {
-      setIsDisabled(!isDisabled);
+    if (+id === 36) {
+      navigate("/submit");
+    } else {
+      navigate(`/${+id + 1}`);
     }
-    
-    console.log('log', event.currentTarget.name)
-    dispatch(getAnswerAction(stateAnswers[id] = event.currentTarget.value));
-
+    console.log("log", event.currentTarget.name);
+    dispatch(getAnswerAction((stateAnswers[id] = event.currentTarget.value)));
   };
 
   const text_description = () => {
@@ -90,22 +84,18 @@ export default function QuestionItem({
     <div className={style.question_item}>
       <p>{question}</p>
       {text_description()}
-      <p className={style.required}>*The answer for the question is required.</p>
+      <p className={style.required}>
+        *The answer for the question is required.
+      </p>
       <form>
         {answers.map((answer) => (
-          <fieldset
-            className={style.form}
-            key={answer.id}
-            name={answer.id}
-            
-          >
+          <fieldset className={style.form} key={answer.id} name={answer.id}>
             <input
               className={style.radio}
               type="radio"
               name="question"
               value={answer.id}
               onClick={handleOptionChange}
-
             />
             <label>{answer.answer}</label>
           </fieldset>
