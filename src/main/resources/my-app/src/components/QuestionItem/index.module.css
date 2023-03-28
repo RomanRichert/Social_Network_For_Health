@@ -1,0 +1,24 @@
+.question_item p{
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.form{
+    border-color: transparent;
+}
+
+.radio{
+    margin:  10px 20px;
+}
+
+.required{
+	font-size: 12px;
+	color: darkgrey;
+}
+
+.description {
+    margin: 0 0 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: justify;
+}

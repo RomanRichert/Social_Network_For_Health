@@ -1,0 +1,29 @@
+import { GET_ANSWER, SEND_ANSWERS, GET_ALL_ANSWERS } from '../actionsTypes';
+
+const initialState = {
+					1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '', 8: '', 9: '', 10: '',
+					11: '', 12: '', 13: '', 14: '', 15: '', 16: '', 17: '', 18: '', 19: '', 20: '',
+					21: '', 22: '', 23: '', 24: '', 25: '', 26: '', 27: '', 28: '', 29: '', 30: '',
+					31: '', 32: '', 33: '', 34: '', 35: '', 36: ''	
+				}
+
+export const answersReducer = (state = initialState, action) => {
+	const {payload, type} = action
+
+	switch (type) {
+		case GET_ANSWER:
+			//console.log('answer reducer', payload, state)
+			return state
+
+		case SEND_ANSWERS:
+			//console.log('send answers reducer', payload, state)
+			return payload
+
+		case GET_ALL_ANSWERS:
+			//console.log('all answers reducer', payload)
+			return payload
+			
+		default:
+			return state
+	}
+}

@@ -1,0 +1,27 @@
+.start_page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.description{
+    font-size: 20px;
+    line-height: 150%;
+    margin: 60px 0 20px 0;
+    text-align: center;
+}
+
+.start_button {
+    border: 1px solid transparent; 
+    background-image: linear-gradient(to right, var(--pink), var(--lila-border));
+    border-radius: 30px;
+    margin-top: 100px;
+}
+
+.description p:nth-child(2) {
+    margin: 30px 10px;
+}
+
+.start_page a {
+    margin: 0 auto;
+}
