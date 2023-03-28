@@ -28,7 +28,7 @@ export default function QuestionItem({
       setIsDisabled(!isDisabled);
     }
     
-    console.log('log', event.currentTarget.name)
+    // console.log('log', event.currentTarget.value)
     dispatch(getAnswerAction(stateAnswers[id] = event.currentTarget.value));
 
   };

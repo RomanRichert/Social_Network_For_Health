@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import HumanBody from "../../components/HumanBody";
 import { useDispatch, useSelector } from "react-redux";
 import { getStory } from "../../requests/getStoryRequest";
 import styles from "./index.module.css";
@@ -9,50 +8,51 @@ import { HeartOutlined } from "@ant-design/icons";
 import Button from "../../components/Button";
 
 export default function ResultsPage() {
-  const [text, setText] = useState([]);
+	const [text, setText] = useState([]);
 
-  const allAnswers = useSelector((state) => state.answers);
-  //   console.log('results', allAnswers)
+	const allAnswers = useSelector((state) => state.allAnswers);
 
-  const submit = (event) => {
-    event.preventDefault();
-    const { message } = event.target;
-    if (message.value != "") {
-      setText([...text, message.value]);
-    }
+	const submit = (event) => {
+    	event.preventDefault();
+    	const { message } = event.target;
+    	if (message.value != "") {
+      	setText([...text, message.value]);
+    	}
 
-    // console.log(text);
-    message.value = "";
-  };
+    	message.value = "";
+  	};
 
-  const [stories, setStories] = useState([]);
-  useEffect(() => {
-    const getStory = async () => {
-      const response = await fetch("http://localhost:8080/story");
-      const storiesResponse = await response.json();
-      setStories(storiesResponse);
-    };
-    getStory();
-  }, []);
-  //   console.log(stories.slice(0, 2), "stories");
+	const [stories, setStories] = useState([]);
+	useEffect(() => {
+		const getStory = async () => {
+			const response = await fetch("http://localhost:8080/story");
+			const storiesResponse = await response.json();
+			setStories(storiesResponse);
+		};
+		getStory();
+
+	}, []);
 
   return (
     <div className={styles.results_page}>
-      {allAnswers && (
-        <>
-          <h4>Your health score: {allAnswers.healthScore}</h4>
-          <h4>Your BMI: {allAnswers.bmi}</h4>
-        </>
-      )}
+      {
+		allAnswers !== '' 
+		? 
+		<>
+        	<h4>Your health score: {(allAnswers.healthScore).toFixed(2)}</h4>
+        	<h4>Your BMI: {(allAnswers.bmi).toFixed(2)}</h4>
+		</>
+		: ''
+	  }
 
-      <img src={Img} alt="bmi standards" />
+      	<img src={Img} alt="bmi standards" />
 
-      <p>Meet your treatment buddies:</p>
+      	<p>Meet your treatment buddies:</p>
 
-      <div className={styles.treatments}>
+      	<div className={styles.treatments}>
         {stories &&
-          stories.slice(0, 2).map((e) => (
-            <>
+          stories.slice(0, 2).map((e, ind) => (
+            <div key = {ind}>
               <p>{e.description}</p>
               <form onSubmit={submit}>
                 <textarea
@@ -64,12 +64,12 @@ export default function ResultsPage() {
                 ></textarea>
                 <div className={styles.message}>
                   {text.map((el, index) => (
-                    <>
+                    <div key = {index}>
                       <p key={index}>
                         {el}&nbsp;&nbsp;
                         <HeartOutlined />{" "}
                       </p>
-                    </>
+                    </div>
                   ))}
                 </div>
                 <div className={styles.actions_btns}>
@@ -77,10 +77,11 @@ export default function ResultsPage() {
                   <div>I feel sorry for you</div>
                 </div>
               </form>
-            </>
+            </div>
           ))}
-      </div>
-      <div className={styles.btn_back}>
+      	</div>
+
+      	<div className={styles.btn_back}>
         <Link to="/">
           <Button className={styles.back_button}>back to start</Button>
         </Link>
