@@ -4,10 +4,6 @@ import com.google.gson.Gson;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 import net.minidev.json.JSONObject;
-import org.mapstruct.BeanMapping;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.web.servlet.ConditionalOnMissingFilterBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
