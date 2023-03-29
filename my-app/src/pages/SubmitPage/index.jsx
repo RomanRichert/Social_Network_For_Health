@@ -55,7 +55,7 @@ export default function SubmitPage() {
     );
 
     dispatch(sendAnswers("http://localhost:8080/story", allAnswers));
-    dispatch(getStoryAction);
+    // dispatch(getStoryAction);
     navigate("/results");
     reset();
   };
