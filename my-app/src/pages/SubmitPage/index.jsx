@@ -37,6 +37,9 @@ export default function SubmitPage() {
     { id: 3, img: Icon4 },
     { id: 4, img: Icon5 },
   ];
+
+  const therapies = ['running', 'yoga', 'drugs', 'swimming']
+
   const body_part = useSelector((state) => state.bodyPart);
   const answers = useSelector((state) => state.answers);
 
@@ -63,7 +66,7 @@ export default function SubmitPage() {
   const heightRegister = register("height", {
     required: "*The field is required",
     pattern: {
-      value: /^(1\d{2}|2[0-4]\d|250)$/,
+      value: /^(6[0-9]|1\d{2}|2[0-4]\d|250)$/,
       message: "*Not valid format",
     },
   });
@@ -87,21 +90,20 @@ export default function SubmitPage() {
   const selectRegister = register("therapy");
   const textareaRegister = register("story");
 
-  const [therapyOptions, setTherapyOptions] = useState([]);
-  const [selectedImage, setSelectedImage] = useState("Icon5");
+  const [selectedTherapyWithImage, setSelectedTherapyWithImage] = useState([]);
+  const [selectedTherapy, setSelectedTherapy] = useState('')
 
-  const onSelect = (event) => {
-    setTherapyOptions([
-      ...therapyOptions,
-      event.target.options[event.target.selectedIndex].value,
-    ]);
-  };
-
+  const onSelect = (event) => setSelectedTherapy(event.target.options[event.target.selectedIndex].value)
+  
   const selectImage = (event) => {
-    if (therapyOptions.length > 0) {
-      setSelectedImage(event.target.alt);
+    if (selectedTherapy != '') {
+      const newTherapy = {name: selectedTherapy, smiley: event.target.alt - 1}
+      selectedTherapyWithImage.push(newTherapy)
+      setSelectedTherapyWithImage([...selectedTherapyWithImage])
+      setSelectedTherapy('')
     }
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit(submit)}>
@@ -155,37 +157,54 @@ export default function SubmitPage() {
         </div>
 
         <p className={style.title}>Therapy</p>
-        <div className={style.tagsBlock}>
-          {therapyOptions.map((el, ind) => (
+         <div className={style.tagsBlock}>
+          {selectedTherapyWithImage.map((el, ind) => (
             <div
-              className={[style.tags, style[selectedImage]].join(" ")}
+              className={style.tags}
               key={ind}
             >
-              <p>{el[0].toUpperCase() + el.slice(1)}</p>
-              <p
-                className={style.close}
-                onClick={() => {
-                  setTherapyOptions(therapyOptions.filter((o) => o != el));
-                }}
-              >
-                x
-              </p>
+              <img
+                key={ind}
+                src={images[el.smiley].img}
+                alt={`Icon${el.smiley + 1}`}
+                onClick={selectImage}
+              />
+              <div className = {[style.therapy_text, style[`Icon${images[el.smiley].id + 1}`]].join(" ")}>
+                <p>{(el.name[0]).toUpperCase() + (el.name).slice(1)}</p>
+             
+                <p
+                  className={style.close}
+                  onClick={() => {
+                    setSelectedTherapyWithImage(selectedTherapyWithImage.filter((o) => o.name != el.name));
+                  }}
+                >
+                  x
+                </p>
+              </div>
             </div>
           ))}
-        </div>
+        </div> 
+
         <div className={style.title2_block}>
           <select {...selectRegister} onChange={onSelect}>
             <option value="">Select therapy</option>
-            <option value="running">Running</option>
-            <option value="yoga">Yoga</option>
-            <option value="swimming">Swimming</option>
+            {
+              therapies.map(el => <option 
+                                        key = {el} 
+                                        value = {el}
+                                      >
+                                        {el[0].toUpperCase() + el.slice(1)}
+                                      </option>)
+            }
+ 
           </select>
           <div className={style.img_block}>
             {images.map((el) => (
               <img
                 key={el.id}
                 src={el.img}
-                alt={`Icon${el.id + 1}`}
+                // alt={`Icon${el.id + 1}`}
+                alt={el.id + 1}
                 onClick={selectImage}
               />
             ))}
