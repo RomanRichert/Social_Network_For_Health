@@ -33,8 +33,7 @@
 }
 
 .title {
-    margin-top: 15px;
-    margin-left: 15px; 
+    margin: 15px 10px 0 10px;
     font-weight: bold;
 }
 
@@ -94,7 +93,6 @@
 }
 
 .btn {
-    /* border: 1px solid transparent;  */
     background-image: linear-gradient(to right, var(--pink), var(--lila-border));
 	color: white;
     border-radius: 10px;
@@ -114,18 +112,34 @@
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+    padding: 10px;
 }
 
 .tags {
-    width: 100px;
-    padding: 5px 15px;
-    border-radius: 15px;
-    /* background-color: orange;  */
     color: white;
+    text-align: center;
+
+    display: flex;
+
+}
+
+.tags img {
+    height: 25px;
+}
+
+.therapy_text {
     font-size: 10px;
     font-weight: bold;
-    text-align: center;
+    width: 100px;
+    height: 23px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -7%;
     position: relative;
+    box-shadow: -1px 1px 1px white;
 }
 
 .close {
@@ -136,7 +150,7 @@
 }
 
 .Icon1 {
-    background-color: #FF0200;
+    background-color: #ef4949;
 }
 
 .Icon2 {
