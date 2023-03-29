@@ -28,7 +28,7 @@ export default function QuestionItem({
       setIsDisabled(!isDisabled);
     }
     
-    console.log('log', event.currentTarget.name)
+    // console.log('log', event.currentTarget.value)
     dispatch(getAnswerAction(stateAnswers[id] = event.currentTarget.value));
 
   };
@@ -88,8 +88,9 @@ export default function QuestionItem({
 
   return (
     <div className={style.question_item}>
-      <p>{question}</p>
       {text_description()}
+      <p>{question}</p>
+
       <p className={style.required}>*The answer for the question is required.</p>
       <form>
         {answers.map((answer) => (
