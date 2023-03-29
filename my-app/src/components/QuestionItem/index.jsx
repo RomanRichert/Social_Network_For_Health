@@ -82,11 +82,9 @@ export default function QuestionItem({ id, question, answers }) {
 
   return (
     <div className={style.question_item}>
-      <p>{question}</p>
       {text_description()}
-      <p className={style.required}>
-        *The answer for the question is required.
-      </p>
+      <p>{question}</p>
+      <p className={style.required}>*The answer for the question is required.</p>
       <form>
         {answers.map((answer) => (
           <fieldset className={style.form} key={answer.id} name={answer.id}>

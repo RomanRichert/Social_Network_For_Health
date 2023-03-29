@@ -1,5 +1,5 @@
 .questions_page{
-    gap: 35px;
+    /* gap: 35px; */
     overflow: scroll;
     min-height: 75vh;
     display: flex;
@@ -26,7 +26,7 @@
     display: flex;
     justify-content: space-around;
     margin-bottom: 15px;
-
+    justify-content: space-between;
     align-items: center;
 }
 
