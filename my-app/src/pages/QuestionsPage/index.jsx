@@ -2,17 +2,14 @@ import React, { useState } from "react";
 import QuestionItem from "../../components/QuestionItem";
 import Button from "../../components/Button";
 import style from "./index.module.css";
-
 import { questions } from "../../data";
 import { useParams, Link } from "react-router-dom";
 
 export default function QuestionsPage() {
   const { id } = useParams();
   const [selectedValue, setSelectedValue] = useState("");
-  const [isDisabled, setIsDisabled] = useState(true);
 
   const handleNextQuestion = () => {
-    setIsDisabled(true);
     setSelectedValue("");
   };
 
@@ -22,8 +19,6 @@ export default function QuestionsPage() {
         <>
           <QuestionItem
             {...questions[+id - 1]}
-            isDisabled={isDisabled}
-            setIsDisabled={setIsDisabled}
             selectedValue={selectedValue}
             setSelectedValue={setSelectedValue}
           />
@@ -32,42 +27,6 @@ export default function QuestionsPage() {
               <Button className={style.btn}> go back</Button>
             </Link>
             <p className={style.progress}>{id} from 36</p>
-            <Link to={`/${+id + 1}`} className={style.btn_block}>
-              <Button
-                className={style.btn}
-                disabled={isDisabled}
-                onClick={handleNextQuestion}
-              >
-                next
-              </Button>
-            </Link>
-          </div>
-        </>
-      );
-    } else if (+id === 36) {
-      return (
-        <>
-          <QuestionItem
-            {...questions[+id - 1]}
-            isDisabled={isDisabled}
-            setIsDisabled={setIsDisabled}
-            selectedValue={selectedValue}
-            setSelectedValue={setSelectedValue}
-          />
-          <div className={style.arrows}>
-            <Link to={`/${+id - 1}`} className={style.btn_block}>
-              <Button className={style.btn}> go back</Button>
-            </Link>
-            <p className={style.progress}>{id} from 36</p>
-            <Link to="/submit" className={style.btn_block}>
-              <Button
-                className={style.btn}
-                disabled={isDisabled}
-                onClick={handleNextQuestion}
-              >
-                next
-              </Button>
-            </Link>
           </div>
         </>
       );
@@ -76,8 +35,6 @@ export default function QuestionsPage() {
       <>
         <QuestionItem
           {...questions[+id - 1]}
-          isDisabled={isDisabled}
-          setIsDisabled={setIsDisabled}
           selectedValue={selectedValue}
           setSelectedValue={setSelectedValue}
         />
@@ -86,15 +43,6 @@ export default function QuestionsPage() {
             <Button className={style.btn}>go back</Button>
           </Link>
           <p className={style.progress}>{id} from 36</p>
-          <Link to={`/${+id + 1}`} className={style.btn_block}>
-            <Button
-              className={style.btn}
-              disabled={isDisabled}
-              onClick={handleNextQuestion}
-            >
-              next
-            </Button>
-          </Link>
         </div>
       </>
     );

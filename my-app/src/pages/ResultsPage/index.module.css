@@ -101,6 +101,7 @@
     background-image: linear-gradient(to right, var(--pink), var(--lila-border));
     height: 50px;
     width: 120px;
+	color: white;
     border-radius: 10px;
     cursor: pointer;
     margin: 30px 100px;
