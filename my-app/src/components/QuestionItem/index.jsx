@@ -19,9 +19,9 @@ export default function QuestionItem({ id, question, answers }) {
 
   const handleOptionChange = (event) => {
     if (+id === 36) {
-      navigate("/submit");
+      setTimeout(() => navigate("/submit"), 500);
     } else {
-      navigate(`/${+id + 1}`);
+      setTimeout(() => navigate(`/${+id + 1}`), 500);
     }
     console.log("log", event.currentTarget.name);
     dispatch(getAnswerAction((stateAnswers[id] = event.currentTarget.value)));
@@ -84,18 +84,22 @@ export default function QuestionItem({ id, question, answers }) {
     <div className={style.question_item}>
       {text_description()}
       <p>{question}</p>
-      <p className={style.required}>*The answer for the question is required.</p>
+      <p className={style.required}>
+        *The answer for the question is required.
+      </p>
       <form>
         {answers.map((answer) => (
           <fieldset className={style.form} key={answer.id} name={answer.id}>
-            <input
-              className={style.radio}
-              type="radio"
-              name="question"
-              value={answer.id}
-              onClick={handleOptionChange}
-            />
-            <label>{answer.answer}</label>
+            <label>
+              <input
+                className={style.radio}
+                type="radio"
+                name="question"
+                value={answer.id}
+                onClick={handleOptionChange}
+              />
+              {answer.answer}
+            </label>
           </fieldset>
         ))}
       </form>

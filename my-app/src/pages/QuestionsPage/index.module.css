@@ -13,20 +13,17 @@
 }
 
 .btn {
-    background-image: linear-gradient(to right, var(--pink), var(--lila-border));
-    color: white;
-    border-radius: 30px;
+    border: 1px solid var(--lila-border);
     height: 40px;
 }
 
-.btn_block:hover {
-    background-color: white;
-    color: black;
+.btn:hover {
+    background-color: var(--lila-border);
+    color: white;
 }
 
 .arrows {
     display: flex;
-    justify-content: space-around;
     margin-bottom: 15px;
     justify-content: space-around;
     align-items: center;
