@@ -5,11 +5,14 @@ import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { getBodyPartAction } from '../../store/actions/getBodyPartAction';
-
+import { clearAnswersAction } from '../../store/actions/clearAnswersAction'
 export default function StartPage() {
 
   const dispatch = useDispatch()
-  const clearState = () => dispatch(getBodyPartAction(''))
+  const clearState = () => {
+    dispatch(getBodyPartAction(''))
+    dispatch(clearAnswersAction(''))
+  }
   
   return (
     <div className={style.start_page}>

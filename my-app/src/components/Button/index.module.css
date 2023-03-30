@@ -5,7 +5,7 @@
     height: 50px;
     width: 80px;
     cursor: pointer;
-    
+    border-radius: 30px;
 }
   
 .button_block:hover {

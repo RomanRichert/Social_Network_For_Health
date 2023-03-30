@@ -19,11 +19,10 @@ export default function QuestionItem({ id, question, answers }) {
 
   const handleOptionChange = (event) => {
     if (+id === 36) {
-      navigate("/submit");
+      setTimeout(() => navigate("/submit"), 500);
     } else {
-      navigate(`/${+id + 1}`);
+      setTimeout(() => navigate(`/${+id + 1}`), 500);
     }
-    console.log("log", event.currentTarget.name);
     dispatch(getAnswerAction((stateAnswers[id] = event.currentTarget.value)));
   };
 
