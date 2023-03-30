@@ -98,8 +98,11 @@ export default function SubmitPage() {
   const selectImage = (event) => {
     if (selectedTherapy != '') {
       const newTherapy = {name: selectedTherapy, smiley: event.target.alt - 1}
-      selectedTherapyWithImage.push(newTherapy)
-      setSelectedTherapyWithImage([...selectedTherapyWithImage])
+      if (!selectedTherapyWithImage.some(el => el.name === selectedTherapy)) {
+        selectedTherapyWithImage.push(newTherapy)
+        setSelectedTherapyWithImage([...selectedTherapyWithImage])
+      }
+
       setSelectedTherapy('')
     }
   };
@@ -140,6 +143,7 @@ export default function SubmitPage() {
             <input type="number" name="age" {...ageRegister} />
             <div className={style.error_message}>
               {errors.age ? <p>{errors.age?.message}</p> : <p></p>}
+
             </div>
           </label>
         </div>
