@@ -23,7 +23,7 @@ export default function QuestionsPage() {
             setSelectedValue={setSelectedValue}
           />
           <div className={style.arrows}>
-            <Link to="/human" className={style.btn_block}>
+            <Link to="/human">
               <Button className={style.btn}> go back</Button>
             </Link>
             <p className={style.progress}>{id} from 36</p>
