@@ -13,6 +13,8 @@
 }
 
 .btn {
+    background-image: linear-gradient(to right, var(--pink), var(--lila-border));
+    color: white;
     border-radius: 30px;
     height: 40px;
 }
