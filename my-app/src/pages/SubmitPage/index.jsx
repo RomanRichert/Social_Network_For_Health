@@ -74,7 +74,7 @@ export default function SubmitPage() {
   const weightRegister = register("weight", {
     required: "*The field is required",
     pattern: {
-      value: /^\d{2,3}( ?kg)?$/,
+      value: /^([5-9]|\d{2,3})( ?kg)?$/,
       message: "*Not valid format",
     },
   });
@@ -82,7 +82,7 @@ export default function SubmitPage() {
   const ageRegister = register("age", {
     required: "*The field is required",
     pattern: {
-      value: /^(1[8-9]|[2-9][0-9]|100)'?$/,
+      value: /^(1[6-9]|[2-9][0-9]|120)'?$/,
       message: "*Not valid format",
     },
   });
@@ -110,7 +110,7 @@ export default function SubmitPage() {
         <div className={style.submit_block}>
           <label>
             <p>Height</p>
-            <p className={style.descr}>From 100cm</p>
+            <p className={style.descr}>From 60cm</p>
             <input
               type="number"
               name="height"
@@ -118,16 +118,12 @@ export default function SubmitPage() {
               {...heightRegister}
             />
             <div className={style.error_message}>
-              {
-                errors.height
-                ? <p>{errors.height?.message}</p>
-                : <p></p>
-              }
+              {errors.height ? <p>{errors.height?.message}</p> : <p></p>}
             </div>
           </label>
           <label>
             <p>Weight</p>
-            <p className={style.descr}>From 10kg</p>
+            <p className={style.descr}>From 5kg</p>
             <input
               type="number"
               name="weight"
@@ -135,23 +131,15 @@ export default function SubmitPage() {
               {...weightRegister}
             />
             <div className={style.error_message}>
-              {
-                errors.weight
-                ? <p>{errors.weight?.message}</p>
-                : <p></p>
-              }
+              {errors.weight ? <p>{errors.weight?.message}</p> : <p></p>}
             </div>
           </label>
           <label>
             <p>Age</p>
-            <p className={style.descr}>From 18+</p>
+            <p className={style.descr}>From 16 to 120</p>
             <input type="number" name="age" {...ageRegister} />
             <div className={style.error_message}>
-              {
-                errors.age
-                ? <p>{errors.age?.message}</p>
-                : <p></p>
-              }
+              {errors.age ? <p>{errors.age?.message}</p> : <p></p>}
             </div>
           </label>
         </div>
