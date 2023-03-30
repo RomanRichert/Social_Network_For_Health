@@ -97,13 +97,12 @@
 }
 
 .back_button {
-	border: 1px solid transparent;
+    border: transparent; 
     background-image: linear-gradient(to right, var(--pink), var(--lila-border));
-    height: 50px;
-    width: 120px;
-	color: white;
-    border-radius: 10px;
-    cursor: pointer;
+    color: white;
+    border-radius: 30px;
+	cursor: pointer;
     margin: 30px 100px;
+	font-size: x-small;
 
 }
