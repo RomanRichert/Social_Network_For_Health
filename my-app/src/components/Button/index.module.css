@@ -1,5 +1,5 @@
 .button_block  {
-    border: 1px solid var(--lila-border); 
+    border: transparent; 
     background-color: white; 
     color: var(--lila-border);
     height: 50px;
