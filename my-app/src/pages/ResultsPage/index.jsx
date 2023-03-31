@@ -31,16 +31,21 @@ export default function ResultsPage() {
     };
     getStory();
   }, []);
-
+  console.log(!allAnswers.healthScore);
   return (
     <div className={styles.results_page}>
-      {!allAnswers ? (
+      {!allAnswers && allAnswers.healthScore && allAnswers.bmi ? (
         <>
           <h4>
             Your health score:{" "}
-            {!allAnswers && allAnswers.healthScore.toFixed(2)}
+            {allAnswers.healthScore !== "undefined"
+              ? allAnswers.healthScore.toFixed(2)
+              : ""}
           </h4>
-          <h4>Your BMI: {!allAnswers && allAnswers.bmi.toFixed(2)}</h4>
+          <h4>
+            Your BMI:{" "}
+            {allAnswers.bmi !== "undefined" ? allAnswers.bmi.toFixed(2) : ""}
+          </h4>
         </>
       ) : (
         "Error, You have not responded at all questions"
