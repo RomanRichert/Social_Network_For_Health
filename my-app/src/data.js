@@ -1,3 +1,9 @@
+import Icon1 from "./media/anguished_icon.svg";
+import Icon2 from "./media/unamused_icon.svg";
+import Icon3 from "./media/neutral_icon.svg";
+import Icon4 from "./media/smilling_icon.svg";
+import Icon5 from "./media/beaming_icon.svg";
+
 export const questions = [
 	{
 		id: 1,
@@ -824,3 +830,11 @@ export const questions = [
 		]
 	},
 ]
+
+export const images = [
+    { id: 0, img: Icon1 },
+    { id: 1, img: Icon2 },
+    { id: 2, img: Icon3 },
+    { id: 3, img: Icon4 },
+    { id: 4, img: Icon5 },
+  ];

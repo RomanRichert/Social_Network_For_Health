@@ -87,14 +87,16 @@ export default function QuestionItem({ id, question, answers }) {
       <form>
         {answers.map((answer) => (
           <fieldset className={style.form} key={answer.id} name={answer.id}>
-            <input
-              className={style.radio}
-              type="radio"
-              name="question"
-              value={answer.id}
-              onClick={handleOptionChange}
-            />
-            <label>{answer.answer}</label>
+            <label>
+              <input
+                className={style.radio}
+                type="radio"
+                name="question"
+                value={answer.id}
+                onClick={handleOptionChange}
+              />
+                {answer.answer}
+            </label>
           </fieldset>
         ))}
       </form>
