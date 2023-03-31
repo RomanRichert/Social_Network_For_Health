@@ -36,13 +36,21 @@ export default function ResultsPage() {
   console.log('from back', allAnswers)
   return (
     <div className={styles.results_page}>
-      {allAnswers !== "" ? (
+      {allAnswers && allAnswers.healthScore && allAnswers.bmi ? (
         <>
-          <h4>Your health score: {allAnswers.healthScore.toFixed(2)}</h4>
-          <h4>Your BMI: {allAnswers.bmi.toFixed(2)}</h4>
+          <h4>
+            Your health score:{" "}
+            {allAnswers.healthScore !== "undefined"
+              ? allAnswers.healthScore.toFixed(2)
+              : ""}
+          </h4>
+          <h4>
+            Your BMI:{" "}
+            {allAnswers.bmi !== "undefined" ? allAnswers.bmi.toFixed(2) : ""}
+          </h4>
         </>
       ) : (
-        ""
+        "Error, You have not responded at all questions"
       )}
 
       <img src={Img} alt="bmi standards" />

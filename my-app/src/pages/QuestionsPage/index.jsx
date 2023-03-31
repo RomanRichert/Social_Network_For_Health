@@ -39,7 +39,7 @@ export default function QuestionsPage() {
           setSelectedValue={setSelectedValue}
         />
         <div className={style.arrows}>
-          <Link to={`/${+id - 1}`} className={style.btn_block}>
+          <Link to={`/${+id - 1}`}>
             <Button className={style.btn}>go back</Button>
           </Link>
           <p className={style.progress}>{id} from 36</p>

@@ -28,7 +28,7 @@ export default function SubmitPage() {
 
 
 
-  const therapies = ['running', 'yoga', 'drugs', 'swimming']
+  const therapies = ["running", "yoga", "drugs", "swimming"];
 
   const body_part = useSelector((state) => state.bodyPart);
   const answers = useSelector((state) => state.answers);
@@ -60,7 +60,7 @@ export default function SubmitPage() {
   const heightRegister = register("height", {
     required: "*The field is required",
     pattern: {
-      value: /^(6[0-9]|1\d{2}|2[0-4]\d|250)$/,
+      value: /^([6-9][0-9]|1\d{2}|2[0-4]\d|250)$/,
       message: "*Not valid format",
     },
   });
@@ -68,7 +68,7 @@ export default function SubmitPage() {
   const weightRegister = register("weight", {
     required: "*The field is required",
     pattern: {
-      value: /^([5-9]|\d{2,3})( ?kg)?$/,
+      value: /^([5-9]|\d{2}|[1-4]\d{2})( ?kg)?$/,
       message: "*Not valid format",
     },
   });
@@ -76,7 +76,7 @@ export default function SubmitPage() {
   const ageRegister = register("age", {
     required: "*The field is required",
     pattern: {
-      value: /^(1[6-9]|[2-9][0-9]|120)'?$/,
+      value: /^(1[6-9]|[2-9][0-9]|1[0-1]\d{1}|120)'?$/,
       message: "*Not valid format",
     },
   });
@@ -85,7 +85,7 @@ export default function SubmitPage() {
   const textareaRegister = register("story");
 
   const [selectedTherapyWithImage, setSelectedTherapyWithImage] = useState([]);
-  const [selectedTherapy, setSelectedTherapy] = useState('')
+  const [selectedTherapy, setSelectedTherapy] = useState("");
 
   const onSelect = (event) => setSelectedTherapy(event.target.options[event.target.selectedIndex].value)
   
@@ -110,7 +110,7 @@ export default function SubmitPage() {
         <div className={style.submit_block}>
           <label>
             <p>Height</p>
-            <p className={style.descr}>From 60cm</p>
+            <p className={style.descr}>60cm-250cm</p>
             <input
               type="number"
               name="height"
@@ -146,25 +146,29 @@ export default function SubmitPage() {
         </div>
 
         <p className={style.title}>Therapy</p>
-         <div className={style.tagsBlock}>
+        <div className={style.tagsBlock}>
           {selectedTherapyWithImage.map((el, ind) => (
-            <div
-              className={style.tags}
-              key={ind}
-            >
+            <div className={style.tags} key={ind}>
               <img
                 key={ind}
                 src={images[el.smiley].img}
                 alt={`Icon${el.smiley + 1}`}
                 onClick={selectImage}
               />
-              <div className = {[style.therapy_text, style[`Icon${images[el.smiley].id + 1}`]].join(" ")}>
-                <p>{(el.name[0]).toUpperCase() + (el.name).slice(1)}</p>
-             
+              <div
+                className={[
+                  style.therapy_text,
+                  style[`Icon${images[el.smiley].id + 1}`],
+                ].join(" ")}
+              >
+                <p>{el.name[0].toUpperCase() + el.name.slice(1)}</p>
+
                 <p
                   className={style.close}
                   onClick={() => {
-                    setSelectedTherapyWithImage(selectedTherapyWithImage.filter((o) => o.name != el.name));
+                    setSelectedTherapyWithImage(
+                      selectedTherapyWithImage.filter((o) => o.name != el.name)
+                    );
                   }}
                 >
                   x
@@ -172,20 +176,16 @@ export default function SubmitPage() {
               </div>
             </div>
           ))}
-        </div> 
+        </div>
 
         <div className={style.title2_block}>
           <select {...selectRegister} onChange={onSelect}>
             <option value="">Select therapy</option>
-            {
-              therapies.map(el => <option 
-                                        key = {el} 
-                                        value = {el}
-                                      >
-                                        {el[0].toUpperCase() + el.slice(1)}
-                                      </option>)
-            }
- 
+            {therapies.map((el) => (
+              <option key={el} value={el}>
+                {el[0].toUpperCase() + el.slice(1)}
+              </option>
+            ))}
           </select>
           <div className={style.img_block}>
             {images.map((el) => (

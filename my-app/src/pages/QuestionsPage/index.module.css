@@ -1,42 +1,42 @@
-.questions_page{
-    /* gap: 35px; */
-    overflow: scroll;
-    min-height: 75vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.questions_page {
+  overflow: scroll;
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .btn_block {
-    display: flex;
-    justify-content: space-between
+  display: flex;
+  justify-content: space-between;
 }
 
 .btn {
-    border: 1px solid var(--lila-border);
-    height: 40px;
+  border: 1px solid var(--lila-border);
+  height: 40px;
 }
 
 .btn:hover {
-    background-color: var(--lila-border);
-    color: white;
+  background-color: var(--lila-border);
+  color: white;
 }
 
 .arrows {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 15px;
-    align-items: center;
+  padding-left: 7px;
+  display: flex;
+  margin-bottom: 15px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .description {
-    margin: 0 0 20px;
-    font-size: 12px;
-    font-weight: 700;
-    text-align: justify;
+  margin: 0 0 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: justify;
 }
 
-.progress{
-    font-size: 15px;
-	color: darkgrey;
+.progress {
+  font-size: 15px;
+  color: darkgrey;
 }
