@@ -33,17 +33,17 @@ export default function ResultsPage() {
     };
     getStory();
   }, []);
-  console.log(stories)
+  console.log('from back', allAnswers)
   return (
     <div className={styles.results_page}>
-      {/* {allAnswers !== "" ? (
+      {allAnswers !== "" ? (
         <>
           <h4>Your health score: {allAnswers.healthScore.toFixed(2)}</h4>
           <h4>Your BMI: {allAnswers.bmi.toFixed(2)}</h4>
         </>
       ) : (
         ""
-      )} */}
+      )}
 
       <img src={Img} alt="bmi standards" />
 
@@ -55,23 +55,23 @@ export default function ResultsPage() {
             <div key={ind}>
               <p>{el.description}</p>
 				{
-					el.therapies && 
-					el.therapies.map((element, ind) => (
-						<div
-						  className={styles.tags}
-						  key={ind}
-						>
-						  <img
-							key={ind}
-							src={images[element.smiley].img}
-							alt={`Icon${element.smiley + 1}`}
-						  />
-						  <div className = {[styles.therapy_text, styles[`Icon${images[element.smiley].id + 1}`]].join(" ")}>
-							<p>{(element.name[0]).toUpperCase() + (element.name).slice(1)}</p>
-						  </div>
-						</div>
-					  ))
-				}
+				// 	el.therapies && 
+				// 	el.therapies.map((element, ind) => (
+				// 		<div
+				// 		  className={styles.tags}
+				// 		  key={ind}
+				// 		>
+				// 		  <img
+				// 			key={ind}
+				// 			src={images[element.smiley].img}
+				// 			alt={`Icon${element.smiley + 1}`}
+				// 		  />
+				// 		  <div className = {[styles.therapy_text, styles[`Icon${images[element.smiley].id + 1}`]].join(" ")}>
+				// 			<p>{(element.name[0]).toUpperCase() + (element.name).slice(1)}</p>
+				// 		  </div>
+				// 		</div>
+				// 	  ))
+				 }
 
 
               <form onSubmit={submit}>

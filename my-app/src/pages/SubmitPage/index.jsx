@@ -40,20 +40,18 @@ export default function SubmitPage() {
 
     const allAnswers = Object.assign(
       {}, {
-        story: 
-          { 
             age: data.age,
             description: data.story,
             bodyPart: body_part.toUpperCase(),
             bmiAnswers: { weight: data.weight, height: data.height } ,
             sf36Answers: answers 
-          },
-
-        therapies: selectedTherapyWithImage
-      }
+          }
     );
 
-    dispatch(sendAnswers("http://localhost:8080/story", allAnswers));
+    const therapies = selectedTherapyWithImage.map(el => el.name)
+    const smileys = selectedTherapyWithImage.map(el => el.smiley)
+    console.log('t ans s', therapies, smileys, selectedTherapyWithImage)
+    dispatch(sendAnswers("http://localhost:8080/story", allAnswers, therapies, smileys));
     console.log('all', allAnswers)
     navigate("/results");
     reset();
