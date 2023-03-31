@@ -24,7 +24,6 @@
 
 .arrows {
     display: flex;
-    justify-content: space-around;
     margin-bottom: 15px;
     align-items: center;
 }

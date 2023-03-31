@@ -1,17 +1,17 @@
-.question_item p{
+.question_item p {
     text-align: justify;
     margin-bottom: 20px;
 }
 
-.form{
+.form {
     border-color: transparent;
 }
 
-.radio{
+.radio {
     margin:  10px 20px;
 }
 
-.required{
+.required {
 	font-size: 12px;
 	color: darkgrey;
 }
