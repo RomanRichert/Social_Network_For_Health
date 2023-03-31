@@ -1,108 +1,105 @@
 .results_page {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 .results_page h4:nth-child(2) {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .results_page img {
-	width: 320px;
-	object-fit: cover;
-
+  width: 320px;
+  object-fit: cover;
 }
 
 .results_page p {
-	margin-top: 15px;
-	color: var(--lila-primary);
-	font-weight: 900;
+  margin-top: 15px;
+  color: var(--lila-primary);
+  font-weight: 900;
 }
 
 .treatments {
-	margin-top: 20px;
-	display: flex;
-	flex-direction: column;
-
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .treatments textarea {
-	border-radius: 5px;
-	border: 1px solid lightgray;
-	width: 320px;
-	outline: none;
-	height: 70px;
-	margin-top: 15px;
-	/* border-bottom: 1px solid var(--lila-border); */
-	resize: none;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  width: 320px;
+  outline: none;
+  height: 70px;
+  margin-top: 15px;
+  /* border-bottom: 1px solid var(--lila-border); */
+  resize: none;
 }
 
-.treatments p{
-	color: black;
-	font-weight: normal;
+.treatments p {
+  color: black;
+  font-weight: normal;
 }
 
 .message {
-	margin-top: 20px;
-	width: 300px;
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
+  margin-top: 20px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .actions_btns {
-	margin-top: 15px;
-	display: flex;
-	justify-content: space-between;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .actions_btns button {
-	width: 130px;
-	padding: 10px 10px;
-	border-radius: 5px;
-	border: 1px solid var(--lila-border);
-	background-color: #fff;
-	color: var(--lila-border);
-	cursor: pointer;
+  width: 130px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--lila-border);
+  background-color: #fff;
+  color: var(--lila-border);
+  cursor: pointer;
 }
 .actions_btns button:last-child {
-	margin-left: 10px;
-	background-image: linear-gradient(to right, var(--pink), var(--lila-border));
-	color: white;
+  margin-left: 10px;
+  background-image: linear-gradient(to right, var(--pink), var(--lila-border));
+  color: white;
 }
 
 .actions_btns button:hover {
-	transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .actions_btns div {
-	padding: 10px 10px;
-	border-radius: 5px;
-	border: 1px solid var(--lila-border);
-	background-color: #fff;
-	color: var(--lila-border);
-	cursor: pointer;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--lila-border);
+  background-color: #fff;
+  color: var(--lila-border);
+  cursor: pointer;
 }
 .actions_btns div:last-child {
-	background-image: linear-gradient(to right, var(--pink), var(--lila-border));
-	color: white;
+  background-image: linear-gradient(to right, var(--pink), var(--lila-border));
+  color: white;
 }
 
 .actions_btns div:hover {
-	transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .btn_back {
-	display: flex;
-	justify-content: start;
+  display: flex;
+  justify-content: start;
 }
 
 .back_button {
-    border: transparent; 
-    background-image: linear-gradient(to right, var(--pink), var(--lila-border));
-    color: white;
-    border-radius: 30px;
-	cursor: pointer;
-    margin: 30px 100px;
-	font-size: x-small;
-
+  border: transparent;
+  background-image: linear-gradient(to right, var(--pink), var(--lila-border));
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 30px 100px;
+  font-size: x-small;
 }

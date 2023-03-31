@@ -1,169 +1,167 @@
 .title_block {
-    margin-top: 50px;
-    display: flex;
-    justify-content: start;
-    gap: 50px;
-    padding-left: 30px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: start;
+  gap: 50px;
+  padding-left: 30px;
 }
 
 .submit_block p {
-    font-weight: bold;
-    margin-bottom: 5px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .submit_block {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .descr {
-    color: gray;
-    font-size: 10px;
-    font-weight: normal !important;
+  color: gray;
+  font-size: 10px;
+  font-weight: normal !important;
 }
 
 .submit_block input {
-    border-radius: 5px;
-    padding: 5px;
-    border: 1px solid var(--lila-border);
-    width: 90px;
-    height: 35px;
-    outline: none;
-
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid var(--lila-border);
+  width: 90px;
+  height: 35px;
+  outline: none;
 }
 
 .title {
-    margin: 15px 10px 0 10px;
-    font-weight: bold;
+  margin: 15px 10px 0 10px;
+  font-weight: bold;
 }
 
 .title2_block {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-left: 15px;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: 15px;
+  margin-bottom: 20px;
 }
 
 .title2_block select {
-    width: 100px;
-    height: 30px;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid var(--lila-border);
-    font-size: 11px;
+  width: 100px;
+  height: 30px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--lila-border);
+  font-size: 11px;
 }
 
 .img_block {
-    display: flex;
-    flex-direction: row;
-    width: 30px;
-    height: 30px;
+  display: flex;
+  flex-direction: row;
+  width: 30px;
+  height: 30px;
 }
 
-.img_block img{
-    cursor: pointer;
-    margin: 0 2px;
+.img_block img {
+  cursor: pointer;
+  margin: 0 2px;
 }
 
 .img_block img:disabled {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 .story_block {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 25px;
 }
 
-.story_block  p {
-    font-weight: bold;
-    margin-top: 15px;
+.story_block p {
+  font-weight: bold;
+  margin-top: 15px;
 }
 
 .story_block textarea {
-    padding: 15px;
-    height:150px ;
-    width: 320px;
-    border: 1px solid var(--lila-border);
-    border-radius: 5px;
-    resize: none;
-    outline: none;
+  padding: 15px;
+  height: 150px;
+  width: 320px;
+  border: 1px solid var(--lila-border);
+  border-radius: 5px;
+  resize: none;
+  outline: none;
 }
 
 .btn {
-    background-image: linear-gradient(to right, var(--pink), var(--lila-border));
-	color: white;
-    border-radius: 30px;
-    margin-left: 150px;
-    font-size: x-small;
+  background-image: linear-gradient(to right, var(--pink), var(--lila-border));
+  color: white;
+  border-radius: 10px;
+  margin-left: 150px;
+  font-size: x-small;
 }
 
-.error_message p{
-    color: red;
-    font-size: 8px;
-    text-align: end;
-    height: 10px;
+.error_message p {
+  color: red;
+  font-size: 8px;
+  text-align: end;
+  height: 10px;
 }
 
 .tagsBlock {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 10px;
 }
 
 .tags {
-    color: white;
-    text-align: center;
+  color: white;
+  text-align: center;
 
-    display: flex;
-
+  display: flex;
 }
 
 .tags img {
-    height: 25px;
+  height: 25px;
 }
 
 .therapy_text {
-    font-size: 10px;
-    font-weight: bold;
-    width: 100px;
-    height: 23px;
-    padding: 5px 10px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: -7%;
-    position: relative;
-    box-shadow: -1px 1px 1px white;
+  font-size: 10px;
+  font-weight: bold;
+  width: 100px;
+  height: 23px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -7%;
+  position: relative;
+  box-shadow: -1px 1px 1px white;
 }
 
 .close {
-    position: absolute;
-    top: 20%;
-    right: 10%;
-    cursor: pointer;
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  cursor: pointer;
 }
 
 .Icon1 {
-    background-color: #ef4949;
+  background-color: #ef4949;
 }
 
 .Icon2 {
-    background-color: #FFAA47;
+  background-color: #ffaa47;
 }
 
 .Icon3 {
-    background-color: #F7FF6B;
+  background-color: #f7ff6b;
 }
 
 .Icon4 {
-    background-color: #9DFB7E;
+  background-color: #9dfb7e;
 }
 
 .Icon5 {
-    background-color: #58E940;
+  background-color: #58e940;
 }

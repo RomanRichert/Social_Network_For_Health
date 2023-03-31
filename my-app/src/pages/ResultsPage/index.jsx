@@ -34,13 +34,16 @@ export default function ResultsPage() {
 
   return (
     <div className={styles.results_page}>
-      {allAnswers !== "" ? (
+      {!allAnswers ? (
         <>
-          <h4>Your health score: {allAnswers.healthScore.toFixed(2)}</h4>
-          <h4>Your BMI: {allAnswers.bmi.toFixed(2)}</h4>
+          <h4>
+            Your health score:{" "}
+            {!allAnswers && allAnswers.healthScore.toFixed(2)}
+          </h4>
+          <h4>Your BMI: {!allAnswers && allAnswers.bmi.toFixed(2)}</h4>
         </>
       ) : (
-        ""
+        "Error, You have not responded at all questions"
       )}
 
       <img src={Img} alt="bmi standards" />
@@ -48,7 +51,7 @@ export default function ResultsPage() {
       <p>Meet your treatment buddies:</p>
 
       <div className={styles.treatments}>
-        {stories &&
+        {!stories &&
           stories.slice(0, 2).map((e, ind) => (
             <div key={ind}>
               <p>{e.description}</p>

@@ -1,20 +1,19 @@
-.button_block  {
-    border: transparent; 
-    background-color: white; 
-    color: var(--lila-border);
-    border-radius: 30px;
-    height: 50px;
-    width: 80px;
-    cursor: pointer;
-    border-radius: 30px;
+.button_block {
+  border: transparent;
+  background-color: white;
+  color: var(--lila-border);
+  height: 40px;
+  width: 100px;
+  cursor: pointer;
+  border-radius: 10px;
 }
-  
+
 .button_block:hover {
-   transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .button_block:disabled {
-    background-color: white;
-    color: var(--lila-border);
-    cursor: not-allowed;
+  background-color: white;
+  color: var(--lila-border);
+  cursor: not-allowed;
 }

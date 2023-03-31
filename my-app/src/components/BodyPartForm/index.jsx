@@ -10,7 +10,7 @@ export default function BodyPartForm({ body_part, isDisabled, setIsDisabled }) {
   const navigate = useNavigate();
 
   const stored_body_part = useSelector((store) => store.bodyPart);
-console.log('body', stored_body_part)
+  console.log("body", stored_body_part);
   useEffect(() => {
     if (stored_body_part != "") {
       const btns = document.getElementsByClassName(styles.btn);
@@ -31,7 +31,7 @@ console.log('body', stored_body_part)
     const btns = document.getElementsByClassName(styles.btn);
     Array.from(btns).forEach((el) => el.classList.remove(styles.active));
     part.classList.add(styles.active);
-	setTimeout(() => navigate("/1"), 500)
+    setTimeout(() => navigate("/1"), 100);
   };
 
   return (
