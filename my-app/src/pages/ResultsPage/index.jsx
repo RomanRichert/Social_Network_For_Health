@@ -31,10 +31,10 @@ export default function ResultsPage() {
     };
     getStory();
   }, []);
-  console.log(!allAnswers.healthScore);
+  console.log(allAnswers.healthScore, allAnswers);
   return (
     <div className={styles.results_page}>
-      {!allAnswers && allAnswers.healthScore && allAnswers.bmi ? (
+      {allAnswers && allAnswers.healthScore && allAnswers.bmi ? (
         <>
           <h4>
             Your health score:{" "}
