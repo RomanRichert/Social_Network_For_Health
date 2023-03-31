@@ -9,8 +9,8 @@ export const sendAnswers = (url, body, therapies, smileys) => {
       method: "POST",
       dataType: "json",
       body: JSON.stringify(body),
-	  therapyNames: therapies,
-	  smileys: smileys
+	  therapyNames: JSON.stringify(therapies),
+	  smileys: JSON.stringify(smileys)
     })
       .then((res) => res.json())
       .then((json) => dispatch(getAllAnswersAction(json)))
