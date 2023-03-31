@@ -23,7 +23,6 @@ export default function QuestionItem({ id, question, answers }) {
     } else {
       setTimeout(() => navigate(`/${+id + 1}`), 500);
     }
-    console.log("log", event.currentTarget.name);
     dispatch(getAnswerAction((stateAnswers[id] = event.currentTarget.value)));
   };
 

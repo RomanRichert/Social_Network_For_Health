@@ -144,6 +144,7 @@ export default function SubmitPage() {
             <input type="number" name="age" {...ageRegister} />
             <div className={style.error_message}>
               {errors.age ? <p>{errors.age?.message}</p> : <p></p>}
+
             </div>
           </label>
         </div>
