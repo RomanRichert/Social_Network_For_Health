@@ -1,5 +1,5 @@
 import { getAllAnswersAction } from "../store/actions/getAllAnswersAction";
-export const sendAnswers = (url, body, therapies, smileys) => {
+export const sendAnswers = (url, body) => {
   return (dispatch) => {
     fetch(url, {
       headers: {
@@ -9,8 +9,6 @@ export const sendAnswers = (url, body, therapies, smileys) => {
       method: "POST",
       dataType: "json",
       body: JSON.stringify(body),
-	  therapyNames: JSON.stringify(therapies),
-	  smileys: JSON.stringify(smileys)
     })
       .then((res) => res.json())
       .then((json) => dispatch(getAllAnswersAction(json)))

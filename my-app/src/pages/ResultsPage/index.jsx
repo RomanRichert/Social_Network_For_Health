@@ -1,39 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getStory } from "../../requests/getStoryRequest";
-import styles from "./index.module.css";
-import Img from "./media/BMI.jpg";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { HeartOutlined } from "@ant-design/icons";
-import { images } from '../../data';
 import Button from "../../components/Button";
+import Img from "./media/BMI.jpg";
+import styles from "./index.module.css";
+import { HeartOutlined } from "@ant-design/icons";
 
 export default function ResultsPage() {
   const [text, setText] = useState([]);
-
+  const [stories, setStories] = useState([]);
   const allAnswers = useSelector((state) => state.allAnswers);
 
-  const submit = (event) => {
-    event.preventDefault();
-    const { message } = event.target;
-    if (message.value != "") {
-      setText([...text, message.value]);
-    }
-
-    message.value = "";
-  };
-
-  const [stories, setStories] = useState([]);
   useEffect(() => {
     const getStory = async () => {
       const response = await fetch("http://localhost:8080/story");
       const storiesResponse = await response.json();
       setStories(storiesResponse);
-
     };
     getStory();
   }, []);
-  console.log('from back', allAnswers)
+
+  const submit = (event) => {
+    event.preventDefault();
+    const { message } = event.target;
+    if (message.value !== "") {
+      setText([...text, message.value]);
+    }
+    message.value = "";
+  };
+
   return (
     <div className={styles.results_page}>
       {allAnswers && allAnswers.healthScore && allAnswers.bmi ? (
@@ -62,25 +57,24 @@ export default function ResultsPage() {
           stories.slice(0, 2).map((el, ind) => (
             <div key={ind}>
               <p>{el.description}</p>
-				{
-				// 	el.therapies && 
-				// 	el.therapies.map((element, ind) => (
-				// 		<div
-				// 		  className={styles.tags}
-				// 		  key={ind}
-				// 		>
-				// 		  <img
-				// 			key={ind}
-				// 			src={images[element.smiley].img}
-				// 			alt={`Icon${element.smiley + 1}`}
-				// 		  />
-				// 		  <div className = {[styles.therapy_text, styles[`Icon${images[element.smiley].id + 1}`]].join(" ")}>
-				// 			<p>{(element.name[0]).toUpperCase() + (element.name).slice(1)}</p>
-				// 		  </div>
-				// 		</div>
-				// 	  ))
-				 }
-
+              {
+                // 	el.therapies &&
+                // 	el.therapies.map((element, ind) => (
+                // 		<div
+                // 		  className={styles.tags}
+                // 		  key={ind}
+                // 		>
+                // 		  <img
+                // 			key={ind}
+                // 			src={images[element.smiley].img}
+                // 			alt={`Icon${element.smiley + 1}`}
+                // 		  />
+                // 		  <div className = {[styles.therapy_text, styles[`Icon${images[element.smiley].id + 1}`]].join(" ")}>
+                // 			<p>{(element.name[0]).toUpperCase() + (element.name).slice(1)}</p>
+                // 		  </div>
+                // 		</div>
+                // 	  ))
+              }
 
               <form onSubmit={submit}>
                 <textarea
@@ -95,7 +89,7 @@ export default function ResultsPage() {
                     <div key={index}>
                       <p key={index}>
                         {el}&nbsp;&nbsp;
-                        <HeartOutlined />{" "}
+                        <HeartOutlined />
                       </p>
                     </div>
                   ))}

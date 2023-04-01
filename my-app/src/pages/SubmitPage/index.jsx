@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sendAnswers } from "../../requests/sendAnswersRequest";
 import { getStoryAction } from "../../store/actions/getStoryAction";
-import { images } from '../../data';
+import { images } from "../../data";
 import Button from "../../components/Button";
 
 export default function SubmitPage() {
@@ -26,8 +26,6 @@ export default function SubmitPage() {
     },
   });
 
-
-
   const therapies = ["running", "yoga", "drugs", "swimming"];
 
   const body_part = useSelector((state) => state.bodyPart);
@@ -38,21 +36,27 @@ export default function SubmitPage() {
     data.weight = +data.weight;
     data.age = +data.age;
 
+    const therapies = selectedTherapyWithImage.map((el) => el.name);
+    const smileys = selectedTherapyWithImage.map((el) => el.smiley);
+
     const allAnswers = Object.assign(
-      {}, {
-            age: data.age,
-            description: data.story,
-            bodyPart: body_part.toUpperCase(),
-            bmiAnswers: { weight: data.weight, height: data.height } ,
-            sf36Answers: answers 
-          }
+      {},
+      {
+        age: data.age,
+        description: data.story,
+        bodyPart: body_part.toUpperCase(),
+        therapyNames: therapies,
+        smileys: smileys,
+        bmiAnswers: { weight: data.weight, height: data.height },
+        sf36Answers: answers,
+      }
     );
 
-    const therapies = selectedTherapyWithImage.map(el => el.name)
-    const smileys = selectedTherapyWithImage.map(el => el.smiley)
-    console.log('t ans s', therapies, smileys, selectedTherapyWithImage)
-    dispatch(sendAnswers("http://localhost:8080/story", allAnswers, therapies, smileys));
-    console.log('all', allAnswers)
+    console.log("t ans s", therapies, smileys, selectedTherapyWithImage);
+    dispatch(
+      sendAnswers("http://localhost:8080/story", allAnswers, therapies, smileys)
+    );
+    console.log("all", allAnswers);
     navigate("/results");
     reset();
   };
@@ -87,20 +91,24 @@ export default function SubmitPage() {
   const [selectedTherapyWithImage, setSelectedTherapyWithImage] = useState([]);
   const [selectedTherapy, setSelectedTherapy] = useState("");
 
-  const onSelect = (event) => setSelectedTherapy(event.target.options[event.target.selectedIndex].value)
-  
+  const onSelect = (event) =>
+    setSelectedTherapy(event.target.options[event.target.selectedIndex].value);
+
   const allAnswers = useSelector((state) => state.allAnswers);
 
   const selectImage = (event) => {
-    if (selectedTherapy != '') {
-      const newTherapy = {name: selectedTherapy, smiley: +event.target.alt - 1}
-      if (!selectedTherapyWithImage.some(el => el.name === selectedTherapy)) {
-        selectedTherapyWithImage.push(newTherapy)
-        setSelectedTherapyWithImage([...selectedTherapyWithImage])
+    if (selectedTherapy != "") {
+      const newTherapy = {
+        name: selectedTherapy,
+        smiley: +event.target.alt - 1,
+      };
+      if (!selectedTherapyWithImage.some((el) => el.name === selectedTherapy)) {
+        selectedTherapyWithImage.push(newTherapy);
+        setSelectedTherapyWithImage([...selectedTherapyWithImage]);
         // console.log(selectedTherapyWithImage)
       }
 
-      setSelectedTherapy('')
+      setSelectedTherapy("");
     }
   };
 
@@ -140,7 +148,6 @@ export default function SubmitPage() {
             <input type="number" name="age" {...ageRegister} />
             <div className={style.error_message}>
               {errors.age ? <p>{errors.age?.message}</p> : <p></p>}
-
             </div>
           </label>
         </div>
