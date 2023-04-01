@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import style from "./index.module.css";
-import Icon1 from "./media/anguished_icon.svg";
-import Icon2 from "./media/unamused_icon.svg";
-import Icon3 from "./media/neutral_icon.svg";
-import Icon4 from "./media/smilling_icon.svg";
-import Icon5 from "./media/beaming_icon.svg";
 
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sendAnswers } from "../../requests/sendAnswersRequest";
 import { getStoryAction } from "../../store/actions/getStoryAction";
+import { images } from '../../data';
 import Button from "../../components/Button";
 
 export default function SubmitPage() {
@@ -30,13 +26,7 @@ export default function SubmitPage() {
     },
   });
 
-  const images = [
-    { id: 0, img: Icon1 },
-    { id: 1, img: Icon2 },
-    { id: 2, img: Icon3 },
-    { id: 3, img: Icon4 },
-    { id: 4, img: Icon5 },
-  ];
+
 
   const therapies = ["running", "yoga", "drugs", "swimming"];
 
@@ -47,18 +37,22 @@ export default function SubmitPage() {
     data.height = data.height / 100;
     data.weight = +data.weight;
     data.age = +data.age;
-    console.log(data);
+
     const allAnswers = Object.assign(
-      {},
-      { age: data.age },
-      { description: data.story },
-      { bodyPart: body_part.toUpperCase() },
-      { bmiAnswers: { weight: data.weight, height: data.height } },
-      { sf36Answers: answers }
+      {}, {
+            age: data.age,
+            description: data.story,
+            bodyPart: body_part.toUpperCase(),
+            bmiAnswers: { weight: data.weight, height: data.height } ,
+            sf36Answers: answers 
+          }
     );
 
-    dispatch(sendAnswers("http://localhost:8080/story", allAnswers));
-    // dispatch(getStoryAction);
+    const therapies = selectedTherapyWithImage.map(el => el.name)
+    const smileys = selectedTherapyWithImage.map(el => el.smiley)
+    console.log('t ans s', therapies, smileys, selectedTherapyWithImage)
+    dispatch(sendAnswers("http://localhost:8080/story", allAnswers, therapies, smileys));
+    console.log('all', allAnswers)
     navigate("/results");
     reset();
   };
@@ -93,18 +87,20 @@ export default function SubmitPage() {
   const [selectedTherapyWithImage, setSelectedTherapyWithImage] = useState([]);
   const [selectedTherapy, setSelectedTherapy] = useState("");
 
-  const onSelect = (event) =>
-    setSelectedTherapy(event.target.options[event.target.selectedIndex].value);
+  const onSelect = (event) => setSelectedTherapy(event.target.options[event.target.selectedIndex].value)
+  
+  const allAnswers = useSelector((state) => state.allAnswers);
 
   const selectImage = (event) => {
-    if (selectedTherapy != "") {
-      const newTherapy = {
-        name: selectedTherapy,
-        smiley: event.target.alt - 1,
-      };
-      selectedTherapyWithImage.push(newTherapy);
-      setSelectedTherapyWithImage([...selectedTherapyWithImage]);
-      setSelectedTherapy("");
+    if (selectedTherapy != '') {
+      const newTherapy = {name: selectedTherapy, smiley: +event.target.alt - 1}
+      if (!selectedTherapyWithImage.some(el => el.name === selectedTherapy)) {
+        selectedTherapyWithImage.push(newTherapy)
+        setSelectedTherapyWithImage([...selectedTherapyWithImage])
+        // console.log(selectedTherapyWithImage)
+      }
+
+      setSelectedTherapy('')
     }
   };
 
