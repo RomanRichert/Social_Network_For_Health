@@ -56,7 +56,7 @@ export default function ResultsPage() {
       <p>Meet your treatment buddies:</p>
 
       <div className={styles.treatments}>
-        {!stories &&
+        {stories &&
           stories.slice(0, 2).map((e, ind) => (
             <div key={ind}>
               <p>{e.description}</p>
