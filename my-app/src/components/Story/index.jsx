@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { HeartOutlined } from "@ant-design/icons";
+import { images } from '../../data';
+
 import styles from "./index.module.css";
 
-export default function Story({ description, message }) {
+export default function Story({ description, therapies, comments }) {
   const [text, setText] = useState([]);
 
   const submit = (event) => {
@@ -17,6 +19,30 @@ export default function Story({ description, message }) {
   return (
     <div>
       <p>{description}</p>
+      {
+        therapies.map(el => (
+          <div className={styles.tags} key={el}>
+
+            {/* смайлы еще не реализованы */}
+            {/* <img
+              src={images[el.smiley].img}
+              alt={`Icon${el.smiley + 1}`}
+            /> */}
+            {/* <div
+              className={[
+                styles.therapy_text,
+                styles[`Icon${images[el.smiley].id + 1}`],
+              ].join(" ")}
+            > */}
+              <p>{el[0].toUpperCase() + el.slice(1)}</p>
+
+            
+            {/* </div> */}
+          </div>
+        ))
+      }
+
+
       <form onSubmit={submit}>
         <textarea
           name="message"

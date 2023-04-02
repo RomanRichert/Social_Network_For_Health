@@ -19,7 +19,7 @@ export default function ResultsPage() {
     };
     getStory();
   }, []);
-console.log('st', stories)
+
   return (
     <div className={styles.results_page}>
       {allAnswers && allAnswers.healthScore && allAnswers.bmi ? (

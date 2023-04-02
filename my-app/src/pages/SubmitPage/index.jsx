@@ -36,8 +36,8 @@ export default function SubmitPage() {
     data.weight = +data.weight;
     data.age = +data.age;
 
-    const therapies = selectedTherapyWithImage.map((el) => el.name);
-    const smileys = selectedTherapyWithImage.map((el) => el.smiley);
+    let therapies = {}
+    selectedTherapyWithImage.map(el => therapies[el.name] = el.smiley)
 
     const allAnswers = Object.assign(
       {},
@@ -45,18 +45,16 @@ export default function SubmitPage() {
         age: data.age,
         description: data.story,
         bodyPart: body_part.toUpperCase(),
-        therapyNames: therapies,
-        smileys: smileys,
         bmiAnswers: { weight: data.weight, height: data.height },
         sf36Answers: answers,
+        therapies: therapies 
       }
     );
 
-    console.log("t ans s", therapies, smileys, selectedTherapyWithImage);
     dispatch(
-      sendAnswers("http://localhost:8080/story", allAnswers, therapies, smileys)
+      sendAnswers("http://localhost:8080/story", allAnswers)
     );
-    console.log("all", allAnswers);
+
     navigate("/results");
     reset();
   };
@@ -90,26 +88,28 @@ export default function SubmitPage() {
 
   const [selectedTherapyWithImage, setSelectedTherapyWithImage] = useState([]);
   const [selectedTherapy, setSelectedTherapy] = useState("");
-
-  const onSelect = (event) =>
+  
+  const onSelect = (event) => {
     setSelectedTherapy(event.target.options[event.target.selectedIndex].value);
+  }
 
   const allAnswers = useSelector((state) => state.allAnswers);
 
   const selectImage = (event) => {
-    if (selectedTherapy != "") {
+    if (selectedTherapy !== "") {
       const newTherapy = {
         name: selectedTherapy,
         smiley: +event.target.alt - 1,
       };
+
+      console.log('new therapy', selectedTherapy, newTherapy)
       if (!selectedTherapyWithImage.some((el) => el.name === selectedTherapy)) {
-        selectedTherapyWithImage.push(newTherapy);
-        setSelectedTherapyWithImage([...selectedTherapyWithImage]);
-        // console.log(selectedTherapyWithImage)
+         selectedTherapyWithImage.push(newTherapy);
+         setSelectedTherapyWithImage([...selectedTherapyWithImage]);
       }
 
       setSelectedTherapy("");
-    }
+     }
   };
 
   return (
@@ -157,10 +157,8 @@ export default function SubmitPage() {
           {selectedTherapyWithImage.map((el, ind) => (
             <div className={style.tags} key={ind}>
               <img
-                key={ind}
                 src={images[el.smiley].img}
                 alt={`Icon${el.smiley + 1}`}
-                onClick={selectImage}
               />
               <div
                 className={[
