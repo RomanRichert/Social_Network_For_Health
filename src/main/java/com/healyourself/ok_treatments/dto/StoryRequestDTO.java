@@ -1,5 +1,6 @@
 package com.healyourself.ok_treatments.dto;
 
+import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.Value;
@@ -20,4 +21,7 @@ public class StoryRequestDTO {
     Map<String, Double> bmiAnswers;
 
     Map<Integer, Integer> sf36Answers;
+
+    @Nullable
+    Map<String, Integer> therapies;
 }

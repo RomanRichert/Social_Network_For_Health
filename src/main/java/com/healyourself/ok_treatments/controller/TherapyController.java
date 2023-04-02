@@ -56,7 +56,7 @@ public class TherapyController {
             @Content(mediaType = "application/json",
                     array = @ArraySchema(schema = @Schema(implementation = TherapyDTO.class)))
     })
-    @Operation(summary = "Request for all stories", description = "Getting all therapies")
+    @Operation(summary = "Request for all therapies", description = "Getting all therapies")
     public List<String> getAllTherapies() {
         return therapyService.getAllTherapies();
     }

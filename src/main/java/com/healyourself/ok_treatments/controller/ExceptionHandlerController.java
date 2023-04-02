@@ -64,16 +64,6 @@ public class ExceptionHandlerController {
         return buildErrorResponseDTO(ex, BAD_REQUEST);
     }
 
-    @ResponseStatus(NOT_ACCEPTABLE)
-    @ExceptionHandler(NullPointerException.class)
-    @ApiResponse(responseCode = "406", description = "Wrong type of transaction entered", content = {
-            @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = ErrorResponseDTO.class))
-    })
-    public ErrorResponseDTO handleInvalidTransactionTypeException(NullPointerException ex) {
-        return buildErrorResponseDTO(ex, NOT_ACCEPTABLE);
-    }
-
     private ErrorResponseDTO buildErrorResponseDTO(Exception ex, HttpStatus status) {
         return ErrorResponseDTO.builder()
                 .status(status)

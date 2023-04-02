@@ -21,8 +21,8 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-import static util.DTOCreator.THERAPY_DTO;
-import static util.EntityCreator.*;
+import static com.healyourself.ok_treatments.util.DTOCreator.THERAPY_DTO;
+import static com.healyourself.ok_treatments.util.EntityCreator.*;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Test class for TherapyServiceImpl")

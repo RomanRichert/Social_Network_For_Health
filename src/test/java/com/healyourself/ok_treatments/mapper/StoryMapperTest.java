@@ -11,9 +11,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static util.DTOCreator.STORY_REQUEST_DTO;
-import static util.DTOCreator.STORY_RESPONSE_DTO;
-import static util.EntityCreator.STORY;
+import static com.healyourself.ok_treatments.util.DTOCreator.STORY_REQUEST_DTO;
+import static com.healyourself.ok_treatments.util.DTOCreator.STORY_RESPONSE_DTO;
+import static com.healyourself.ok_treatments.util.EntityCreator.STORY;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Test class for StoryMapper")

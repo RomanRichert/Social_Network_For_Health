@@ -10,7 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
-import static jakarta.persistence.CascadeType.ALL;
+import static jakarta.persistence.CascadeType.*;
+import static jakarta.persistence.CascadeType.REFRESH;
 import static jakarta.persistence.FetchType.LAZY;
 
 @Getter
@@ -51,7 +52,7 @@ public class Story {
     @ToString.Exclude
     private Set<Parameter> params = new LinkedHashSet<>(2);
 
-    @ManyToMany(cascade = ALL, fetch = LAZY)
+    @OneToMany(cascade = {MERGE, PERSIST, REFRESH}, fetch = LAZY)
     @ToString.Exclude
     private List<Therapy> therapies = new ArrayList<>();
 
@@ -59,7 +60,7 @@ public class Story {
     @ToString.Exclude
     private List<Comment> comments = new ArrayList<>();
 
-    @OneToMany(cascade = ALL, mappedBy = "story", fetch = LAZY)
+    @OneToMany(cascade = {MERGE, PERSIST, REFRESH}, mappedBy = "story", fetch = LAZY)
     @ToString.Exclude
     private List<Vote> votes = new ArrayList<>();
 

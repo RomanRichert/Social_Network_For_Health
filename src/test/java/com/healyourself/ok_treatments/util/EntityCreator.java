@@ -1,4 +1,4 @@
-package util;
+package com.healyourself.ok_treatments.util;
 
 import com.healyourself.ok_treatments.entity.Parameter;
 import com.healyourself.ok_treatments.entity.Story;

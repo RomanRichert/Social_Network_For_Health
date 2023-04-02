@@ -9,9 +9,9 @@ import java.util.UUID;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static util.DTOCreator.THERAPY_DTO;
-import static util.EntityCreator.ID;
-import static util.EntityCreator.THERAPY;
+import static com.healyourself.ok_treatments.util.DTOCreator.THERAPY_DTO;
+import static com.healyourself.ok_treatments.util.EntityCreator.ID;
+import static com.healyourself.ok_treatments.util.EntityCreator.THERAPY;
 
 @DisplayName("Test class for TherapyMapper")
 class TherapyMapperTest {

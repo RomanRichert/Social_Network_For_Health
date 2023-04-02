@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Objects;
 import java.util.UUID;
 
+import static jakarta.persistence.CascadeType.*;
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
@@ -32,7 +33,7 @@ public class Comment {
     @Column(name = "text")
     private String text;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(cascade = {MERGE, PERSIST, REFRESH}, fetch = LAZY)
     @JoinColumn(name = "story_id", referencedColumnName = "id")
     private Story story;
 

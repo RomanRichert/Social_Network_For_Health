@@ -3,10 +3,7 @@ package com.healyourself.ok_treatments.service.implementation;
 import com.healyourself.ok_treatments.converter.JSONConverter;
 import com.healyourself.ok_treatments.dto.StoryRequestDTO;
 import com.healyourself.ok_treatments.dto.StoryResponseDTO;
-import com.healyourself.ok_treatments.entity.Comment;
-import com.healyourself.ok_treatments.entity.Parameter;
-import com.healyourself.ok_treatments.entity.Story;
-import com.healyourself.ok_treatments.entity.Vote;
+import com.healyourself.ok_treatments.entity.*;
 import com.healyourself.ok_treatments.enums.BodyPart;
 import com.healyourself.ok_treatments.enums.VoteType;
 import com.healyourself.ok_treatments.exception.StoryNotFoundException;
@@ -58,6 +55,11 @@ public class StoryServiceImpl implements StoryService {
                 SF36,
                 story
         ));
+
+        if (storyRequestDTO.getTherapies() != null && !storyRequestDTO.getTherapies().isEmpty()) {
+
+            storyRequestDTO.getTherapies().forEach((therapyName, value) -> story.addTherapy(new Therapy(therapyName, null, value, story)));
+        }
 
         return storyMapper.toDTO(storyRepository.save(story));
     }

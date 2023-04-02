@@ -13,6 +13,8 @@ public interface TherapyMapper {
 
     TherapyDTO toDto(Therapy therapy);
 
+    List<TherapyDTO> therapiesToDTOs(List<Therapy> therapies);
+
     List<String> getNamesFromTherapies(List<Therapy> therapy);
 
     static String toString(Therapy therapy) {

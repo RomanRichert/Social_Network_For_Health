@@ -1,4 +1,4 @@
-package util;
+package com.healyourself.ok_treatments.util;
 
 import com.healyourself.ok_treatments.dto.StoryRequestDTO;
 import com.healyourself.ok_treatments.dto.StoryResponseDTO;
@@ -7,8 +7,8 @@ import com.healyourself.ok_treatments.dto.TherapyDTO;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static util.EntityCreator.STORY;
-import static util.EntityCreator.THERAPY;
+import static com.healyourself.ok_treatments.util.EntityCreator.STORY;
+import static com.healyourself.ok_treatments.util.EntityCreator.THERAPY;
 
 public class DTOCreator {
 
@@ -74,7 +74,8 @@ public class DTOCreator {
             STORY.getDescription(),
             STORY.getBodyPart().name(),
             BMI,
-            SF36
+            SF36,
+            Map.of("run", 4)
     );
 
     public final static TherapyDTO THERAPY_DTO = new TherapyDTO(

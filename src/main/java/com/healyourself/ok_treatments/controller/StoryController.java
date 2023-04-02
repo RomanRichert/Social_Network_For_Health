@@ -9,7 +9,6 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -35,8 +34,8 @@ public class StoryController {
             @Content(mediaType = "application/json",
                     schema = @Schema(implementation = StoryResponseDTO.class))
     })
-    @Operation(summary = "Creating a new story", description = "Requires JSON with description, bodyPart, smiley, bmiAnswers and answers to the sf36-questions to create a story. Returns the created story.")
-    public StoryResponseDTO createStory(@RequestBody @Valid StoryRequestDTO story) {
+    @Operation(summary = "Creating a new story", description = "Requires JSON-object with description, bodyPart, bmiAnswers (Map), answers to the sf36-questions (Map) and the name of the therapy and smiley-value (Map) to create a story. Returns the created story.")
+    public StoryResponseDTO createStory(@RequestBody StoryRequestDTO story) {
         return storyService.createStory(story);
     }
 

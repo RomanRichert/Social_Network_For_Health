@@ -4,6 +4,8 @@ import com.healyourself.ok_treatments.converter.JSONConverter;
 import com.healyourself.ok_treatments.entity.Story;
 import com.healyourself.ok_treatments.mapper.StoryMapper;
 import com.healyourself.ok_treatments.mapper.StoryMapperImpl;
+import com.healyourself.ok_treatments.mapper.TherapyMapper;
+import com.healyourself.ok_treatments.mapper.TherapyMapperImpl;
 import com.healyourself.ok_treatments.repository.StoryRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,14 +19,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import static com.healyourself.ok_treatments.util.DTOCreator.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static util.DTOCreator.STORY_REQUEST_DTO;
-import static util.DTOCreator.STORY_RESPONSE_DTO;
-import static util.EntityCreator.ID;
-import static util.EntityCreator.STORY;
+import static com.healyourself.ok_treatments.util.EntityCreator.ID;
+import static com.healyourself.ok_treatments.util.EntityCreator.STORY;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Test class for StoryServiceImpl")
@@ -35,6 +36,9 @@ class StoryServiceImplTest {
 
     @Mock
     private StoryMapper storyMapper = new StoryMapperImpl();
+
+    @Spy
+    private TherapyMapper therapyMapper = new TherapyMapperImpl();
 
     @Spy
     private JSONConverter converter;
