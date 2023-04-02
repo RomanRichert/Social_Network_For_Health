@@ -7,6 +7,10 @@
   margin-top: 10px;
 }
 
+.pagination li {
+  cursor: pointer;
+}
+
 .page_item {
   margin: 5px;
   padding: 2px 5px;
