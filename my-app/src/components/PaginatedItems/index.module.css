@@ -1,0 +1,17 @@
+.pagination {
+  width: 100%;
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.page_item {
+  margin: 5px;
+  padding: 2px 5px;
+}
+
+.active {
+  color: var(--lila-border);
+}

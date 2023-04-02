@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button";
-import Story from "../../components/Story";
 import Img from "./media/BMI.jpg";
+import PaginatedItems from '../../components/PaginatedItems';
+
 import styles from "./index.module.css";
-import { HeartOutlined } from "@ant-design/icons";
 
 export default function ResultsPage() {
-  const [text, setText] = useState([]);
   const [stories, setStories] = useState([]);
   const allAnswers = useSelector((state) => state.allAnswers);
 
@@ -20,7 +19,7 @@ export default function ResultsPage() {
     };
     getStory();
   }, []);
-
+console.log('st', stories)
   return (
     <div className={styles.results_page}>
       {allAnswers && allAnswers.healthScore && allAnswers.bmi ? (
@@ -45,9 +44,13 @@ export default function ResultsPage() {
       <p>Meet your treatment buddies:</p>
 
       <div className={styles.treatments}>
-        {stories &&
-          stories.slice(0, 2).map((el) => <Story key={el.id} {...el} />)}
-      </div>
+        {
+          stories.length > 0 
+          ? 
+            <PaginatedItems itemsPerPage = {3} items = {stories}/> 
+          : ''
+        }
+      </div> 
 
       <div className={styles.btn_back}>
         <Link to="/">
