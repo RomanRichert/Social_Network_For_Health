@@ -53,3 +53,49 @@
   margin: 30px 100px;
   font-size: x-small;
 }
+
+.Icon1 {
+  background-color: #ef4949;
+}
+
+.Icon2 {
+  background-color: #ffaa47;
+}
+
+.Icon3 {
+  background-color: #f7ff6b;
+}
+
+.Icon4 {
+  background-color: #9dfb7e;
+}
+
+.Icon5 {
+  background-color: #58e940;
+}
+
+.tags {
+  color: white;
+  text-align: center;
+
+  display: flex;
+}
+
+.tags img {
+  height: 25px;
+}
+
+.therapy_text {
+  font-size: 10px;
+  font-weight: bold;
+  width: 100px;
+  height: 23px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -7%;
+  position: relative;
+  box-shadow: -1px 1px 1px white;
+}

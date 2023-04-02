@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getStory } from "../../requests/getStoryRequest";
-import styles from "./index.module.css";
-import Img from "./media/BMI.jpg";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button";
 import Story from "../../components/Story";
+import Img from "./media/BMI.jpg";
+import styles from "./index.module.css";
+import { HeartOutlined } from "@ant-design/icons";
 
 export default function ResultsPage() {
+  const [text, setText] = useState([]);
+  const [stories, setStories] = useState([]);
   const allAnswers = useSelector((state) => state.allAnswers);
 
-  const [stories, setStories] = useState([]);
   useEffect(() => {
     const getStory = async () => {
       const response = await fetch("http://localhost:8080/story");
@@ -19,8 +20,6 @@ export default function ResultsPage() {
     };
     getStory();
   }, []);
-
-  console.log(allAnswers.healthScore, allAnswers);
 
   return (
     <div className={styles.results_page}>
