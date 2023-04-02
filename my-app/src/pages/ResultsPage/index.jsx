@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button";
+import Story from "../../components/Story";
 import Img from "./media/BMI.jpg";
 import styles from "./index.module.css";
 import { HeartOutlined } from "@ant-design/icons";
@@ -19,15 +20,6 @@ export default function ResultsPage() {
     };
     getStory();
   }, []);
-
-  const submit = (event) => {
-    event.preventDefault();
-    const { message } = event.target;
-    if (message.value !== "") {
-      setText([...text, message.value]);
-    }
-    message.value = "";
-  };
 
   return (
     <div className={styles.results_page}>
@@ -54,53 +46,7 @@ export default function ResultsPage() {
 
       <div className={styles.treatments}>
         {stories &&
-          stories.slice(0, 2).map((el, ind) => (
-            <div key={ind}>
-              <p>{el.description}</p>
-              {
-                // 	el.therapies &&
-                // 	el.therapies.map((element, ind) => (
-                // 		<div
-                // 		  className={styles.tags}
-                // 		  key={ind}
-                // 		>
-                // 		  <img
-                // 			key={ind}
-                // 			src={images[element.smiley].img}
-                // 			alt={`Icon${element.smiley + 1}`}
-                // 		  />
-                // 		  <div className = {[styles.therapy_text, styles[`Icon${images[element.smiley].id + 1}`]].join(" ")}>
-                // 			<p>{(element.name[0]).toUpperCase() + (element.name).slice(1)}</p>
-                // 		  </div>
-                // 		</div>
-                // 	  ))
-              }
-
-              <form onSubmit={submit}>
-                <textarea
-                  name="message"
-                  cols="30"
-                  rows="10"
-                  maxLength="250"
-                  placeholder="*The commentary must contain no more than 250 characters"
-                ></textarea>
-                <div className={styles.message}>
-                  {text.map((el, index) => (
-                    <div key={index}>
-                      <p key={index}>
-                        {el}&nbsp;&nbsp;
-                        <HeartOutlined />
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                <div className={styles.actions_btns}>
-                  <button>Comment</button>
-                  <div>I feel sorry for you</div>
-                </div>
-              </form>
-            </div>
-          ))}
+          stories.slice(0, 2).map((el) => <Story key={el.id} {...el} />)}
       </div>
 
       <div className={styles.btn_back}>
