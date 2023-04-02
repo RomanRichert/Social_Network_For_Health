@@ -97,7 +97,7 @@ export default function QuestionItem({ id, question, answers }) {
                 value={answer.id}
                 onClick={handleOptionChange}
               />
-              {answer.answer}
+                {answer.answer}
             </label>
           </fieldset>
         ))}
