@@ -1,45 +1,46 @@
 import React, { useState } from "react";
 import { HeartOutlined } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
+import { sendComment } from "../../requests/sendComment";
 import styles from "./index.module.css";
 
-export default function Story({ description, message }) {
-  const [text, setText] = useState([]);
+export default function Story({ id, description, therapies, comments }) {
+  const [text, setText] = useState("");
+  const [comment, setComment] = useState("");
+  const dispatch = useDispatch();
 
-  const submit = (event) => {
-    event.preventDefault();
-    const { message } = event.target;
-    if (message.value != "") {
-      setText([...text, message.value]);
-    }
-    message.value = "";
+  const submit = () => {
+    setComment(text);
+    dispatch(sendComment(id, text));
   };
 
   return (
     <div>
       <p>{description}</p>
-      <form onSubmit={submit}>
+      <div>
         <textarea
-          name="message"
+          onChange={(event) => setText(event.target.value)}
+          name="comment"
           cols="30"
           rows="10"
           maxLength="250"
           placeholder="*The commentary must contain no more than 250 characters"
         ></textarea>
         <div className={styles.message}>
-          {text.map((el, index) => (
-            <div key={index}>
-              <p key={index}>
-                {el}&nbsp;&nbsp;
-                <HeartOutlined />{" "}
-              </p>
-            </div>
-          ))}
+          {/* {text.map((el, index) => ( */}
+          <div>
+            <p>
+              {comment}&nbsp;&nbsp;
+              <HeartOutlined />
+            </p>
+          </div>
+          {/* ))} */}
         </div>
         <div className={styles.actions_btns}>
-          <button>Comment</button>
+          <button onClick={submit}>Comment</button>
           <div>I feel sorry for you</div>
         </div>
-      </form>
+      </div>
     </div>
   );
 }
