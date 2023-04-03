@@ -39,9 +39,9 @@ export default function ResultsPage() {
         "Error, You have not responded at all questions"
       )}
 
-      <img src={Img} alt="bmi standards" />
+      <img className = {styles.bmi_img} src={Img} alt="bmi standards" />
 
-      <p>Meet your treatment buddies:</p>
+      <p className = {styles.title}>Meet your treatment buddies:</p>
 
       <div className={styles.treatments}>
         {
