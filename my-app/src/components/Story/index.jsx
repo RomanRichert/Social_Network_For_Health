@@ -5,7 +5,8 @@ import { images } from '../../data';
 import styles from "./index.module.css";
 
 export default function Story({ description, therapies, comments }) {
-  const [text, setText] = useState([]);
+  const [text, setText] = useState('');
+  const [comment, setComment] = useState('');
 
   const submit = (event) => {
     event.preventDefault();
@@ -17,31 +18,28 @@ export default function Story({ description, therapies, comments }) {
   };
 
   return (
-    <div>
+    <div className = {styles.story}>
       <p>{description}</p>
-      {
-        therapies.map(el => (
-          <div className={styles.tags} key={el}>
-
-            {/* смайлы еще не реализованы */}
-            {/* <img
-              src={images[el.smiley].img}
-              alt={`Icon${el.smiley + 1}`}
-            /> */}
-            {/* <div
-              className={[
-                styles.therapy_text,
-                styles[`Icon${images[el.smiley].id + 1}`],
-              ].join(" ")}
-            > */}
-              <p>{el[0].toUpperCase() + el.slice(1)}</p>
-
-            
-            {/* </div> */}
-          </div>
+      <div className={styles.tagsBlock}>
+        {
+          therapies.map(el => (
+            <div className={styles.tags} key={el.name}>
+              <img
+                src={images[el.smiley].img}
+                alt={`Icon${el.smiley + 1}`}
+              />
+              <div
+                className={[
+                  styles.therapy_text,
+                  styles[`Icon${images[el.smiley].id + 1}`]
+                ].join(" ")}
+              >
+                <p>{(el.name)[0].toUpperCase() + (el.name).slice(1)}</p>
+              </div>
+            </div>
         ))
-      }
-
+        }
+      </div>
 
       <form onSubmit={submit}>
         <textarea
@@ -52,14 +50,12 @@ export default function Story({ description, therapies, comments }) {
           placeholder="*The commentary must contain no more than 250 characters"
         ></textarea>
         <div className={styles.message}>
-          {text.map((el, index) => (
-            <div key={index}>
-              <p key={index}>
-                {el}&nbsp;&nbsp;
-                <HeartOutlined />{" "}
+            <div>
+              <p>
+                {text}&nbsp;&nbsp;
+                <HeartOutlined />
               </p>
             </div>
-          ))}
         </div>
         <div className={styles.actions_btns}>
           <button>Comment</button>
