@@ -19,7 +19,7 @@ export default function ResultsPage() {
     };
     getStory();
   }, []);
-console.log('st', stories)
+
   return (
     <div className={styles.results_page}>
       {allAnswers && allAnswers.healthScore && allAnswers.bmi ? (
@@ -47,7 +47,7 @@ console.log('st', stories)
         {
           stories.length > 0 
           ? 
-            <PaginatedItems itemsPerPage = {3} items = {stories}/> 
+            <PaginatedItems itemsPerPage = {2} items = {stories}/> 
           : ''
         }
       </div> 
