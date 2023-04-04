@@ -63,37 +63,38 @@
 }
 
 .Icon1 {
-    background-color: #ef4949;
-  }
+    background-color: var(--red-smile);
+}
   
-  .Icon2 {
-    background-color: #ffaa47;
-  }
+.Icon2 {
+    background-color: var(--orange-smile);
+}
   
-  .Icon3 {
-    background-color: #f7ff6b;
-  }
+.Icon3 {
+    background-color: var(--yellow-smile);
+    /* background-color: #fEEC00;   */
+}
   
-  .Icon4 {
-    background-color: #9dfb7e;
-  }
+.Icon4 {
+    background-color: var(--light-green-smile);
+}
   
-  .Icon5 {
-    background-color: #58e940;
-  }
+.Icon5 {
+    background-color: var(--green-smile);
+}
 
-  .tags {
+.tags {
     color: white;
     text-align: center;
   
     display: flex;
-  }
+}
   
-  .tags img {
+.tags img {
     height: 25px;
-  }
+}
   
-  .therapy_text {
+.therapy_text {
     font-size: 10px;
     font-weight: bold;
     width: 100px;
@@ -106,4 +107,4 @@
     margin-left: -7%;
     position: relative;
     box-shadow: -1px 1px 1px white;
-  }
+}
