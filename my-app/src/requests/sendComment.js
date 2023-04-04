@@ -1,18 +1,20 @@
 import { sendCommentAction } from "../store/actions/sendCommentAction";
 
 export const sendComment = (id, comment) => {
-    const data = { id, comment }
+    const data = { storyId: id, comment: comment }
     return dispatch => {
-        fetch( `http://localhost:8080/story/comment/${id}`, {
-            method: 'PATCH',
+        fetch( `http://localhost:8080/story/comment/${id}?comment=${comment}`, {
             headers: {
+                accept: "application/json",
                 'Content-Type': 'application/json'
             },
+            method: 'PATCH',
+            dataType: "json",
             body: JSON.stringify(data)
         })
         .then(response => {
             if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error(response);
             }
             return response.json();
         })

@@ -3,7 +3,7 @@ import { HeartOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { sendComment } from "../../requests/sendComment";
 import styles from "./index.module.css";
-
+import { images } from '../../data';
 
 export default function Story({ id, description, therapies, comments }) {
   const [text, setText] = useState("");
@@ -21,7 +21,6 @@ export default function Story({ id, description, therapies, comments }) {
     <div className = {styles.story}>
       <p>{description}</p>
       <div>
-
         <textarea
           onChange={(event) => setText(event.target.value)}
           name="comment"

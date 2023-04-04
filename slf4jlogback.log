@@ -1,0 +1,573 @@
+04.04.2023 20:32:48.294 [main] INFO  c.h.o.OkTreatmentsApplication - Starting OkTreatmentsApplication v0.0.1-SNAPSHOT using Java 20 with PID 13622 (/Users/vlad/Heal_please/Heal_yourself_front/OK_Treatments.jar started by vlad in /Users/vlad/Heal_please/Heal_yourself_front)
+04.04.2023 20:32:48.297 [main] INFO  c.h.o.OkTreatmentsApplication - No active profile set, falling back to 1 default profile: "default"
+04.04.2023 20:32:48.903 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+04.04.2023 20:32:48.947 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 5 JPA repository interfaces.
+04.04.2023 20:32:49.372 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+04.04.2023 20:32:49.384 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+04.04.2023 20:32:49.385 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+04.04.2023 20:32:49.435 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+04.04.2023 20:32:49.435 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1115 ms
+04.04.2023 20:32:49.598 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+04.04.2023 20:32:49.734 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+04.04.2023 20:32:49.735 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+04.04.2023 20:32:49.770 [main] INFO  liquibase.database - Set default schema name to PUBLIC
+04.04.2023 20:32:50.013 [main] INFO  l.lockservice - Successfully acquired change log lock
+04.04.2023 20:32:50.122 [main] INFO  liquibase.changelog - Creating database history table with name: PUBLIC.DATABASECHANGELOG
+04.04.2023 20:32:50.124 [main] INFO  liquibase.changelog - Reading from PUBLIC.DATABASECHANGELOG
+04.04.2023 20:32:50.186 [main] INFO  liquibase.changelog - Table stories created
+04.04.2023 20:32:50.186 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/10-create-stories-table.yaml::create-stories-table::Roman Richert ran successfully in 2ms
+04.04.2023 20:32:50.189 [main] INFO  liquibase.changelog - Table therapies created
+04.04.2023 20:32:50.192 [main] INFO  liquibase.changelog - Foreign key constraint added to therapies (story_id)
+04.04.2023 20:32:50.192 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/20-create-therapies-table.yaml::create-therapies-table::Roman Richert ran successfully in 4ms
+04.04.2023 20:32:50.195 [main] INFO  liquibase.changelog - Table stories_therapies created
+04.04.2023 20:32:50.196 [main] INFO  liquibase.changelog - Foreign key constraint added to stories_therapies (story_id)
+04.04.2023 20:32:50.197 [main] INFO  liquibase.changelog - Foreign key constraint added to stories_therapies (therapies_id)
+04.04.2023 20:32:50.197 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/30-create-stories-therapies-table.yaml::create-stories-therapies-table::Roman Richert ran successfully in 4ms
+04.04.2023 20:32:50.198 [main] INFO  liquibase.changelog - Table story_params created
+04.04.2023 20:32:50.199 [main] INFO  liquibase.changelog - Foreign key constraint added to story_params (story_id)
+04.04.2023 20:32:50.199 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/40-create-story-params-table.yaml::create-story-params-table::Roman Richert ran successfully in 1ms
+04.04.2023 20:32:50.202 [main] INFO  liquibase.changelog - Table story_comments created
+04.04.2023 20:32:50.203 [main] INFO  liquibase.changelog - Foreign key constraint added to story_comments (story_id)
+04.04.2023 20:32:50.203 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/50-create-story-comments-table.yaml::create-story-comments-table::Roman Richert ran successfully in 3ms
+04.04.2023 20:32:50.204 [main] INFO  liquibase.changelog - Table story_votes created
+04.04.2023 20:32:50.205 [main] INFO  liquibase.changelog - Foreign key constraint added to story_votes (story_id)
+04.04.2023 20:32:50.205 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/60-create-story-votes-table.yaml::create-story-votes-table::Roman Richert ran successfully in 1ms
+04.04.2023 20:32:50.206 [main] INFO  liquibase.changelog - Sequence seq_for_uuid_generator created
+04.04.2023 20:32:50.207 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/70-create-sequence-for-uuid-generator.yaml::create-sequence-for-uuid-generator::Roman Richert ran successfully in 1ms
+04.04.2023 20:32:50.215 [main] INFO  liquibase.changelog - Custom SQL executed
+04.04.2023 20:32:50.215 [main] INFO  liquibase.changelog - ChangeSet db/changelog/changes/v0.0.1-SNAPSHOT/80-insert-test-data.sql::raw::includeAll ran successfully in 8ms
+04.04.2023 20:32:50.217 [main] INFO  l.lockservice - Successfully released change log lock
+04.04.2023 20:32:50.269 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+04.04.2023 20:32:50.303 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+04.04.2023 20:32:50.469 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+04.04.2023 20:32:51.006 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+04.04.2023 20:32:51.011 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+04.04.2023 20:32:52.360 [main] INFO  o.s.b.a.e.w.EndpointLinksResolver - Exposing 15 endpoint(s) beneath base path '/actuator'
+04.04.2023 20:32:52.409 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+04.04.2023 20:32:52.419 [main] INFO  c.h.o.OkTreatmentsApplication - Started OkTreatmentsApplication in 4.448 seconds (process running for 4.69)
+04.04.2023 20:34:01.877 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+04.04.2023 20:34:01.877 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+04.04.2023 20:34:01.879 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 2 ms
+04.04.2023 20:34:01.908 [http-nio-8080-exec-1] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story
+HTTP_METHOD : GET
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.getAllStories
+04.04.2023 20:34:01.911 [http-nio-8080-exec-1] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.getAllStories
+04.04.2023 20:34:01.951 [http-nio-8080-exec-3] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story
+HTTP_METHOD : POST
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.createStory
+04.04.2023 20:34:01.951 [http-nio-8080-exec-3] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.createStory
+04.04.2023 20:34:01.986 [http-nio-8080-exec-1] INFO  c.h.o.a.LoggingAspect - Return value: [StoryResponseDTO(id=97d99924-c99f-11ed-afa1-0242ac120002, age=34, description=I had been suffering with back problems for a year. I did not like swimming, but regular yoga classes helped, bodyPart=BACK, healthScore=56.34, bmi=31.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99b36-c99f-11ed-afa1-0242ac120002, age=33, description=I have been suffering from back pain for three years. Nothing has helped, bodyPart=BACK, healthScore=53.34, bmi=35.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99c4e-c99f-11ed-afa1-0242ac120002, age=32, description=I have tried treating my back pain with running, but I hate running. Swimming saved me, bodyPart=BACK, healthScore=44.34, bmi=31.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99d52-c99f-11ed-afa1-0242ac120002, age=45, description=, bodyPart=HEAD, healthScore=43.34, bmi=23.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a07c-c99f-11ed-afa1-0242ac120002, age=46, description=Crazy migraines started after the birth of the baby. Yoga turned out to be boring and running was wonderful, bodyPart=HEAD, healthScore=66.34, bmi=25.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a176-c99f-11ed-afa1-0242ac120002, age=47, description=I am a fan of running. The headaches have stopped, bodyPart=HEAD, healthScore=65.34, bmi=24.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a27a-c99f-11ed-afa1-0242ac120002, age=66, description=Very sore lower back. Do not know what to do to save myself , bodyPart=LOWER_BACK, healthScore=78.34, bmi=33.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a3a6-c99f-11ed-afa1-0242ac120002, age=67, description=Yoga is the best thing that ever happened to me! My back feels like it is been reborn, bodyPart=LOWER_BACK, healthScore=77.34, bmi=32.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a4be-c99f-11ed-afa1-0242ac120002, age=66, description=The work caused constant pain in my right arm. Tried yoga and swimming, did not like it. , bodyPart=RIGHT_ARM, healthScore=56.34, bmi=30.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a5cc-c99f-11ed-afa1-0242ac120002, age=34, description=I love yoga. It is a magic remedy that always helps with back pain! , bodyPart=BACK, healthScore=52.34, bmi=28.67, therapies=[], comments=[])]
+END OF REQUEST
+04.04.2023 20:34:02.033 [http-nio-8080-exec-3] INFO  c.h.o.a.LoggingAspect - Return value: StoryResponseDTO(id=1874d1e4-4670-0000-1000-000000000000, age=20, description=sdfsfsdf, bodyPart=LEFT_ARM, healthScore=31.141404167655462, bmi=5.0, therapies=[TherapyDTO(name=running, smiley=0), TherapyDTO(name=yoga, smiley=2)], comments=[])
+END OF REQUEST
+04.04.2023 20:34:17.191 [http-nio-8080-exec-4] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:37:06.265 [http-nio-8080-exec-7] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:37:23.802 [http-nio-8080-exec-8] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:37:25.410 [http-nio-8080-exec-9] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:38:08.627 [http-nio-8080-exec-10] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story
+HTTP_METHOD : GET
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.getAllStories
+04.04.2023 20:38:08.627 [http-nio-8080-exec-10] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.getAllStories
+04.04.2023 20:38:08.641 [http-nio-8080-exec-10] INFO  c.h.o.a.LoggingAspect - Return value: [StoryResponseDTO(id=97d99924-c99f-11ed-afa1-0242ac120002, age=34, description=I had been suffering with back problems for a year. I did not like swimming, but regular yoga classes helped, bodyPart=BACK, healthScore=56.34, bmi=31.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99b36-c99f-11ed-afa1-0242ac120002, age=33, description=I have been suffering from back pain for three years. Nothing has helped, bodyPart=BACK, healthScore=53.34, bmi=35.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99c4e-c99f-11ed-afa1-0242ac120002, age=32, description=I have tried treating my back pain with running, but I hate running. Swimming saved me, bodyPart=BACK, healthScore=44.34, bmi=31.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99d52-c99f-11ed-afa1-0242ac120002, age=45, description=, bodyPart=HEAD, healthScore=43.34, bmi=23.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a07c-c99f-11ed-afa1-0242ac120002, age=46, description=Crazy migraines started after the birth of the baby. Yoga turned out to be boring and running was wonderful, bodyPart=HEAD, healthScore=66.34, bmi=25.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a176-c99f-11ed-afa1-0242ac120002, age=47, description=I am a fan of running. The headaches have stopped, bodyPart=HEAD, healthScore=65.34, bmi=24.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a27a-c99f-11ed-afa1-0242ac120002, age=66, description=Very sore lower back. Do not know what to do to save myself , bodyPart=LOWER_BACK, healthScore=78.34, bmi=33.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a3a6-c99f-11ed-afa1-0242ac120002, age=67, description=Yoga is the best thing that ever happened to me! My back feels like it is been reborn, bodyPart=LOWER_BACK, healthScore=77.34, bmi=32.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a4be-c99f-11ed-afa1-0242ac120002, age=66, description=The work caused constant pain in my right arm. Tried yoga and swimming, did not like it. , bodyPart=RIGHT_ARM, healthScore=56.34, bmi=30.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a5cc-c99f-11ed-afa1-0242ac120002, age=34, description=I love yoga. It is a magic remedy that always helps with back pain! , bodyPart=BACK, healthScore=52.34, bmi=28.67, therapies=[], comments=[]), StoryResponseDTO(id=1874d1e4-4670-0000-1000-000000000000, age=20, description=sdfsfsdf, bodyPart=LEFT_ARM, healthScore=31.141404167655462, bmi=5.0, therapies=[TherapyDTO(name=running, smiley=0), TherapyDTO(name=yoga, smiley=2)], comments=[])]
+END OF REQUEST
+04.04.2023 20:38:08.975 [http-nio-8080-exec-2] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story
+HTTP_METHOD : GET
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.getAllStories
+04.04.2023 20:38:08.976 [http-nio-8080-exec-2] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.getAllStories
+04.04.2023 20:38:09.001 [http-nio-8080-exec-2] INFO  c.h.o.a.LoggingAspect - Return value: [StoryResponseDTO(id=97d99924-c99f-11ed-afa1-0242ac120002, age=34, description=I had been suffering with back problems for a year. I did not like swimming, but regular yoga classes helped, bodyPart=BACK, healthScore=56.34, bmi=31.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99b36-c99f-11ed-afa1-0242ac120002, age=33, description=I have been suffering from back pain for three years. Nothing has helped, bodyPart=BACK, healthScore=53.34, bmi=35.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99c4e-c99f-11ed-afa1-0242ac120002, age=32, description=I have tried treating my back pain with running, but I hate running. Swimming saved me, bodyPart=BACK, healthScore=44.34, bmi=31.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99d52-c99f-11ed-afa1-0242ac120002, age=45, description=, bodyPart=HEAD, healthScore=43.34, bmi=23.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a07c-c99f-11ed-afa1-0242ac120002, age=46, description=Crazy migraines started after the birth of the baby. Yoga turned out to be boring and running was wonderful, bodyPart=HEAD, healthScore=66.34, bmi=25.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a176-c99f-11ed-afa1-0242ac120002, age=47, description=I am a fan of running. The headaches have stopped, bodyPart=HEAD, healthScore=65.34, bmi=24.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a27a-c99f-11ed-afa1-0242ac120002, age=66, description=Very sore lower back. Do not know what to do to save myself , bodyPart=LOWER_BACK, healthScore=78.34, bmi=33.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a3a6-c99f-11ed-afa1-0242ac120002, age=67, description=Yoga is the best thing that ever happened to me! My back feels like it is been reborn, bodyPart=LOWER_BACK, healthScore=77.34, bmi=32.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a4be-c99f-11ed-afa1-0242ac120002, age=66, description=The work caused constant pain in my right arm. Tried yoga and swimming, did not like it. , bodyPart=RIGHT_ARM, healthScore=56.34, bmi=30.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a5cc-c99f-11ed-afa1-0242ac120002, age=34, description=I love yoga. It is a magic remedy that always helps with back pain! , bodyPart=BACK, healthScore=52.34, bmi=28.67, therapies=[], comments=[]), StoryResponseDTO(id=1874d1e4-4670-0000-1000-000000000000, age=20, description=sdfsfsdf, bodyPart=LEFT_ARM, healthScore=31.141404167655462, bmi=5.0, therapies=[TherapyDTO(name=running, smiley=0), TherapyDTO(name=yoga, smiley=2)], comments=[])]
+END OF REQUEST
+04.04.2023 20:38:23.821 [http-nio-8080-exec-1] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story
+HTTP_METHOD : GET
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.getAllStories
+04.04.2023 20:38:23.822 [http-nio-8080-exec-1] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.getAllStories
+04.04.2023 20:38:23.843 [http-nio-8080-exec-1] INFO  c.h.o.a.LoggingAspect - Return value: [StoryResponseDTO(id=97d99924-c99f-11ed-afa1-0242ac120002, age=34, description=I had been suffering with back problems for a year. I did not like swimming, but regular yoga classes helped, bodyPart=BACK, healthScore=56.34, bmi=31.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99b36-c99f-11ed-afa1-0242ac120002, age=33, description=I have been suffering from back pain for three years. Nothing has helped, bodyPart=BACK, healthScore=53.34, bmi=35.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99c4e-c99f-11ed-afa1-0242ac120002, age=32, description=I have tried treating my back pain with running, but I hate running. Swimming saved me, bodyPart=BACK, healthScore=44.34, bmi=31.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99d52-c99f-11ed-afa1-0242ac120002, age=45, description=, bodyPart=HEAD, healthScore=43.34, bmi=23.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a07c-c99f-11ed-afa1-0242ac120002, age=46, description=Crazy migraines started after the birth of the baby. Yoga turned out to be boring and running was wonderful, bodyPart=HEAD, healthScore=66.34, bmi=25.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a176-c99f-11ed-afa1-0242ac120002, age=47, description=I am a fan of running. The headaches have stopped, bodyPart=HEAD, healthScore=65.34, bmi=24.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a27a-c99f-11ed-afa1-0242ac120002, age=66, description=Very sore lower back. Do not know what to do to save myself , bodyPart=LOWER_BACK, healthScore=78.34, bmi=33.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a3a6-c99f-11ed-afa1-0242ac120002, age=67, description=Yoga is the best thing that ever happened to me! My back feels like it is been reborn, bodyPart=LOWER_BACK, healthScore=77.34, bmi=32.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a4be-c99f-11ed-afa1-0242ac120002, age=66, description=The work caused constant pain in my right arm. Tried yoga and swimming, did not like it. , bodyPart=RIGHT_ARM, healthScore=56.34, bmi=30.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a5cc-c99f-11ed-afa1-0242ac120002, age=34, description=I love yoga. It is a magic remedy that always helps with back pain! , bodyPart=BACK, healthScore=52.34, bmi=28.67, therapies=[], comments=[]), StoryResponseDTO(id=1874d1e4-4670-0000-1000-000000000000, age=20, description=sdfsfsdf, bodyPart=LEFT_ARM, healthScore=31.141404167655462, bmi=5.0, therapies=[TherapyDTO(name=running, smiley=0), TherapyDTO(name=yoga, smiley=2)], comments=[])]
+END OF REQUEST
+04.04.2023 20:39:03.175 [http-nio-8080-exec-3] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:39:36.831 [http-nio-8080-exec-4] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:40:01.176 [http-nio-8080-exec-5] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:40:09.412 [http-nio-8080-exec-7] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:41:07.660 [http-nio-8080-exec-5] INFO  o.s.a.AbstractOpenApiResource - Init duration for springdoc-openapi is: 169 ms
+04.04.2023 20:43:43.207 [http-nio-8080-exec-1] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:43:45.050 [http-nio-8080-exec-10] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:44:38.160 [http-nio-8080-exec-4] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:44:38.646 [http-nio-8080-exec-5] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:44:39.948 [http-nio-8080-exec-8] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:50:35.541 [http-nio-8080-exec-6] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story
+HTTP_METHOD : GET
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.getAllStories
+04.04.2023 20:50:35.541 [http-nio-8080-exec-6] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.getAllStories
+04.04.2023 20:50:35.551 [http-nio-8080-exec-6] INFO  c.h.o.a.LoggingAspect - Return value: [StoryResponseDTO(id=97d99924-c99f-11ed-afa1-0242ac120002, age=34, description=I had been suffering with back problems for a year. I did not like swimming, but regular yoga classes helped, bodyPart=BACK, healthScore=56.34, bmi=31.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99b36-c99f-11ed-afa1-0242ac120002, age=33, description=I have been suffering from back pain for three years. Nothing has helped, bodyPart=BACK, healthScore=53.34, bmi=35.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99c4e-c99f-11ed-afa1-0242ac120002, age=32, description=I have tried treating my back pain with running, but I hate running. Swimming saved me, bodyPart=BACK, healthScore=44.34, bmi=31.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99d52-c99f-11ed-afa1-0242ac120002, age=45, description=, bodyPart=HEAD, healthScore=43.34, bmi=23.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a07c-c99f-11ed-afa1-0242ac120002, age=46, description=Crazy migraines started after the birth of the baby. Yoga turned out to be boring and running was wonderful, bodyPart=HEAD, healthScore=66.34, bmi=25.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a176-c99f-11ed-afa1-0242ac120002, age=47, description=I am a fan of running. The headaches have stopped, bodyPart=HEAD, healthScore=65.34, bmi=24.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a27a-c99f-11ed-afa1-0242ac120002, age=66, description=Very sore lower back. Do not know what to do to save myself , bodyPart=LOWER_BACK, healthScore=78.34, bmi=33.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a3a6-c99f-11ed-afa1-0242ac120002, age=67, description=Yoga is the best thing that ever happened to me! My back feels like it is been reborn, bodyPart=LOWER_BACK, healthScore=77.34, bmi=32.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a4be-c99f-11ed-afa1-0242ac120002, age=66, description=The work caused constant pain in my right arm. Tried yoga and swimming, did not like it. , bodyPart=RIGHT_ARM, healthScore=56.34, bmi=30.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a5cc-c99f-11ed-afa1-0242ac120002, age=34, description=I love yoga. It is a magic remedy that always helps with back pain! , bodyPart=BACK, healthScore=52.34, bmi=28.67, therapies=[], comments=[]), StoryResponseDTO(id=1874d1e4-4670-0000-1000-000000000000, age=20, description=sdfsfsdf, bodyPart=LEFT_ARM, healthScore=31.141404167655462, bmi=5.0, therapies=[TherapyDTO(name=running, smiley=0), TherapyDTO(name=yoga, smiley=2)], comments=[])]
+END OF REQUEST
+04.04.2023 20:50:37.854 [http-nio-8080-exec-9] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:50:56.705 [http-nio-8080-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:52:59.077 [http-nio-8080-exec-1] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+04.04.2023 20:54:44.895 [http-nio-8080-exec-5] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story/comment/sdfjhsdjf
+HTTP_METHOD : PATCH
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.commentStory
+04.04.2023 20:54:44.895 [http-nio-8080-exec-5] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.commentStory
+04.04.2023 20:54:44.897 [http-nio-8080-exec-5] ERROR c.h.o.a.LoggingAspect - Request throw an exception. Cause - [sdfjhsdjf, sdfmbsdjkfbs]. Invalid UUID string: sdfjhsdjf
+04.04.2023 20:54:44.899 [http-nio-8080-exec-5] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Invalid UUID string: sdfjhsdjf] with root cause
+java.lang.IllegalArgumentException: Invalid UUID string: sdfjhsdjf
+	at java.base/java.util.UUID.fromString1(UUID.java:280)
+	at java.base/java.util.UUID.fromString(UUID.java:258)
+	at com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.commentStory(StoryServiceImpl.java:113)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:702)
+	at com.healyourself.ok_treatments.service.implementation.StoryServiceImpl$$SpringCGLIB$$0.commentStory(<generated>)
+	at com.healyourself.ok_treatments.controller.StoryController.commentStory(StoryController.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:141)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:702)
+	at com.healyourself.ok_treatments.controller.StoryController$$SpringCGLIB$$0.commentStory(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:888)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+04.04.2023 20:55:08.573 [http-nio-8080-exec-8] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story/comment/2323
+HTTP_METHOD : PATCH
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.commentStory
+04.04.2023 20:55:08.574 [http-nio-8080-exec-8] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.commentStory
+04.04.2023 20:55:08.574 [http-nio-8080-exec-8] ERROR c.h.o.a.LoggingAspect - Request throw an exception. Cause - [2323, sdfmbsdjkfbs]. Invalid UUID string: 2323
+04.04.2023 20:55:08.575 [http-nio-8080-exec-8] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Invalid UUID string: 2323] with root cause
+java.lang.IllegalArgumentException: Invalid UUID string: 2323
+	at java.base/java.util.UUID.fromString1(UUID.java:280)
+	at java.base/java.util.UUID.fromString(UUID.java:258)
+	at com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.commentStory(StoryServiceImpl.java:113)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:702)
+	at com.healyourself.ok_treatments.service.implementation.StoryServiceImpl$$SpringCGLIB$$0.commentStory(<generated>)
+	at com.healyourself.ok_treatments.controller.StoryController.commentStory(StoryController.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:141)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:702)
+	at com.healyourself.ok_treatments.controller.StoryController$$SpringCGLIB$$0.commentStory(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:888)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+04.04.2023 20:55:20.720 [http-nio-8080-exec-6] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story/comment/2323ef
+HTTP_METHOD : PATCH
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.commentStory
+04.04.2023 20:55:20.721 [http-nio-8080-exec-6] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.commentStory
+04.04.2023 20:55:20.721 [http-nio-8080-exec-6] ERROR c.h.o.a.LoggingAspect - Request throw an exception. Cause - [2323ef, sdfmbsdjkfbs]. Invalid UUID string: 2323ef
+04.04.2023 20:55:20.722 [http-nio-8080-exec-6] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Invalid UUID string: 2323ef] with root cause
+java.lang.IllegalArgumentException: Invalid UUID string: 2323ef
+	at java.base/java.util.UUID.fromString1(UUID.java:280)
+	at java.base/java.util.UUID.fromString(UUID.java:258)
+	at com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.commentStory(StoryServiceImpl.java:113)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:702)
+	at com.healyourself.ok_treatments.service.implementation.StoryServiceImpl$$SpringCGLIB$$0.commentStory(<generated>)
+	at com.healyourself.ok_treatments.controller.StoryController.commentStory(StoryController.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:141)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:702)
+	at com.healyourself.ok_treatments.controller.StoryController$$SpringCGLIB$$0.commentStory(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:888)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+04.04.2023 20:55:21.706 [http-nio-8080-exec-7] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story/comment/2323ef
+HTTP_METHOD : PATCH
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.commentStory
+04.04.2023 20:55:21.706 [http-nio-8080-exec-7] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.commentStory
+04.04.2023 20:55:21.706 [http-nio-8080-exec-7] ERROR c.h.o.a.LoggingAspect - Request throw an exception. Cause - [2323ef, sdfmbsdjkfbs]. Invalid UUID string: 2323ef
+04.04.2023 20:55:21.707 [http-nio-8080-exec-7] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Invalid UUID string: 2323ef] with root cause
+java.lang.IllegalArgumentException: Invalid UUID string: 2323ef
+	at java.base/java.util.UUID.fromString1(UUID.java:280)
+	at java.base/java.util.UUID.fromString(UUID.java:258)
+	at com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.commentStory(StoryServiceImpl.java:113)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:702)
+	at com.healyourself.ok_treatments.service.implementation.StoryServiceImpl$$SpringCGLIB$$0.commentStory(<generated>)
+	at com.healyourself.ok_treatments.controller.StoryController.commentStory(StoryController.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:141)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:702)
+	at com.healyourself.ok_treatments.controller.StoryController$$SpringCGLIB$$0.commentStory(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:888)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+04.04.2023 20:55:30.718 [http-nio-8080-exec-9] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story
+HTTP_METHOD : GET
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.getAllStories
+04.04.2023 20:55:30.718 [http-nio-8080-exec-9] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.getAllStories
+04.04.2023 20:55:30.727 [http-nio-8080-exec-9] INFO  c.h.o.a.LoggingAspect - Return value: [StoryResponseDTO(id=97d99924-c99f-11ed-afa1-0242ac120002, age=34, description=I had been suffering with back problems for a year. I did not like swimming, but regular yoga classes helped, bodyPart=BACK, healthScore=56.34, bmi=31.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99b36-c99f-11ed-afa1-0242ac120002, age=33, description=I have been suffering from back pain for three years. Nothing has helped, bodyPart=BACK, healthScore=53.34, bmi=35.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99c4e-c99f-11ed-afa1-0242ac120002, age=32, description=I have tried treating my back pain with running, but I hate running. Swimming saved me, bodyPart=BACK, healthScore=44.34, bmi=31.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99d52-c99f-11ed-afa1-0242ac120002, age=45, description=, bodyPart=HEAD, healthScore=43.34, bmi=23.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a07c-c99f-11ed-afa1-0242ac120002, age=46, description=Crazy migraines started after the birth of the baby. Yoga turned out to be boring and running was wonderful, bodyPart=HEAD, healthScore=66.34, bmi=25.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a176-c99f-11ed-afa1-0242ac120002, age=47, description=I am a fan of running. The headaches have stopped, bodyPart=HEAD, healthScore=65.34, bmi=24.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a27a-c99f-11ed-afa1-0242ac120002, age=66, description=Very sore lower back. Do not know what to do to save myself , bodyPart=LOWER_BACK, healthScore=78.34, bmi=33.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a3a6-c99f-11ed-afa1-0242ac120002, age=67, description=Yoga is the best thing that ever happened to me! My back feels like it is been reborn, bodyPart=LOWER_BACK, healthScore=77.34, bmi=32.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a4be-c99f-11ed-afa1-0242ac120002, age=66, description=The work caused constant pain in my right arm. Tried yoga and swimming, did not like it. , bodyPart=RIGHT_ARM, healthScore=56.34, bmi=30.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a5cc-c99f-11ed-afa1-0242ac120002, age=34, description=I love yoga. It is a magic remedy that always helps with back pain! , bodyPart=BACK, healthScore=52.34, bmi=28.67, therapies=[], comments=[]), StoryResponseDTO(id=1874d1e4-4670-0000-1000-000000000000, age=20, description=sdfsfsdf, bodyPart=LEFT_ARM, healthScore=31.141404167655462, bmi=5.0, therapies=[TherapyDTO(name=running, smiley=0), TherapyDTO(name=yoga, smiley=2)], comments=[])]
+END OF REQUEST
+04.04.2023 20:55:37.343 [http-nio-8080-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:55:43.534 [http-nio-8080-exec-1] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:55:56.310 [http-nio-8080-exec-10] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'comment' for method parameter type String is not present]
+04.04.2023 20:56:21.331 [http-nio-8080-exec-4] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story/comment/97d99924-c99f-11ed-afa1-0242ac120002
+HTTP_METHOD : PATCH
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.commentStory
+04.04.2023 20:56:21.332 [http-nio-8080-exec-4] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.commentStory
+04.04.2023 20:56:21.352 [http-nio-8080-exec-4] INFO  c.h.o.a.LoggingAspect - Return value: null
+END OF REQUEST
+04.04.2023 20:57:56.402 [http-nio-8080-exec-5] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story
+HTTP_METHOD : GET
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.getAllStories
+04.04.2023 20:57:56.403 [http-nio-8080-exec-5] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.getAllStories
+04.04.2023 20:57:56.411 [http-nio-8080-exec-5] INFO  c.h.o.a.LoggingAspect - Return value: [StoryResponseDTO(id=97d99924-c99f-11ed-afa1-0242ac120002, age=34, description=I had been suffering with back problems for a year. I did not like swimming, but regular yoga classes helped, bodyPart=BACK, healthScore=56.34, bmi=31.67, therapies=[], comments=[com.healyourself.ok_treatments.entity.Comment@d34b5cd1]), StoryResponseDTO(id=97d99b36-c99f-11ed-afa1-0242ac120002, age=33, description=I have been suffering from back pain for three years. Nothing has helped, bodyPart=BACK, healthScore=53.34, bmi=35.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99c4e-c99f-11ed-afa1-0242ac120002, age=32, description=I have tried treating my back pain with running, but I hate running. Swimming saved me, bodyPart=BACK, healthScore=44.34, bmi=31.67, therapies=[], comments=[]), StoryResponseDTO(id=97d99d52-c99f-11ed-afa1-0242ac120002, age=45, description=, bodyPart=HEAD, healthScore=43.34, bmi=23.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a07c-c99f-11ed-afa1-0242ac120002, age=46, description=Crazy migraines started after the birth of the baby. Yoga turned out to be boring and running was wonderful, bodyPart=HEAD, healthScore=66.34, bmi=25.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a176-c99f-11ed-afa1-0242ac120002, age=47, description=I am a fan of running. The headaches have stopped, bodyPart=HEAD, healthScore=65.34, bmi=24.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a27a-c99f-11ed-afa1-0242ac120002, age=66, description=Very sore lower back. Do not know what to do to save myself , bodyPart=LOWER_BACK, healthScore=78.34, bmi=33.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a3a6-c99f-11ed-afa1-0242ac120002, age=67, description=Yoga is the best thing that ever happened to me! My back feels like it is been reborn, bodyPart=LOWER_BACK, healthScore=77.34, bmi=32.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a4be-c99f-11ed-afa1-0242ac120002, age=66, description=The work caused constant pain in my right arm. Tried yoga and swimming, did not like it. , bodyPart=RIGHT_ARM, healthScore=56.34, bmi=30.67, therapies=[], comments=[]), StoryResponseDTO(id=97d9a5cc-c99f-11ed-afa1-0242ac120002, age=34, description=I love yoga. It is a magic remedy that always helps with back pain! , bodyPart=BACK, healthScore=52.34, bmi=28.67, therapies=[], comments=[]), StoryResponseDTO(id=1874d1e4-4670-0000-1000-000000000000, age=20, description=sdfsfsdf, bodyPart=LEFT_ARM, healthScore=31.141404167655462, bmi=5.0, therapies=[TherapyDTO(name=running, smiley=0), TherapyDTO(name=yoga, smiley=2)], comments=[])]
+END OF REQUEST
+04.04.2023 20:57:58.260 [http-nio-8080-exec-6] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story/comment/97d99924-c99f-11ed-afa1-0242ac120002
+HTTP_METHOD : PATCH
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.commentStory
+04.04.2023 20:57:58.261 [http-nio-8080-exec-6] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.commentStory
+04.04.2023 20:57:58.265 [http-nio-8080-exec-6] INFO  c.h.o.a.LoggingAspect - Return value: null
+END OF REQUEST
+04.04.2023 20:58:12.111 [http-nio-8080-exec-9] INFO  c.h.o.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/story/comment/97d99924-c99f-11ed-afa1-0242ac120002
+HTTP_METHOD : PATCH
+CONTROLLER_METHOD : com.healyourself.ok_treatments.controller.StoryController.commentStory
+04.04.2023 20:58:12.111 [http-nio-8080-exec-9] INFO  c.h.o.a.LoggingAspect - RUN SERVICE:
+SERVICE_METHOD : com.healyourself.ok_treatments.service.implementation.StoryServiceImpl.commentStory
+04.04.2023 20:58:12.116 [http-nio-8080-exec-9] INFO  c.h.o.a.LoggingAspect - Return value: null
+END OF REQUEST
