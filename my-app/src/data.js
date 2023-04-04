@@ -1,8 +1,13 @@
-import Icon1 from "./media/anguished_icon.svg";
-import Icon2 from "./media/unamused_icon.svg";
-import Icon3 from "./media/neutral_icon.svg";
-import Icon4 from "./media/smilling_icon.svg";
-import Icon5 from "./media/beaming_icon.svg";
+// import Icon1 from "./media/anguished_icon.svg";
+// import Icon2 from "./media/unamused_icon.svg";
+// import Icon3 from "./media/neutral_icon.svg";
+// import Icon4 from "./media/smilling_icon.svg";
+import Icon1 from './media/Icon1.png'
+import Icon2 from './media/Icon2.png'
+import Icon3 from './media/Icon3.png'
+import Icon4 from './media/Icon4.png'
+import Icon5 from './media/Icon5.png'
+// import Icon5 from "./media/beaming_icon.svg";
 
 export const questions = [
 	{

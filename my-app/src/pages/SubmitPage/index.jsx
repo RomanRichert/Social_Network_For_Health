@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sendAnswers } from "../../requests/sendAnswersRequest";
-import { getStoryAction } from "../../store/actions/getStoryAction";
 import { images } from "../../data";
 import Button from "../../components/Button";
 
@@ -102,7 +101,6 @@ export default function SubmitPage() {
         smiley: +event.target.alt - 1,
       };
 
-      console.log('new therapy', selectedTherapy, newTherapy)
       if (!selectedTherapyWithImage.some((el) => el.name === selectedTherapy)) {
          selectedTherapyWithImage.push(newTherapy);
          setSelectedTherapyWithImage([...selectedTherapyWithImage]);

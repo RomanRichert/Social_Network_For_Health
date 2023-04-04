@@ -4,10 +4,12 @@ import { useDispatch } from "react-redux";
 import { sendComment } from "../../requests/sendComment";
 import styles from "./index.module.css";
 
+
 export default function Story({ id, description, therapies, comments }) {
   const [text, setText] = useState("");
   const [comment, setComment] = useState("");
   const dispatch = useDispatch();
+
 
   const submit = () => {
     setComment(text);
@@ -16,9 +18,10 @@ export default function Story({ id, description, therapies, comments }) {
   };
 
   return (
-    <div>
+    <div className = {styles.story}>
       <p>{description}</p>
       <div>
+
         <textarea
           onChange={(event) => setText(event.target.value)}
           name="comment"
@@ -28,6 +31,7 @@ export default function Story({ id, description, therapies, comments }) {
           placeholder="*The commentary must contain no more than 250 characters"
         ></textarea>
         <div className={styles.message}>
+
           {/* {text.map((el, index) => ( */}
           <div>
             <p>
@@ -36,6 +40,7 @@ export default function Story({ id, description, therapies, comments }) {
             </p>
           </div>
           {/* ))} */}
+
         </div>
         <div className={styles.actions_btns}>
           <button onClick={submit}>Comment</button>
