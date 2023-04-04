@@ -11,7 +11,8 @@ export default function Story({ id, description, therapies, comments }) {
 
   const submit = () => {
     setComment(text);
-    dispatch(sendComment(id, text));
+    dispatch(sendComment(id, comment));
+    console.log(comment);
   };
 
   return (
