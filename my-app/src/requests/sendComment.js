@@ -27,28 +27,3 @@ export const sendComment = (id, comment) => {
     }
     
 }
-
-
-// const comment = {
-//     id: Date.now(),
-//     comment: text
-//   }
-// export const sendComment = (body) => {
-//     return (dispatch) => {
-//         fetch( url, {
-//             headers: {
-//                 accept: "application/json",
-//                 "Content-Type": "application/json",
-//             },
-//             method: "PUT",
-//             dataType: "json",
-//             body: JSON.stringify(body),
-//             })
-//             .then((res) => res.json())
-//             .then((json) =>dispatch(sendCommentAction(json)))
-//             .catch((err) => console.log(err));
-//     }
-
-// }
-
-    

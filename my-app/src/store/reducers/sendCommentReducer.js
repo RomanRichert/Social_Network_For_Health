@@ -13,5 +13,4 @@ export const sendCommentReducer = (state = defaultState, action ) => {
         default:
             return state
     }
-
-}
+};

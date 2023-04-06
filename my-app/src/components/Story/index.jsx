@@ -3,22 +3,20 @@ import { HeartOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { sendComment } from "../../requests/sendComment";
 import styles from "./index.module.css";
-import { images } from '../../data';
 
 export default function Story({ id, description, therapies, comments }) {
   const [text, setText] = useState("");
   const [comment, setComment] = useState("");
   const dispatch = useDispatch();
 
-
   const submit = () => {
-    setComment(text);
-    dispatch(sendComment(id, comment));
-    console.log(comment);
+    const newComment = text;
+    setComment(newComment);
+    dispatch(sendComment(id, newComment));
   };
 
   return (
-    <div className = {styles.story}>
+    <div className={styles.story}>
       <p>{description}</p>
       <div>
         <textarea
@@ -30,16 +28,12 @@ export default function Story({ id, description, therapies, comments }) {
           placeholder="*The commentary must contain no more than 250 characters"
         ></textarea>
         <div className={styles.message}>
-
-          {/* {text.map((el, index) => ( */}
           <div>
             <p>
               {comment}&nbsp;&nbsp;
               <HeartOutlined />
             </p>
           </div>
-          {/* ))} */}
-
         </div>
         <div className={styles.actions_btns} >
           <button onClick={submit}>Comment</button>
