@@ -41,7 +41,7 @@ export default function Story({ id, description, therapies, comments }) {
           {/* ))} */}
 
         </div>
-        <div className={styles.actions_btns}>
+        <div className={styles.actions_btns} >
           <button onClick={submit}>Comment</button>
           <div>I feel sorry for you</div>
         </div>

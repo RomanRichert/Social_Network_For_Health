@@ -40,7 +40,6 @@
 .actions_btns div {
     padding: 10px 10px;
     border-radius: 5px;
-    border: 1px solid var(--lila-border);
     background-color: #fff;
     color: var(--lila-border);
     cursor: pointer;
