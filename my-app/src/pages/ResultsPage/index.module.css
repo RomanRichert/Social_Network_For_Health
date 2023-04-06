@@ -6,6 +6,10 @@
   margin-bottom: 10px;
 }
 
+.bmi_descr {
+  margin: 10px 0;
+}
+
 .bmi_img {
   width: 320px;
   object-fit: cover;

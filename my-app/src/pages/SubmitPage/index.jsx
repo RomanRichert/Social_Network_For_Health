@@ -121,6 +121,7 @@ export default function SubmitPage() {
               type="number"
               name="height"
               placeholder="cm"
+              onKeyDown = {(e) =>["e", "E", "+", "-"].includes(e.key) && e.preventDefault()}
               {...heightRegister}
             />
             <div className={style.error_message}>
@@ -134,6 +135,7 @@ export default function SubmitPage() {
               type="number"
               name="weight"
               placeholder="kg"
+              onKeyDown = {(e) =>["e", "E", "+", "-"].includes(e.key) && e.preventDefault()}
               {...weightRegister}
             />
             <div className={style.error_message}>
@@ -143,7 +145,12 @@ export default function SubmitPage() {
           <label>
             <p>Age</p>
             <p className={style.descr}>From 16 to 120</p>
-            <input type="number" name="age" {...ageRegister} />
+            <input 
+              type="number" 
+              name="age" 
+              onKeyDown = {(e) =>["e", "E", "+", "-"].includes(e.key) && e.preventDefault()}
+              {...ageRegister} 
+            />
             <div className={style.error_message}>
               {errors.age ? <p>{errors.age?.message}</p> : <p></p>}
             </div>

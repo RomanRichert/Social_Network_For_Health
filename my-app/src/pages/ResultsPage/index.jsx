@@ -39,6 +39,7 @@ export default function ResultsPage() {
         "Error, You have not responded at all questions"
       )}
 
+      <p className = {styles.bmi_descr}>The following diagram helps you interpret your BMI(Body Mass Index)</p>
       <img className = {styles.bmi_img} src={Img} alt="bmi standards" />
 
       <p className = {styles.title}>Meet your treatment buddies:</p>
