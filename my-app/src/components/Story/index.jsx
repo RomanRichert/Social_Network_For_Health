@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { HeartOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { sendComment } from "../../requests/sendComment";
+import { images } from '../../data';
 import styles from "./index.module.css";
 
 export default function Story({ id, description, therapies, comments }) {
@@ -18,6 +19,28 @@ export default function Story({ id, description, therapies, comments }) {
   return (
     <div className={styles.story}>
       <p>{description}</p>
+
+      <div className={styles.tagsBlock}>
+        {
+          therapies.map(el => (
+            <div className={styles.tags} key={el.name}>
+              <img
+                src={images[el.smiley].img}
+                alt={`Icon${el.smiley + 1}`}
+              />
+              <div
+                className={[
+                  styles.therapy_text,
+                  styles[`Icon${images[el.smiley].id + 1}`]
+                ].join(" ")}
+              >
+                <p>{(el.name)[0].toUpperCase() + (el.name).slice(1)}</p>
+              </div>
+            </div>
+        ))
+      }
+      </div>
+
       <div>
         <textarea
           onChange={(event) => setText(event.target.value)}
