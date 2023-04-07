@@ -1,5 +1,6 @@
 import "./style.css";
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from 'react';
+import { Routes, Route, useNavigate } from "react-router-dom";
 import QuestionsPage from "./pages/QuestionsPage";
 import SubmitPage from "./pages/SubmitPage";
 import Layout from "./components/Layout";
@@ -9,6 +10,9 @@ import StartPage from "./pages/StartPage";
 
 
 function App() {
+
+
+
   return (
     <div className="App">
       <Routes>

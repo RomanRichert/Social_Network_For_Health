@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./index.module.css";
 import Button from "../../components/Button";
 
@@ -12,6 +12,7 @@ export default function StartPage() {
   const clearState = () => {
     dispatch(getBodyPartAction(''))
     dispatch(clearAnswersAction(''))
+    // window.localStorage.setItem('lastRoute', 'human')
   }
   
   return (

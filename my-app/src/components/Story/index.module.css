@@ -108,3 +108,8 @@
     position: relative;
     box-shadow: -1px 1px 1px white;
 }
+
+.therapy_text p {
+    color: white !important;
+    font-weight: bold !important;
+}
