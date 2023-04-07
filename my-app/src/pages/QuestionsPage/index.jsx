@@ -1,34 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import QuestionItem from "../../components/QuestionItem";
 import Button from "../../components/Button";
 import style from "./index.module.css";
 import { questions } from "../../data";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getAnswerAction } from '../../store/actions/getAnswerAction';
+import { useDispatch, useSelector } from "react-redux";
 
 export default function QuestionsPage() {
-  const { id } = useParams();
+  const [id, setId] = useState(1)
   const [selectedValue, setSelectedValue] = useState("");
 
+  const stateAnswers = useSelector((state) => state.answers);
+  const dispatch = useDispatch();
   const navigate = useNavigate()
 
-  const handleNextQuestion = () => {
-    setSelectedValue("");
+  const handleOptionChange = (event) => {
+    if (id === 36) {
+      setTimeout(() => navigate("/submit"), 100);
+    } else {
+      setTimeout(() => setId(id+1), 100)
+    }
+    dispatch(getAnswerAction((stateAnswers[id] = event.currentTarget.value)));
   };
+  // const handleNextQuestion = () => {
+  //   setSelectedValue("");
+  // };
 
   const content = () => {
-    if (+id === 1) {
+    if (id === 1) {
       return (
         <>
           <QuestionItem
-            {...questions[+id - 1]}
-            selectedValue={selectedValue}
-            setSelectedValue={setSelectedValue}
+            {...questions[id - 1]}
+            selectedValue = {selectedValue}
+            setSelectedValue = {setSelectedValue}
+            handleOptionChange = {handleOptionChange}
           />
-          <div className={style.arrows}>
-            <Link to="/human">
-              <Button className={style.btn}> go back</Button>
+          <div className = {style.footer}>
+            <Link to = "/human">
+              <Button className = {style.btn}> go back</Button>
             </Link>
-            <p className={style.progress}>{id} from 36</p>
+            <p className = {style.progress}>{id} from 36</p>
           </div>
         </>
       );
@@ -36,19 +49,24 @@ export default function QuestionsPage() {
     return (
       <>
         <QuestionItem
-          {...questions[+id - 1]}
-          selectedValue={selectedValue}
-          setSelectedValue={setSelectedValue}
+          {...questions[id - 1]}
+          selectedValue = {selectedValue}
+          setSelectedValue = {setSelectedValue}
+          handleOptionChange = {handleOptionChange}
         />
-        <div className={style.arrows}>
-          <Link to={`/${+id - 1}`}>
-            <Button className={style.btn}>go back</Button>
-          </Link>
-          <p className={style.progress}>{id} from 36</p>
+        <div className={style.footer}>
+            <Button 
+              className = {style.btn}
+              onClick = {() => setId(id-1)}
+            >
+              go back
+            </Button>
+
+          <p className = {style.progress}>{id} from 36</p>
         </div>
       </>
     );
   };
 
-  return <div className={style.questions_page}>{content()}</div>;
+  return <div className = {style.questions_page}>{content()}</div>;
 }

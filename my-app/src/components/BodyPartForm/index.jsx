@@ -10,7 +10,7 @@ export default function BodyPartForm({ body_part, isDisabled, setIsDisabled }) {
   const navigate = useNavigate();
 
   const stored_body_part = useSelector((store) => store.bodyPart);
-  console.log("body", stored_body_part);
+
   useEffect(() => {
     if (stored_body_part != "") {
       const btns = document.getElementsByClassName(styles.btn);
@@ -31,15 +31,15 @@ export default function BodyPartForm({ body_part, isDisabled, setIsDisabled }) {
     const btns = document.getElementsByClassName(styles.btn);
     Array.from(btns).forEach((el) => el.classList.remove(styles.active));
     part.classList.add(styles.active);
-    setTimeout(() => navigate("/1"), 100);
+    setTimeout(() => navigate("/questions"), 100);
   };
 
   return (
-    <form onSubmit={submit}>
+    <form onSubmit = {submit}>
       <button
-        className={[styles[body_part], styles.btn].join(" ")}
-        name="part"
-        value={body_part}
+        className = {[styles[body_part], styles.btn].join(" ")}
+        name = "part"
+        value = {body_part}
       ></button>
     </form>
   );
