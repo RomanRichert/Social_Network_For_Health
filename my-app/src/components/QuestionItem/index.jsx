@@ -10,8 +10,13 @@ export default function QuestionItem({ id, question, answers }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-      id = +localStorage.getItem('lastRoute')+1 || '1'
-      navigate(`/${id}`)
+      // if (localStorage.getItem('lastRoute') === 'human') {
+      //   navigate('/human')
+      // } else {
+        id = +localStorage.getItem('lastRoute')+1 || '1'
+        navigate(`/${id}`)
+      // }
+
 }, [])
 
   useEffect(() => {

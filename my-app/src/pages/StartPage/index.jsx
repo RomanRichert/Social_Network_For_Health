@@ -12,6 +12,7 @@ export default function StartPage() {
   const clearState = () => {
     dispatch(getBodyPartAction(''))
     dispatch(clearAnswersAction(''))
+    // window.localStorage.setItem('lastRoute', 'human')
   }
   
   return (
