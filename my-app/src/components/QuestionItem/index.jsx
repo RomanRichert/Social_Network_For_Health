@@ -1,51 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import style from "./index.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getAnswerAction } from "../../store/actions/getAnswerAction";
-import { useNavigate, redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export default function QuestionItem({ id, question, answers }) {
+export default function QuestionItem({ id, question, answers, handleOptionChange }) {
   const stateAnswers = useSelector((state) => state.answers);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-      // if (localStorage.getItem('lastRoute') === 'human') {
-      //   navigate('/human')
-      // } else {
-        id = +localStorage.getItem('lastRoute')+1 || '1'
-        navigate(`/${id}`)
-      // }
-
-}, [])
 
   useEffect(() => {
     const inputs = document.querySelectorAll("input");
     inputs.forEach((el) => (el.checked = false));
 
-    if (stateAnswers[+id] !== "") {
+    if (stateAnswers[id] !== "") {
       inputs[stateAnswers[id] - 1].checked = true;
     }  
-
-    // if (stateAnswers[+id - 1] === "") {
-    //   const prevAnswered = Object.values(stateAnswers).findIndex(el => el !== '')
-    //   // navigate(`/${prevAnswered}`)
-    //   console.log(prevAnswered)
-    // }
   }, [id]);
 
-  const handleOptionChange = (event) => {
-    if (+id === 36) {
-      setTimeout(() => navigate("/submit"), 100);
-    } else {
-      setTimeout(() => navigate(`/${+id + 1}`), 100);
-    }
-    window.localStorage.setItem('lastRoute', id)
-    dispatch(getAnswerAction((stateAnswers[id] = event.currentTarget.value)));
-  };
-
   const text_description = () => {
-    switch (+id) {
+    switch (id) {
       case 3:
         return (
           <p className={style.description}>
@@ -98,22 +68,22 @@ export default function QuestionItem({ id, question, answers }) {
   };
 
   return (
-    <div className={style.question_item}>
+    <div className = {style.question_item}>
       {text_description()}
       <p>{question}</p>
-      <p className={style.required}>
+      <p className = {style.required}>
         *The answer for the question is required.
       </p>
       <form>
         {answers.map((answer) => (
-          <fieldset className={style.form} key={answer.id} name={answer.id}>
+          <fieldset className = {style.form} key = {answer.id} name = {answer.id}>
             <label>
               <input
-                className={style.radio}
-                type="radio"
-                name="question"
-                value={answer.id}
-                onClick={handleOptionChange}
+                className = {style.radio}
+                type = "radio"
+                name = "question"
+                value = {answer.id}
+                onClick = {handleOptionChange}
               />
                 {answer.answer}
             </label>
