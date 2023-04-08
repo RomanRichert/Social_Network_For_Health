@@ -6,21 +6,26 @@ import styles from "./index.module.css";
 
 export default function Story({ id, description, therapies, comments }) {
   const [text, setText] = useState("");
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState(comments);
   const dispatch = useDispatch();
+
+  console.log(comments);
 
   const submit = () => {
     const newComment = text;
-    setComment(newComment);
+    setComment([...comment, newComment]);
     dispatch(sendComment(id, newComment));
+    setText("");
   };
 
   return (
     <div className={styles.story}>
       <p>{description}</p>
       <div>
+        <HeartOutlined />
         <textarea
           onChange={(event) => setText(event.target.value)}
+          value={text}
           name="comment"
           cols="30"
           rows="10"
@@ -29,10 +34,9 @@ export default function Story({ id, description, therapies, comments }) {
         ></textarea>
         <div className={styles.message}>
           <div>
-            <p>
-              {comment}&nbsp;&nbsp;
-              <HeartOutlined />
-            </p>
+            {comment.map((el) => (
+              <p>{el}&nbsp;&nbsp;</p>
+            ))}
           </div>
         </div>
         <div className={styles.actions_btns}>
