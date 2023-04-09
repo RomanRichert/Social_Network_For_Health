@@ -18,7 +18,6 @@ export const answersReducer = (state = initialState, action) => {
 
 	switch (type) {
 		case GET_ANSWER:
-			// console.log('answer reducer', payload, state)
 			return state
 
 		case SEND_ANSWERS:

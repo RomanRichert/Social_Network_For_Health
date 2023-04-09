@@ -57,9 +57,9 @@ export default function Story({ id, description, therapies, comments }) {
         ></textarea>
         <div className={styles.message}>
           <div>
-            {comment.map((el) => (
-              <p>{el}&nbsp;&nbsp;</p>
-            ))}
+            {
+              comment.map((el, ind) => <p key = {ind}>{el}</p>)
+            }
           </div>
         </div>
         <div className={styles.actions_btns} >
