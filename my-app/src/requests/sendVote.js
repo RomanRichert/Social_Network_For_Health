@@ -1,16 +1,16 @@
-import { sendCommentAction } from "../store/actions/sendCommentAction";
+import { sendVoteAction } from "../store/actions/sendVoteAction";
 
-export const sendComment = (id, comment) => {
-    const data = { storyId: id, comment: comment }
+export const sendVote = ( id ) => {
+   
     return dispatch => {
-        fetch( `http://localhost:8080/story/comment/${id}?comment=${comment}`, {
+        fetch( `http://localhost:8080/story/vote/${id}`, {
             headers: {
                 accept: "application/json",
                 'Content-Type': 'application/json'
             },
             method: 'PATCH',
             dataType: "json",
-            body: JSON.stringify(data)
+            body: JSON.stringify(id)
         })
         .then(response => {
             if (!response.ok) {
@@ -19,7 +19,7 @@ export const sendComment = (id, comment) => {
             return response.json();
         })
         .then(json => {
-            dispatch(sendCommentAction(json))
+            dispatch(sendVoteAction(json))
         })
         .catch(error => {
             console.log(error)
