@@ -6,6 +6,7 @@ import { bmiReducer } from './reducers/bmiReducer';
 import { storiesReducer } from './reducers/storiesReducer';
 import { allAnswersReducer } from './reducers/allAnswersReducer';
 import { sendCommentReducer } from "./reducers/sendCommentReducer";
+import { sendVoteReducer } from "./reducers/sendVoteReducer";
 
 const rootReducer = combineReducers ({
 	bodyPart: bodyPartReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers ({
 	allAnswers: allAnswersReducer,
 	bmi: bmiReducer,
 	stories: storiesReducer,
-	comment: sendCommentReducer
+	comment: sendCommentReducer,
+	vote: sendVoteReducer
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk))
