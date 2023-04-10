@@ -12,11 +12,11 @@ export default function BodyPartForm({ body_part, isDisabled, setIsDisabled }) {
   const stored_body_part = useSelector((store) => store.bodyPart);
 
   useEffect(() => {
-    if (stored_body_part != "") {
+    if (stored_body_part !== "") {
       const btns = document.getElementsByClassName(styles.btn);
 
       Array.from(btns).forEach((el) => {
-        if (el.value == stored_body_part) {
+        if (el.value === stored_body_part) {
           el.classList.add(styles.active);
         }
       });

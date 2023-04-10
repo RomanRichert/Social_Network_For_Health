@@ -3,7 +3,7 @@ import { GET_BMI_DATA } from '../actionsTypes';
 const initialState = {}
 
 export const bmiReducer = (state = initialState, action) => {
-	const {payload, type} = action
+	const { type } = action
 
 	switch (type) {
 		case GET_BMI_DATA:

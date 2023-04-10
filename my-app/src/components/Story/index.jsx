@@ -56,6 +56,7 @@ export default function Story({ id, description, therapies, comments, votes }) {
               <li key={index}>{el}&nbsp;&nbsp;</li>
             ))}
           </ul>
+
         </div>
         <div className={styles.actions_btns}>
           <Button onClick={submit}>Comment</Button>

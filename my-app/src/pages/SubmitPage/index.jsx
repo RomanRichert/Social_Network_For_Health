@@ -25,6 +25,9 @@ export default function SubmitPage() {
     },
   });
 
+  const [selectedTherapyWithImage, setSelectedTherapyWithImage] = useState([]);
+  const [selectedTherapy, setSelectedTherapy] = useState("");
+
   const therapies = ["running", "yoga", "drugs", "swimming"];
 
   const body_part = useSelector((state) => state.bodyPart);
@@ -84,15 +87,10 @@ export default function SubmitPage() {
 
   const selectRegister = register("therapy");
   const textareaRegister = register("story");
-
-  const [selectedTherapyWithImage, setSelectedTherapyWithImage] = useState([]);
-  const [selectedTherapy, setSelectedTherapy] = useState("");
   
   const onSelect = (event) => {
     setSelectedTherapy(event.target.options[event.target.selectedIndex].value);
   }
-
-  const allAnswers = useSelector((state) => state.allAnswers);
 
   const selectImage = (event) => {
     if (selectedTherapy !== "") {
@@ -105,22 +103,20 @@ export default function SubmitPage() {
          selectedTherapyWithImage.push(newTherapy);
          setSelectedTherapyWithImage([...selectedTherapyWithImage]);
       }
-
-      setSelectedTherapy("");
      }
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit(submit)}>
-        <div className={style.submit_block}>
+      <form onSubmit = {handleSubmit(submit)}>
+        <div className = {style.submit_block}>
           <label>
             <p>Height</p>
-            <p className={style.descr}>60cm-250cm</p>
+            <p className = {style.descr}>60cm-250cm</p>
             <input
-              type="number"
-              name="height"
-              placeholder="cm"
+              type = "number"
+              name = "height"
+              placeholder = "cm"
               onKeyDown = {(e) =>["e", "E", "+", "-"].includes(e.key) && e.preventDefault()}
               {...heightRegister}
             />
@@ -130,43 +126,43 @@ export default function SubmitPage() {
           </label>
           <label>
             <p>Weight</p>
-            <p className={style.descr}>From 5kg</p>
+            <p className = {style.descr}>From 5kg</p>
             <input
-              type="number"
-              name="weight"
-              placeholder="kg"
+              type = "number"
+              name = "weight"
+              placeholder = "kg"
               onKeyDown = {(e) =>["e", "E", "+", "-"].includes(e.key) && e.preventDefault()}
               {...weightRegister}
             />
-            <div className={style.error_message}>
+            <div className = {style.error_message}>
               {errors.weight ? <p>{errors.weight?.message}</p> : <p></p>}
             </div>
           </label>
           <label>
             <p>Age</p>
-            <p className={style.descr}>From 16 to 120</p>
+            <p className = {style.descr}>From 16 to 120</p>
             <input 
-              type="number" 
-              name="age" 
+              type = "number" 
+              name = "age" 
               onKeyDown = {(e) =>["e", "E", "+", "-"].includes(e.key) && e.preventDefault()}
               {...ageRegister} 
             />
-            <div className={style.error_message}>
+            <div className = {style.error_message}>
               {errors.age ? <p>{errors.age?.message}</p> : <p></p>}
             </div>
           </label>
         </div>
 
-        <p className={style.title}>Therapy</p>
-        <div className={style.tagsBlock}>
+        <p className = {style.title}>Therapy</p>
+        <div className = {style.tagsBlock}>
           {selectedTherapyWithImage.map((el, ind) => (
-            <div className={style.tags} key={ind}>
+            <div className = {style.tags} key={ind}>
               <img
-                src={images[el.smiley].img}
-                alt={`Icon${el.smiley + 1}`}
+                src = {images[el.smiley].img}
+                alt = {`Icon${el.smiley + 1}`}
               />
               <div
-                className={[
+                className = {[
                   style.therapy_text,
                   style[`Icon${images[el.smiley].id + 1}`],
                 ].join(" ")}
@@ -174,10 +170,10 @@ export default function SubmitPage() {
                 <p>{el.name[0].toUpperCase() + el.name.slice(1)}</p>
 
                 <p
-                  className={style.close}
-                  onClick={() => {
+                  className = {style.close}
+                  onClick = {() => {
                     setSelectedTherapyWithImage(
-                      selectedTherapyWithImage.filter((o) => o.name != el.name)
+                      selectedTherapyWithImage.filter((o) => o.name !== el.name)
                     );
                   }}
                 >
@@ -188,37 +184,36 @@ export default function SubmitPage() {
           ))}
         </div>
 
-        <div className={style.title2_block}>
-          <select {...selectRegister} onChange={onSelect}>
-            <option value="">Select therapy</option>
+        <div className = {style.title2_block}>
+          <select {...selectRegister} onChange = {onSelect}>
+            <option value = "">Select therapy</option>
             {therapies.map((el) => (
-              <option key={el} value={el}>
+              <option key = {el} value = {el}>
                 {el[0].toUpperCase() + el.slice(1)}
               </option>
             ))}
           </select>
-          <div className={style.img_block}>
+          <div className = {style.img_block}>
             {images.map((el) => (
               <img
-                key={el.id}
-                src={el.img}
-                // alt={`Icon${el.id + 1}`}
-                alt={el.id + 1}
-                onClick={selectImage}
+                key = {el.id}
+                src = {el.img}
+                alt = {el.id + 1}
+                onClick = {selectImage}
               />
             ))}
           </div>
         </div>
-        <div className={style.story_block}>
+        <div className = {style.story_block}>
           <textarea
-            name="story"
-            cols="30"
-            rows="10"
-            maxLength="250"
-            placeholder="*The commentary must contain no more than 250 characters"
+            name = "story"
+            cols = "30"
+            rows = "10"
+            maxLength = "250"
+            placeholder = "*The commentary must contain no more than 250 characters"
             {...textareaRegister}
           ></textarea>
-          <Button className={style.btn} type="submit">
+          <Button className = {style.btn} type = "submit">
             Publish my story
           </Button>
         </div>
