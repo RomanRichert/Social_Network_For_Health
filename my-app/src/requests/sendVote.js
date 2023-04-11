@@ -11,10 +11,11 @@ export const sendVote = ( id ) => {
             method: 'PATCH',
             dataType: "json",
             body: JSON.stringify(id)
+            
         })
         .then(response => {
             if (!response.ok) {
-            throw new Error(response);
+                throw new Error(response);
             }
             return response.json();
         })

@@ -3,6 +3,7 @@ import { HeartOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { sendComment } from "../../requests/sendComment";
 import { sendVote } from "../../requests/sendVote";
+import { images } from '../../data';
 import Button from "../Button";
 import styles from "./index.module.css";
 
@@ -14,21 +15,49 @@ export default function Story({ id, description, therapies, comments, votes }) {
   const dispatch = useDispatch();
 
   const submit = () => {
-    const newComment = text;
-    setComment([...comment, newComment]);
-    dispatch(sendComment(id, newComment));
-    setText("");
+    if (text !== '') {
+      const newComment = text;
+      setComment([...comment, newComment]);
+      dispatch(sendComment(id, newComment));
+      setText("");
+    }
   };
 
-  const handleClick = () => {
+  const handleClick = (event) => {
     setVote(vote + 1);
     setColor("red");
     dispatch(sendVote(id));
+    event.target.disabled = true
+
   };
 
   return (
     <div className={styles.story}>
       <p>{description}</p>
+      <div className={styles.tagsBlock}>
+        {
+          therapies.length > 0
+          ?
+          therapies.map(el => (
+            <div className={styles.tags} key={el.name}>
+              <img
+                src={images[el.smiley].img}
+                alt={`Icon${el.smiley + 1}`}
+              />
+              <div
+                className={[
+                  styles.therapy_text,
+                  styles[`Icon${images[el.smiley].id + 1}`]
+                ].join(" ")}
+              >
+                <p>{(el.name)[0].toUpperCase() + (el.name).slice(1)}</p>
+              </div>
+            </div>
+        ))
+        : ''
+      }
+      </div>
+
       <div className={styles.like}>
         <HeartOutlined style={{ color: color }} />
         {vote === 0 ? (
@@ -52,12 +81,16 @@ export default function Story({ id, description, therapies, comments, votes }) {
         ></textarea>
         <div className={styles.message}>
           <ul>
-            {comment.map((el, index) => (
-              <li key={index}>{el}&nbsp;&nbsp;</li>
-            ))}
+            {
+              comment.map((el, index) => (
+                el !== '' 
+                ? <li key={index}>{el}&nbsp;&nbsp;</li>
+                : ''
+              ))
+            }
           </ul>
-
         </div>
+
         <div className={styles.actions_btns}>
           <Button onClick={submit}>Comment</Button>
           <Button onClick={handleClick}>I feel sorry for you</Button>
