@@ -58,6 +58,10 @@
     transform: scale(1.1);
 }
 
+.actions_btns button:last-child.disabled {
+    pointer-events: none;
+}
+
 .tagsBlock {
     display: flex;
     flex-wrap: wrap;
