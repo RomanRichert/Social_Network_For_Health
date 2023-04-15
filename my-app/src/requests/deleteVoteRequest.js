@@ -1,6 +1,6 @@
-import { sendVoteAction } from "../store/actions/sendVoteAction";
+import { deleteVoteAction } from "../store/actions/deleteVoteAction";
 
-export const sendVote = ( id ) => {
+export const deleteVote = ( id ) => {
    
     return dispatch => {
         fetch( `http://localhost:8080/story/vote/${id}`, {
@@ -8,7 +8,7 @@ export const sendVote = ( id ) => {
                 accept: "application/json",
                 'Content-Type': 'application/json'
             },
-            method: 'PATCH',
+            method: 'DELETE',
             dataType: "json",
             body: JSON.stringify(id)
             
@@ -19,12 +19,8 @@ export const sendVote = ( id ) => {
             }
             return response.json();
         })
-        .then(json => {
-            dispatch(sendVoteAction(json))
-        })
-        .catch(error => {
-            console.log(error)
-        });
+        .then(json => dispatch(deleteVoteAction(json)))
+        .catch(error => console.log(error));
     }
     
 }
