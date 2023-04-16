@@ -51,22 +51,30 @@ public class StoryController {
     }
 
     @ResponseStatus(OK)
-    @GetMapping("/{id}")
+    @GetMapping("/{storyId}")
     @ApiResponse(responseCode = "200", description = "Successfully returned the story!", content = {
             @Content(mediaType = "application/json",
                     schema = @Schema(implementation = StoryResponseDTO.class))
     })
     @Operation(summary = "Request for a specific story ", description = "Getting an existing story by id")
-    public StoryResponseDTO getStory(@PathVariable String id) {
-        return storyService.getStoryById(id);
+    public StoryResponseDTO getStory(@PathVariable String storyId) {
+        return storyService.getStoryById(storyId);
     }
 
     @ResponseStatus(OK)
-    @PutMapping("vote/{id}")
+    @PatchMapping("vote/{storyId}")
     @ApiResponse(responseCode = "200", description = "Successfully voted the story!")
-    @Operation(summary = "PUT-Request for voting a specific story.", description = "Putting a Vote into Story.")
-    public void reactToStory(@PathVariable String id, @RequestParam String vote) {
-        storyService.putVote(id, vote);
+    @Operation(summary = "PATCH-Request for voting a specific story.", description = "Putting a Vote into Story.")
+    public String reactToStory(@PathVariable String storyId) {
+        return storyService.putVote(storyId);
+    }
+
+    @ResponseStatus(OK)
+    @DeleteMapping("vote/{voteId}")
+    @ApiResponse(responseCode = "200", description = "Successfully removed vote from the story!")
+    @Operation(summary = "DELETE-Request to remove the vote from a specific story.", description = "Deleting a Vote from Story.")
+    public void removeVoteFromStory(@PathVariable String voteId) {
+        storyService.deleteVote(voteId);
     }
 
     @ResponseStatus(OK)
@@ -95,10 +103,10 @@ public class StoryController {
     }
 
     @ResponseStatus(OK)
-    @PutMapping("/comment/{id}")
+    @PatchMapping("/comment/{storyId}")
     @ApiResponse(responseCode = "200", description = "Successfully voted the story!")
-    @Operation(summary = "PUT-Request for commenting a specific story.", description = "Putting a Comment into Story.")
-    public void commentStory(@PathVariable String id, @RequestParam String comment) {
-        storyService.commentStory(id, comment);
+    @Operation(summary = "PATCH-Request for commenting a specific story.", description = "Putting a Comment into Story.")
+    public void commentStory(@PathVariable String storyId, @RequestParam String comment) {
+        storyService.commentStory(storyId, comment);
     }
 }

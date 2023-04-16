@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Set;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
@@ -57,7 +57,7 @@ public class TherapyController {
                     array = @ArraySchema(schema = @Schema(implementation = TherapyDTO.class)))
     })
     @Operation(summary = "Request for all therapies", description = "Getting all therapies")
-    public List<String> getAllTherapies() {
+    public Set<String> getAllTherapies() {
         return therapyService.getAllTherapies();
     }
 }

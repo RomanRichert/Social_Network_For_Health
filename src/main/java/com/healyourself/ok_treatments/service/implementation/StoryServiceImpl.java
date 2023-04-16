@@ -14,6 +14,7 @@ import com.healyourself.ok_treatments.repository.StoryVoteRepository;
 import com.healyourself.ok_treatments.service.StoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
@@ -38,11 +39,14 @@ public class StoryServiceImpl implements StoryService {
     private final StoryCommentRepository commentRepository;
 
     @Override
+    @Transactional
     public StoryResponseDTO createStory(StoryRequestDTO storyRequestDTO) {
         checkBMI(storyRequestDTO.getBmiAnswers().get("weight"), storyRequestDTO.getBmiAnswers().get("height"));
-        checkBodyPart(storyRequestDTO.getBodyPart());
+        String bodyPart = storyRequestDTO.getBodyPart().toUpperCase();
+        checkBodyPart(bodyPart);
 
         Story story = storyMapper.toEntity(storyRequestDTO);
+        story.setBodyPart(BodyPart.valueOf(bodyPart));
 
         story.addParameter(new Parameter(
                 converter.convertToEntityAttribute(storyRequestDTO.getBmiAnswers().toString()),
@@ -75,9 +79,13 @@ public class StoryServiceImpl implements StoryService {
     }
 
     @Override
-    public void putVote(String id, String vote) {
-        checkVote(vote);
-        voteRepository.save(new Vote(VoteType.valueOf(vote), storyRepository.findById(UUID.fromString(id)).orElseThrow(() -> new StoryNotFoundException(id))));
+    @Transactional
+    public String putVote(String id) {
+        return voteRepository.save(
+                new Vote(VoteType.SORRY, storyRepository.findById(UUID.fromString(id))
+                        .orElseThrow(() -> new StoryNotFoundException(id))))
+                .getId()
+                .toString();
     }
 
     @Override
@@ -109,7 +117,14 @@ public class StoryServiceImpl implements StoryService {
     }
 
     @Override
+    @Transactional
     public void commentStory(String id, String comment) {
         commentRepository.save(new Comment(comment, storyRepository.findById(UUID.fromString(id)).orElseThrow(() -> new StoryNotFoundException(id))));
+    }
+
+    @Override
+    @Transactional
+    public void deleteVote(String voteId) {
+        voteRepository.deleteById(UUID.fromString(voteId));
     }
 }

@@ -3,6 +3,8 @@ package com.healyourself.ok_treatments.util;
 import com.healyourself.ok_treatments.dto.StoryRequestDTO;
 import com.healyourself.ok_treatments.dto.StoryResponseDTO;
 import com.healyourself.ok_treatments.dto.TherapyDTO;
+import com.healyourself.ok_treatments.mapper.TherapyMapper;
+import com.healyourself.ok_treatments.mapper.TherapyMapperImpl;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -11,6 +13,8 @@ import static com.healyourself.ok_treatments.util.EntityCreator.STORY;
 import static com.healyourself.ok_treatments.util.EntityCreator.THERAPY;
 
 public class DTOCreator {
+
+    private final static TherapyMapper therapyMapper = new TherapyMapperImpl();
 
     private final static Map<String, Double> BMI = Map.of(
             "weight", 77.0,
@@ -65,8 +69,9 @@ public class DTOCreator {
             STORY.getBodyPart().name(),
             STORY.getHealthScore(),
             STORY.getBmi(),
-            STORY.getTherapies().stream().map(Object::toString).toList(),
-            STORY.getComments().stream().map(Object::toString).toList()
+            therapyMapper.therapiesToDTOs(STORY.getTherapies()),
+            STORY.getComments().stream().map(Object::toString).toList(),
+            0
     );
 
     public final static StoryRequestDTO STORY_REQUEST_DTO = new StoryRequestDTO(
@@ -80,7 +85,7 @@ public class DTOCreator {
 
     public final static TherapyDTO THERAPY_DTO = new TherapyDTO(
             THERAPY.getName(),
-            null,
+            //null,
             THERAPY.getSmiley()
     );
 }

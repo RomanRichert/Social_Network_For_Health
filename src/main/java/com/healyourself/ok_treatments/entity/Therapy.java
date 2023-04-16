@@ -41,10 +41,9 @@ public class Therapy {
     @Max(value = 4, message = "Smiley-value should be between 0 and 4")
     private int smiley;
 
-    @ManyToOne(cascade = {MERGE, PERSIST, REFRESH}, fetch = LAZY)
-    @JoinColumn(name = "story_id",
-            referencedColumnName = "id")
     @ToString.Exclude
+    @JoinColumn(name = "story_id", referencedColumnName = "id")
+    @ManyToOne(cascade = {MERGE, PERSIST, REFRESH}, fetch = LAZY)
     private Story story;
 
     @Override

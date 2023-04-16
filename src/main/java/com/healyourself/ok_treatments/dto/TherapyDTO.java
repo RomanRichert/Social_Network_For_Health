@@ -10,8 +10,6 @@ public class TherapyDTO {
 
     String name;
 
-    String description;
-
     @Nullable
     @Min(value = 0, message = "Smiley-value should be between 0 and 4")
     @Max(value = 4, message = "Smiley-value should be between 0 and 4")

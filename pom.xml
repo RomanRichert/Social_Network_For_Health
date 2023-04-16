@@ -15,6 +15,11 @@
     <description>OK_Treatments</description>
     <properties>
         <java.version>19</java.version>
+        <jacoco.version>0.8.8</jacoco.version>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
+        <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
     </properties>
     <dependencies>
         <!--		spring-boot-->
@@ -45,6 +50,13 @@
         </dependency>
 
         <!--        prometheus-->
+
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-core</artifactId>
+            <version>1.10.5</version>
+        </dependency>
+
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
@@ -108,7 +120,7 @@
             <artifactId>json-smart</artifactId>
         </dependency>
 
-        <!--        mapstuct-->
+        <!--        mapstruct-->
 
         <dependency>
             <groupId>org.mapstruct</groupId>
@@ -178,7 +190,55 @@
                 </configuration>
             </plugin>
 
-
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.8</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>${jacoco-maven-plugin.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
+                    <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
+                    <output>file</output>
+                    <append>true</append>
+                    <excludes>
+                        <exclude>*MethodAccess</exclude>
+                        <exclude>com/**/repository/*</exclude>
+                        <exclude>com/**/controller/*</exclude>
+                        <exclude>com/**/entity/**</exclude>
+                        <exclude>com/**/aspect/*</exclude>
+                        <exclude>com/**/converter/*</exclude>
+                        <exclude>com/**/dto/*</exclude>
+                        <exclude>com/**/exception/*</exclude>
+                        <exclude>com/**/exception/**</exclude>
+                        <exclude>**/*.jar</exclude>
+                        <exclude>naughty-dependency/**/*.class</exclude>
+                        <exclude>com/**/OkTreatmentsApplication.class</exclude>
+                    </excludes>
+                    <outputDirectory>target/site/</outputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>jacoco-initialize</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <phase>test-compile</phase>
+                    </execution>
+                    <execution>
+                        <id>jacoco-site</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

@@ -10,8 +10,9 @@ import com.healyourself.ok_treatments.repository.TherapyRepository;
 import com.healyourself.ok_treatments.service.TherapyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -25,6 +26,7 @@ public class TherapyServiceImpl implements TherapyService {
     private final StoryRepository storyRepository;
 
     @Override
+    @Transactional
     public TherapyDTO createTherapy(TherapyDTO therapyDTO, String storyId) {
         Therapy therapy = therapyMapper.toEntity(therapyDTO);
         therapy.setStory(storyRepository.findById(UUID.fromString(storyId)).orElseThrow(() -> new StoryNotFoundException(storyId)));
@@ -38,7 +40,7 @@ public class TherapyServiceImpl implements TherapyService {
     }
 
     @Override
-    public List<String> getAllTherapies() {
-        return therapyMapper.getNamesFromTherapies(therapyRepository.findAll());
+    public Set<String> getAllTherapies() {
+        return therapyMapper.getNamesFromTherapies(therapyRepository.findDistinctByNameNotNull());
     }
 }

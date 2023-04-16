@@ -48,20 +48,20 @@ public class Story {
     @Column(name = "bmi")
     private Double bmi;
 
-    @OneToMany(cascade = ALL, mappedBy = "story", fetch = LAZY)
     @ToString.Exclude
+    @OneToMany(cascade = ALL, mappedBy = "story", fetch = LAZY)
     private Set<Parameter> params = new LinkedHashSet<>(2);
 
-    @OneToMany(cascade = {MERGE, PERSIST, REFRESH}, fetch = LAZY)
     @ToString.Exclude
+    @OneToMany(cascade = {MERGE, PERSIST, REFRESH}, mappedBy = "story", fetch = LAZY)
     private List<Therapy> therapies = new ArrayList<>();
 
-    @OneToMany(cascade = ALL, mappedBy = "story", fetch = LAZY)
     @ToString.Exclude
+    @OneToMany(cascade = ALL, mappedBy = "story", fetch = LAZY)
     private List<Comment> comments = new ArrayList<>();
 
-    @OneToMany(cascade = {MERGE, PERSIST, REFRESH}, mappedBy = "story", fetch = LAZY)
     @ToString.Exclude
+    @OneToMany(cascade = ALL, mappedBy = "story", fetch = LAZY)
     private List<Vote> votes = new ArrayList<>();
 
     public void addParameter(Parameter p) {

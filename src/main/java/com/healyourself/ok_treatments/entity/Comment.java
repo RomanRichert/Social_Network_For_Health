@@ -1,10 +1,7 @@
 package com.healyourself.ok_treatments.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +14,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @Entity
 @Getter
 @Setter
+@ToString
 @Transactional
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,8 +31,9 @@ public class Comment {
     @Column(name = "text")
     private String text;
 
-    @ManyToOne(cascade = {MERGE, PERSIST, REFRESH}, fetch = LAZY)
+    @ToString.Exclude
     @JoinColumn(name = "story_id", referencedColumnName = "id")
+    @ManyToOne(cascade = {MERGE, PERSIST, REFRESH}, fetch = LAZY)
     private Story story;
 
     @Override

@@ -11,7 +11,7 @@ import org.mapstruct.Mapping;
 import java.util.List;
 
 @Mapper(componentModel = "spring",
-        uses = {TherapyMapper.class, CommentMapper.class},
+        uses = {TherapyMapper.class, CommentMapper.class, VoteMapper.class},
         imports = {HealthScoreCalculator.class, BMICalculator.class})
 public interface StoryMapper {
 

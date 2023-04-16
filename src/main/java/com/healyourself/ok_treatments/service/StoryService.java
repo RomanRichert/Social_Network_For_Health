@@ -13,11 +13,13 @@ public interface StoryService {
 
     StoryResponseDTO getStoryById(String id);
 
-    void putVote(String id, String vote);
+    String putVote(String id);
 
     List<StoryResponseDTO> getSimilarStories(String storyId);
 
     List<StoryResponseDTO> getSimilarStories(int age, double weight, double height, String bodyPart);
 
     void commentStory(String id, String comment);
+
+    void deleteVote(String voteId);
 }

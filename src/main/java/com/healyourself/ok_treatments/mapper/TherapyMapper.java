@@ -5,6 +5,7 @@ import com.healyourself.ok_treatments.entity.Therapy;
 import org.mapstruct.Mapper;
 
 import java.util.List;
+import java.util.Set;
 
 @Mapper(componentModel = "spring")
 public interface TherapyMapper {
@@ -15,9 +16,9 @@ public interface TherapyMapper {
 
     List<TherapyDTO> therapiesToDTOs(List<Therapy> therapies);
 
-    List<String> getNamesFromTherapies(List<Therapy> therapy);
+    Set<String> getNamesFromTherapies(Set<Therapy> therapy);
 
-    static String toString(Therapy therapy) {
+    static String getNames(Therapy therapy) {
         return therapy.getName();
     }
 }

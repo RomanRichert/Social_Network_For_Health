@@ -2,7 +2,7 @@ package com.healyourself.ok_treatments.service;
 
 import com.healyourself.ok_treatments.dto.TherapyDTO;
 
-import java.util.List;
+import java.util.Set;
 
 public interface TherapyService {
 
@@ -10,5 +10,5 @@ public interface TherapyService {
 
     TherapyDTO getTherapyByName(String name);
 
-    List<String> getAllTherapies();
+    Set<String> getAllTherapies();
 }

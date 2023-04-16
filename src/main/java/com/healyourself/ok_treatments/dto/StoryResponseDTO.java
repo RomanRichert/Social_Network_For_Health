@@ -19,7 +19,9 @@ public class StoryResponseDTO {
 
     double bmi;
 
-    List<String> therapies;
+    List<TherapyDTO> therapies;
 
     List<String> comments;
+
+    Integer votes;
 }
