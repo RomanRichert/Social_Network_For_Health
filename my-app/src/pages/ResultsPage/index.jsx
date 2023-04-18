@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getStories } from '../../requests/getStoriesRequest';
+
 import Button from "../../components/Button";
 import Img from "./media/BMI.jpg";
 import PaginatedItems from '../../components/PaginatedItems';
@@ -11,33 +13,28 @@ export default function ResultsPage() {
   const [stories, setStories] = useState([]);
   const allAnswers = useSelector((state) => state.allAnswers);
 
-  useEffect(() => {
-    const getStory = async () => {
-      const response = await fetch("http://localhost:8080/story");
-      const storiesResponse = await response.json();
-      setStories(storiesResponse);
-    };
-    getStory();
-  }, []);
+  useEffect(() => getStories(setStories), []);
 
   return (
     <div className={styles.results_page}>
-      {allAnswers && allAnswers.healthScore && allAnswers.bmi ? (
-        <>
-          <h4>
-            Your health score:{" "}
-            {allAnswers.healthScore !== "undefined"
-              ? allAnswers.healthScore.toFixed(2)
-              : ""}
-          </h4>
-          <h4>
-            Your BMI:{" "}
-            {allAnswers.bmi !== "undefined" ? allAnswers.bmi.toFixed(2) : ""}
-          </h4>
-        </>
-      ) : (
-        "Error, You have not responded at all questions"
-      )}
+      {
+        allAnswers && allAnswers.healthScore && allAnswers.bmi ? (
+          <>
+            <h4>
+              Your health score:{" "}
+              {allAnswers.healthScore !== "undefined"
+                ? allAnswers.healthScore.toFixed(2)
+                : ""}
+            </h4>
+            <h4>
+              Your BMI:{" "}
+              {allAnswers.bmi !== "undefined" ? allAnswers.bmi.toFixed(2) : ""}
+            </h4>
+          </>
+        ) : (
+          "Error, You have not responded at all questions"
+        )
+      }
 
       <p className = {styles.bmi_descr}>The following diagram helps you interpret your BMI(Body Mass Index)</p>
       <img className = {styles.bmi_img} src={Img} alt="bmi standards" />

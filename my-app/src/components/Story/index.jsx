@@ -1,17 +1,21 @@
 import React, { useState } from "react";
-import { HeartOutlined } from "@ant-design/icons";
-import { useDispatch } from "react-redux";
+
+import { HeartFilled } from '@ant-design/icons';
+import { useDispatch, useSelector } from "react-redux";
 import { sendComment } from "../../requests/sendComment";
-import { sendVote } from "../../requests/sendVote";
+import { sendVote } from "../../requests/sendVoteRequest";
+import { deleteVote } from "../../requests/deleteVoteRequest";
 import { images } from '../../data';
 import Button from "../Button";
 import styles from "./index.module.css";
+import cn from 'classnames'
 
 export default function Story({ id, description, therapies, comments, votes }) {
   const [text, setText] = useState("");
   const [comment, setComment] = useState(comments);
   const [vote, setVote] = useState(votes);
-  const [color, setColor] = useState("");
+  const [color, setColor] = useState("white");
+  const [voteId, setVoteId] = useState("");
   const dispatch = useDispatch();
 
   const submit = () => {
@@ -23,11 +27,18 @@ export default function Story({ id, description, therapies, comments, votes }) {
     }
   };
 
-  const handleClick = (event) => {
-    setVote(vote + 1);
-    setColor("red");
-    dispatch(sendVote(id));
-    event.target.disabled = true
+  const handleClick = () => {
+    if (vote === votes + 1) {
+      setVote(votes);
+      setColor("white");
+      // dispatch(deleteVote(id));
+    } else {
+      setVote(vote + 1);
+      setColor("red");
+      // dispatch(sendVote(id));
+      sendVote(id, setVoteId)
+      console.log(voteId)
+    }
 
   };
 
@@ -59,13 +70,16 @@ export default function Story({ id, description, therapies, comments, votes }) {
       </div>
 
       <div className={styles.like}>
-        <HeartOutlined style={{ color: color }} />
+        <HeartFilled className = {cn(styles.heart, { 
+          [styles.white]: color === 'white',
+          [styles.red]: color === 'red',
+        })}/>
         {vote === 0 ? (
           ""
         ) : (
           <p>
-            {vote} {vote === 1 ? <span>person</span> : <span>persons</span>}{" "}
-            feel sorry for you
+            {vote} 
+            {vote === 1 ? <span> person feels</span> : <span> persons feel</span>} sorry for you
           </p>
         )}
       </div>
@@ -84,7 +98,7 @@ export default function Story({ id, description, therapies, comments, votes }) {
             {
               comment.map((el, index) => (
                 el !== '' 
-                ? <li key={index}>{el}&nbsp;&nbsp;</li>
+                ? <li key={index}>{el}</li>
                 : ''
               ))
             }
@@ -93,7 +107,15 @@ export default function Story({ id, description, therapies, comments, votes }) {
 
         <div className={styles.actions_btns}>
           <Button onClick={submit}>Comment</Button>
-          <Button onClick={handleClick}>I feel sorry for you</Button>
+          <Button 
+            className = {cn({
+              [styles.activeLike]: vote === votes,
+              [styles.inActiveLike]: vote === votes + 1,
+            })}
+            onClick={handleClick}
+          >
+            I feel sorry for you
+          </Button>
         </div>
       </div>
     </div>
