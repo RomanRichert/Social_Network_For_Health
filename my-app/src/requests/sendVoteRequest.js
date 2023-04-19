@@ -2,7 +2,7 @@ import { sendVoteAction } from "../store/actions/sendVoteAction";
 
 export const sendVote = ( id, callback ) => {
    
-    // return dispatch => {
+     return dispatch => {
         fetch( `http://localhost:8080/story/vote/${id}`, {
             headers: {
                 accept: "application/json",
@@ -12,13 +12,12 @@ export const sendVote = ( id, callback ) => {
             dataType: "json",
             body: JSON.stringify(id)
         })
-            .then(response => response.json())
-            .then(json => {
-                console.log(json)
+            .then(response => response.text())
+            .then(text => dispatch(sendVoteAction(text)))
             //     return callback(json)
                 // dispatch(sendVoteAction(json))
-            })
+           // })
             // .catch(error => console.log(error));
-    // }
+     }
     
 }

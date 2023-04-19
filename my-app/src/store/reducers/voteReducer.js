@@ -1,6 +1,6 @@
 import { SEND_VOTE, DELETE_VOTE } from "../actionsTypes";
 
-const defaultState = {};
+const defaultState = '';
 
 export const voteReducer = (state = defaultState, action ) => {
 
@@ -8,7 +8,6 @@ export const voteReducer = (state = defaultState, action ) => {
 
     switch (type) {
         case SEND_VOTE:
-            console.log(payload)
             return payload;
 
         case DELETE_VOTE:
