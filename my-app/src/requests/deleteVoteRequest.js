@@ -13,13 +13,8 @@ export const deleteVote = ( id ) => {
             body: JSON.stringify(id)
             
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(response);
-            }
-            return response.json();
-        })
-        .then(json => dispatch(deleteVoteAction(json)))
+        .then(response => response.text())
+        .then(text => dispatch(deleteVoteAction(text)))
         .catch(error => console.log(error));
     }
     

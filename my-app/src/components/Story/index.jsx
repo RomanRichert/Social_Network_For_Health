@@ -15,7 +15,7 @@ export default function Story({ id, description, therapies, comments, votes }) {
   const [comment, setComment] = useState(comments);
   const [vote, setVote] = useState(votes);
   const [color, setColor] = useState("white");
-  const [voteId, setVoteId] = useState("");
+
   const dispatch = useDispatch();
 
   const submit = () => {
@@ -27,17 +27,17 @@ export default function Story({ id, description, therapies, comments, votes }) {
     }
   };
 
+  const likeId = useSelector(state => state.vote)
+
   const handleClick = () => {
     if (vote === votes + 1) {
       setVote(votes);
       setColor("white");
-      // dispatch(deleteVote(id));
+      dispatch(deleteVote(likeId));
     } else {
       setVote(vote + 1);
       setColor("red");
-      // dispatch(sendVote(id));
-      sendVote(id, setVoteId)
-      console.log(voteId)
+      dispatch(sendVote(id));
     }
 
   };
@@ -109,8 +109,8 @@ export default function Story({ id, description, therapies, comments, votes }) {
           <Button onClick={submit}>Comment</Button>
           <Button 
             className = {cn({
-              [styles.activeLike]: vote === votes,
-              [styles.inActiveLike]: vote === votes + 1,
+              [styles.activeLike]: vote === votes + 1,
+              [styles.inActiveLike]: vote === votes,
             })}
             onClick={handleClick}
           >
