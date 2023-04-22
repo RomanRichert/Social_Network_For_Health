@@ -1,6 +1,6 @@
 import { sendVoteAction } from "../store/actions/sendVoteAction";
 
-export const sendVote = ( id, callback ) => {
+export const sendVote = ( id ) => {
    
      return dispatch => {
         fetch( `http://localhost:8080/story/vote/${id}`, {
@@ -14,10 +14,7 @@ export const sendVote = ( id, callback ) => {
         })
             .then(response => response.text())
             .then(text => dispatch(sendVoteAction(text)))
-            //     return callback(json)
-                // dispatch(sendVoteAction(json))
-           // })
-            // .catch(error => console.log(error));
+            .catch(error => console.log(error));
      }
     
 }

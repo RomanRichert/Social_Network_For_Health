@@ -12,18 +12,9 @@ export const sendComment = (id, comment) => {
             dataType: "json",
             body: JSON.stringify(data)
         })
-        .then(response => {
-            if (!response.ok) {
-            throw new Error(response);
-            }
-            return response.json();
-        })
-        .then(json => {
-            dispatch(sendCommentAction(json))
-        })
-        .catch(error => {
-            console.log(error)
-        });
+        .then(response => response.json())
+        .then(json => dispatch(sendCommentAction(json)))
+        .catch(error => console.log(error))
     }
     
 }

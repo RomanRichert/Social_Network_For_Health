@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import style from "./index.module.css";
 
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { sendAnswers } from "../../requests/sendAnswersRequest";
 import { images } from "../../data";
+import { therapies } from '../../data';
+
 import Button from "../../components/Button";
+import SmileImg from '../../components/SmileImg';
+import TherapyTag from '../../components/TherapyTag';
+import BMIBlock from '../../components/BMIBlock';
+import style from "./index.module.css";
 
 export default function SubmitPage() {
   const dispatch = useDispatch();
@@ -28,15 +33,10 @@ export default function SubmitPage() {
   const [selectedTherapyWithImage, setSelectedTherapyWithImage] = useState([]);
   const [selectedTherapy, setSelectedTherapy] = useState("");
 
-  const therapies = ["running", "yoga", "drugs", "swimming"];
-
   const body_part = useSelector((state) => state.bodyPart);
   const answers = useSelector((state) => state.answers);
 
   const submit = (data) => {
-    data.height = data.height / 100;
-    data.weight = +data.weight;
-    data.age = +data.age;
 
     let therapies = {}
     selectedTherapyWithImage.map(el => therapies[el.name] = el.smiley)
@@ -44,18 +44,16 @@ export default function SubmitPage() {
     const allAnswers = Object.assign(
       {},
       {
-        age: data.age,
+        age: +data.age,
         description: data.story,
         bodyPart: body_part.toUpperCase(),
-        bmiAnswers: { weight: data.weight, height: data.height },
+        bmiAnswers: { weight: +data.weight, height: +data.height / 100 },
         sf36Answers: answers,
         therapies: therapies 
       }
     );
 
-    dispatch(
-      sendAnswers("http://localhost:8080/story", allAnswers)
-    );
+    dispatch(sendAnswers("http://localhost:8080/story", allAnswers));
 
     navigate("/results");
     reset();
@@ -106,67 +104,29 @@ export default function SubmitPage() {
      }
   };
 
-  return (
-    <div>
-      <form onSubmit = {handleSubmit(submit)}>
-        <div className = {style.submit_block}>
-          <label>
-            <p>Height</p>
-            <p className = {style.descr}>60cm-250cm</p>
-            <input
-              type = "number"
-              name = "height"
-              placeholder = "cm"
-              onKeyDown = {(e) =>["e", "E", "+", "-"].includes(e.key) && e.preventDefault()}
-              {...heightRegister}
-            />
-            <div className={style.error_message}>
-              {errors.height ? <p>{errors.height?.message}</p> : <p></p>}
-            </div>
-          </label>
-          <label>
-            <p>Weight</p>
-            <p className = {style.descr}>From 5kg</p>
-            <input
-              type = "number"
-              name = "weight"
-              placeholder = "kg"
-              onKeyDown = {(e) =>["e", "E", "+", "-"].includes(e.key) && e.preventDefault()}
-              {...weightRegister}
-            />
-            <div className = {style.error_message}>
-              {errors.weight ? <p>{errors.weight?.message}</p> : <p></p>}
-            </div>
-          </label>
-          <label>
-            <p>Age</p>
-            <p className = {style.descr}>From 16 to 120</p>
-            <input 
-              type = "number" 
-              name = "age" 
-              onKeyDown = {(e) =>["e", "E", "+", "-"].includes(e.key) && e.preventDefault()}
-              {...ageRegister} 
-            />
-            <div className = {style.error_message}>
-              {errors.age ? <p>{errors.age?.message}</p> : <p></p>}
-            </div>
-          </label>
-        </div>
+  const checkKeyDown = event => {
+    if (event.key === 'Enter') {
+      event.preventDefault()
+    }
+  }
 
+  return (
+      <form onSubmit = {handleSubmit(submit)} onKeyDown = {event => checkKeyDown(event)}>
+        <BMIBlock 
+          weightRegister = {weightRegister}
+          heightRegister = {heightRegister}
+          ageRegister = {ageRegister}
+          errors = {errors}
+        />
+       
         <p className = {style.title}>Therapy</p>
         <div className = {style.tagsBlock}>
-          {selectedTherapyWithImage.map((el, ind) => (
+        {
+          selectedTherapyWithImage.map((el, ind) => (
             <div className = {style.tags} key={ind}>
-              <img
-                src = {images[el.smiley].img}
-                alt = {`Icon${el.smiley + 1}`}
-              />
-              <div
-                className = {[
-                  style.therapy_text,
-                  style[`Icon${images[el.smiley].id + 1}`],
-                ].join(" ")}
-              >
+              <SmileImg smile = {el.smiley} />
+
+              <TherapyTag smile = {el.smiley} >
                 <p>{el.name[0].toUpperCase() + el.name.slice(1)}</p>
 
                 <p
@@ -179,12 +139,13 @@ export default function SubmitPage() {
                 >
                   x
                 </p>
-              </div>
+              </TherapyTag>
             </div>
-          ))}
+          ))
+        }
         </div>
 
-        <div className = {style.title2_block}>
+        <div className = {style.therapy_block}>
           <select {...selectRegister} onChange = {onSelect}>
             <option value = "">Select therapy</option>
             {therapies.map((el) => (
@@ -218,6 +179,5 @@ export default function SubmitPage() {
           </Button>
         </div>
       </form>
-    </div>
   );
 }

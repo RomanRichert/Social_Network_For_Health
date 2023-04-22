@@ -1,42 +1,9 @@
-.title_block {
-  margin-top: 50px;
-  display: flex;
-  justify-content: start;
-  gap: 50px;
-  padding-left: 30px;
-}
-
-.submit_block p {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.submit_block {
-  display: flex;
-  justify-content: space-around;
-}
-
-.descr {
-  color: gray;
-  font-size: 10px;
-  font-weight: normal !important;
-}
-
-.submit_block input {
-  border-radius: 5px;
-  padding: 5px;
-  border: 1px solid var(--lila-border);
-  width: 90px;
-  height: 35px;
-  outline: none;
-}
-
 .title {
   margin: 15px 10px 0 10px;
   font-weight: bold;
 }
 
-.title2_block {
+.therapy_block {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -44,7 +11,7 @@
   margin-bottom: 20px;
 }
 
-.title2_block select {
+.therapy_block select {
   width: 100px;
   height: 30px;
   outline: none;
@@ -101,13 +68,6 @@
   width: auto;
 }
 
-.error_message p {
-  color: red;
-  font-size: 8px;
-  text-align: end;
-  height: 10px;
-}
-
 .tagsBlock {
   display: flex;
   flex-wrap: wrap;
@@ -126,21 +86,6 @@
   height: 25px;
 }
 
-.therapy_text {
-  font-size: 10px;
-  font-weight: bold;
-  width: 100px;
-  height: 23px;
-  padding: 5px 10px;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: -7%;
-  position: relative;
-  box-shadow: -1px 1px 1px white;
-}
-
 .close {
   position: absolute;
   top: 20%;
@@ -148,22 +93,3 @@
   cursor: pointer;
 }
 
-.Icon1 {
-  background-color: var(--red-smile);
-}
-
-.Icon2 {
-  background-color: var(--orange-smile);
-}
-
-.Icon3 {
-  background-color: var(--yellow-smile);
-}
-
-.Icon4 {
-  background-color: var(--light-green-smile);
-}
-
-.Icon5 {
-  background-color: var(--green-smile);
-}

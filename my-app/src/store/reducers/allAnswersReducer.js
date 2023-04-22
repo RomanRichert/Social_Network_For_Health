@@ -7,7 +7,6 @@ export const allAnswersReducer = (state = initialState, action) => {
 
 	switch (type) {
 		case GET_ALL_ANSWERS:
-			// console.log('all answers reducer', payload)
 			return payload
 			
 		default:
