@@ -5,7 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getBodyPartAction } from "../../store/actions/getBodyPartAction";
 
-export default function BodyPartForm({ body_part, isDisabled, setIsDisabled }) {
+import cn from 'classnames'
+
+export default function BodyPartForm({ body_part }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -26,7 +28,6 @@ export default function BodyPartForm({ body_part, isDisabled, setIsDisabled }) {
   const submit = (event) => {
     event.preventDefault();
     const { part } = event.target;
-    setIsDisabled(false);
     dispatch(getBodyPartAction(part.value));
     const btns = document.getElementsByClassName(styles.btn);
     Array.from(btns).forEach((el) => el.classList.remove(styles.active));
@@ -37,7 +38,7 @@ export default function BodyPartForm({ body_part, isDisabled, setIsDisabled }) {
   return (
     <form onSubmit = {submit}>
       <button
-        className = {[styles[body_part], styles.btn].join(" ")}
+        className = {cn(styles[body_part], styles.btn)}
         name = "part"
         value = {body_part}
       ></button>

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import style from "./index.module.css";
 import { useSelector } from "react-redux";
+
+import style from "./index.module.css";
 
 export default function QuestionItem({ id, question, answers, handleOptionChange }) {
   const stateAnswers = useSelector((state) => state.answers);

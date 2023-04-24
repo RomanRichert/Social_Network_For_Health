@@ -1,17 +1,24 @@
 import React, { useState } from "react";
-import { HeartOutlined } from "@ant-design/icons";
-import { useDispatch } from "react-redux";
+
+import { HeartFilled } from '@ant-design/icons';
+import { useDispatch, useSelector } from "react-redux";
 import { sendComment } from "../../requests/sendComment";
-import { sendVote } from "../../requests/sendVote";
-import { images } from '../../data';
+import { sendVote } from "../../requests/sendVoteRequest";
+import { deleteVote } from "../../requests/deleteVoteRequest";
+
 import Button from "../Button";
+import SmileImg from '../SmileImg';
+import TherapyTag from '../TherapyTag';
+
 import styles from "./index.module.css";
+import cn from 'classnames'
 
 export default function Story({ id, description, therapies, comments, votes }) {
   const [text, setText] = useState("");
   const [comment, setComment] = useState(comments);
   const [vote, setVote] = useState(votes);
-  const [color, setColor] = useState("");
+  const [color, setColor] = useState("white");
+
   const dispatch = useDispatch();
 
   const submit = () => {
@@ -23,11 +30,18 @@ export default function Story({ id, description, therapies, comments, votes }) {
     }
   };
 
-  const handleClick = (event) => {
-    setVote(vote + 1);
-    setColor("red");
-    dispatch(sendVote(id));
-    event.target.disabled = true
+  const likeId = useSelector(state => state.vote)
+
+  const handleClick = () => {
+    if (vote === votes + 1) {
+      setVote(votes);
+      setColor("white");
+      dispatch(deleteVote(likeId));
+    } else {
+      setVote(vote + 1);
+      setColor("red");
+      dispatch(sendVote(id));
+    }
 
   };
 
@@ -40,18 +54,11 @@ export default function Story({ id, description, therapies, comments, votes }) {
           ?
           therapies.map(el => (
             <div className={styles.tags} key={el.name}>
-              <img
-                src={images[el.smiley].img}
-                alt={`Icon${el.smiley + 1}`}
-              />
-              <div
-                className={[
-                  styles.therapy_text,
-                  styles[`Icon${images[el.smiley].id + 1}`]
-                ].join(" ")}
-              >
+              <SmileImg smile = {el.smiley} />
+
+              <TherapyTag smile = {el.smiley}>
                 <p>{(el.name)[0].toUpperCase() + (el.name).slice(1)}</p>
-              </div>
+              </TherapyTag>
             </div>
         ))
         : ''
@@ -59,15 +66,18 @@ export default function Story({ id, description, therapies, comments, votes }) {
       </div>
 
       <div className={styles.like}>
-        <HeartOutlined style={{ color: color }} />
-        {vote === 0 ? (
-          ""
-        ) : (
-          <p>
-            {vote} {vote === 1 ? <span>person</span> : <span>persons</span>}{" "}
-            feel sorry for you
-          </p>
-        )}
+        <HeartFilled className = {cn(styles.heart, { 
+          [styles.white]: color === 'white',
+          [styles.red]: color === 'red',
+        })}/>
+        {
+          vote === 0 
+          ? ""
+          : <p>
+              {vote} 
+              {vote === 1 ? <span> person feels</span> : <span> persons feel</span>} sorry for you
+            </p>
+        }
       </div>
       <div>
         <textarea
@@ -84,7 +94,7 @@ export default function Story({ id, description, therapies, comments, votes }) {
             {
               comment.map((el, index) => (
                 el !== '' 
-                ? <li key={index}>{el}&nbsp;&nbsp;</li>
+                ? <li key={index}>{el}</li>
                 : ''
               ))
             }
@@ -93,7 +103,14 @@ export default function Story({ id, description, therapies, comments, votes }) {
 
         <div className={styles.actions_btns}>
           <Button onClick={submit}>Comment</Button>
-          <Button onClick={handleClick}>I feel sorry for you</Button>
+          <Button className = {cn({
+              [styles.activeLike]: vote === votes + 1,
+              [styles.inActiveLike]: vote === votes,
+            })}
+            onClick={handleClick}
+          >
+            I feel sorry for you
+          </Button>
         </div>
       </div>
     </div>

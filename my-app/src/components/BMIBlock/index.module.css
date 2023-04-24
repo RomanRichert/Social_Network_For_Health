@@ -1,0 +1,24 @@
+.bmi_block {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bmi_block label {
+  font-weight: bold;
+}
+
+.description {
+  color: gray;
+  font-size: 10px;
+  font-weight: normal !important;
+  margin: 5px 0;
+}
+
+.bmi_block input {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid var(--lila-border);
+  width: 90px;
+  height: 35px;
+  outline: none;
+}

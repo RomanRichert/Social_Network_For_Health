@@ -34,32 +34,28 @@
     border-radius: 5px;
     border: 1px solid var(--lila-border);
     background-color: #fff;
+    cursor: pointer;    
+}
+
+.actions_btns button:first-child {
     color: var(--lila-border);
-    cursor: pointer;
-    
 }
 
-.actions_btns button:last-child {
-    margin-left: 10px;
+.activeLike {
     background-image: linear-gradient(to right, var(--pink), var(--lila-border));
     color: white;
+    border: 1px solid transparent;
 }
   
 .actions_btns button:hover {
-    transform: scale(1.1);
+    transform: none;
 }
 
-.actions_btns button:last-child {
-    background-image: linear-gradient(to right, var(--pink), var(--lila-border));
-    color: white;
-}
-  
-.actions_btns button:hover {
-    transform: scale(1.1);
-}
-
-.actions_btns button:last-child.disabled {
-    pointer-events: none;
+.inActiveLike {
+    border: 1px solid var(--lila-border);
+    background-color: #fff;
+    color: var(--lila-border);
+    background-image: none;
 }
 
 .tagsBlock {
@@ -67,27 +63,6 @@
     flex-wrap: wrap;
     gap: 5px;
     padding: 10px;
-}
-
-.Icon1 {
-    background-color: var(--red-smile);
-}
-  
-.Icon2 {
-    background-color: var(--orange-smile);
-}
-  
-.Icon3 {
-    background-color: var(--yellow-smile);
-    /* background-color: #fEEC00;   */
-}
-  
-.Icon4 {
-    background-color: var(--light-green-smile);
-}
-  
-.Icon5 {
-    background-color: var(--green-smile);
 }
 
 .tags {
@@ -100,23 +75,11 @@
 .tags img {
     height: 25px;
 }
-  
-.therapy_text {
-    font-size: 10px;
-    font-weight: bold;
-    width: 100px;
-    height: 23px;
-    padding: 5px 10px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: -7%;
-    position: relative;
-    box-shadow: -1px 1px 1px white;
+
+.heart.red svg{
+    fill: red;
 }
 
-.therapy_text p {
-    color: white !important;
-    font-weight: bold !important;
+.heart.white svg{
+    fill: lightgray;
 }

@@ -40,11 +40,10 @@ const initialState = {
 };
 
 export const sendAnswersReducer = (state = initialState, action) => {
-  const { payload, type } = action;
+  const { type } = action;
 
   switch (type) {
     case GET_ANSWER:
-      //console.log("answer reducer", payload, state);
       return state;
 
     default:

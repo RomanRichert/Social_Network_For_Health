@@ -1,0 +1,85 @@
+.story {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--lila-border);
+}
+
+.like {
+    text-align: end;
+}
+
+.like p {
+    font-size: 8px;
+}
+
+.message {
+    margin-top: 20px;
+    margin-left: 12px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    list-style-position: inside;
+}
+
+.actions_btns {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+  
+.actions_btns button {
+    width: 130px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid var(--lila-border);
+    background-color: #fff;
+    cursor: pointer;    
+}
+
+.actions_btns button:first-child {
+    color: var(--lila-border);
+}
+
+.activeLike {
+    background-image: linear-gradient(to right, var(--pink), var(--lila-border));
+    color: white;
+    border: 1px solid transparent;
+}
+  
+.actions_btns button:hover {
+    transform: none;
+}
+
+.inActiveLike {
+    border: 1px solid var(--lila-border);
+    background-color: #fff;
+    color: var(--lila-border);
+    background-image: none;
+}
+
+.tagsBlock {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+}
+
+.tags {
+    color: white;
+    text-align: center;
+  
+    display: flex;
+}
+  
+.tags img {
+    height: 25px;
+}
+
+.heart.red svg{
+    fill: red;
+}
+
+.heart.white svg{
+    fill: lightgray;
+}

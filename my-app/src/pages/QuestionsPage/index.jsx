@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import QuestionItem from "../../components/QuestionItem";
 import Button from "../../components/Button";
-import style from "./index.module.css";
+
 import { questions } from "../../data";
 import { Link, useNavigate } from "react-router-dom";
 import { getAnswerAction } from '../../store/actions/getAnswerAction';
 import { useDispatch, useSelector } from "react-redux";
+
+import style from "./index.module.css";
 
 export default function QuestionsPage() {
   const [id, setId] = useState(1)
@@ -23,9 +25,6 @@ export default function QuestionsPage() {
     }
     dispatch(getAnswerAction((stateAnswers[id] = event.currentTarget.value)));
   };
-  // const handleNextQuestion = () => {
-  //   setSelectedValue("");
-  // };
 
   const content = () => {
     if (id === 1) {

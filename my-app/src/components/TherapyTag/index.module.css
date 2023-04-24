@@ -1,0 +1,39 @@
+.therapy_text {
+	font-size: 10px;
+	font-weight: bold;
+	width: 100px;
+	height: 23px;
+	padding: 5px 10px;
+	border-radius: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: -7%;
+	position: relative;
+	box-shadow: -1px 1px 1px white;
+}
+  
+.therapy_text p {
+    color: white !important;
+    font-weight: bold !important;
+} 
+
+.Icon1 {
+	background-color: var(--red-smile);
+}
+  
+.Icon2 {
+	background-color: var(--orange-smile);
+}
+  
+.Icon3 {
+	background-color: var(--yellow-smile);
+}
+  
+.Icon4 {
+	background-color: var(--light-green-smile);
+}
+  
+.Icon5 {
+	background-color: var(--green-smile);
+}
