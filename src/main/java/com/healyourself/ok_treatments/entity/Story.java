@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 
 import static jakarta.persistence.CascadeType.*;
-import static jakarta.persistence.CascadeType.REFRESH;
 import static jakarta.persistence.FetchType.LAZY;
 
 @Getter

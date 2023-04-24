@@ -13,16 +13,17 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.healyourself.ok_treatments.util.DTOCreator.THERAPY_DTO;
+import static com.healyourself.ok_treatments.util.EntityCreator.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-import static com.healyourself.ok_treatments.util.DTOCreator.THERAPY_DTO;
-import static com.healyourself.ok_treatments.util.EntityCreator.*;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Test class for TherapyServiceImpl")
@@ -60,8 +61,8 @@ class TherapyServiceImplTest {
     @Test
     @DisplayName("Testing of getting of all therapies")
     void getAllTherapies() {
-        List<String> therapiesNames = Stream.of(THERAPY).map(Therapy::getName).toList();
-        when(therapyRepository.findAll()).thenReturn(List.of(THERAPY));
+        Set<String> therapiesNames = Stream.of(THERAPY).map(Therapy::getName).collect(Collectors.toSet());
+        when(therapyRepository.findDistinctByNameNotNull()).thenReturn(Set.of(THERAPY));
 
         assertEquals(therapiesNames, therapyService.getAllTherapies(), "Names of the therapies should be equal");
     }

@@ -1,13 +1,11 @@
 package com.healyourself.ok_treatments.service.util;
 
 import com.healyourself.ok_treatments.dto.StoryRequestDTO;
-import lombok.Setter;
 import lombok.experimental.UtilityClass;
 
 import java.util.List;
 import java.util.Map;
 
-@Setter
 @UtilityClass
 public class HealthScoreCalculator {
 

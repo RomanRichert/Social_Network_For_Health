@@ -22,7 +22,8 @@ import java.util.UUID;
 import static com.healyourself.ok_treatments.enums.ParameterType.BMI;
 import static com.healyourself.ok_treatments.enums.ParameterType.SF36;
 import static com.healyourself.ok_treatments.service.util.BMICalculator.calculateBmi;
-import static com.healyourself.ok_treatments.service.util.RequestChecker.*;
+import static com.healyourself.ok_treatments.service.util.RequestChecker.checkBMI;
+import static com.healyourself.ok_treatments.service.util.RequestChecker.checkBodyPart;
 
 @Service
 @RequiredArgsConstructor
@@ -82,8 +83,8 @@ public class StoryServiceImpl implements StoryService {
     @Transactional
     public String putVote(String id) {
         return voteRepository.save(
-                new Vote(VoteType.SORRY, storyRepository.findById(UUID.fromString(id))
-                        .orElseThrow(() -> new StoryNotFoundException(id))))
+                        new Vote(VoteType.SORRY, storyRepository.findById(UUID.fromString(id))
+                                .orElseThrow(() -> new StoryNotFoundException(id))))
                 .getId()
                 .toString();
     }

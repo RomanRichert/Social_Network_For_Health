@@ -8,6 +8,7 @@ import com.healyourself.ok_treatments.exception.InvalidVoteException;
 import lombok.experimental.UtilityClass;
 
 import java.util.Objects;
+import java.util.stream.Stream;
 
 @UtilityClass
 public class RequestChecker {
@@ -18,18 +19,12 @@ public class RequestChecker {
     }
 
     public static void checkVote(String vote) {
-        for (VoteType v : VoteType.values()) {
-            if (Objects.equals(vote, v.toString())) return;
-        }
-
-        throw new InvalidVoteException(vote);
+        if (!Stream.of((VoteType.values())).map(Objects::toString).toList().contains(vote))
+            throw new InvalidVoteException(vote);
     }
 
     public static void checkBodyPart(String bodyPart) {
-        for (BodyPart b : BodyPart.values()) {
-            if (Objects.equals(bodyPart, b.toString())) return;
-        }
-
-        throw new InvalidBodyPartException(bodyPart);
+        if (!Stream.of((BodyPart.values())).map(Objects::toString).toList().contains(bodyPart))
+            throw new InvalidBodyPartException(bodyPart);
     }
 }

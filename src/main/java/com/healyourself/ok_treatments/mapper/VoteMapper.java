@@ -10,10 +10,10 @@ import static com.healyourself.ok_treatments.enums.VoteType.SORRY;
 @Mapper(componentModel = "spring")
 public interface VoteMapper {
 
-    static Integer countSorryVotes(List<Vote> votes){
+    static Integer countSorryVotes(List<Vote> votes) {
         Integer count = 0;
 
-        for (Vote vote : votes){
+        for (Vote vote : votes) {
             if (vote.getType() == SORRY) count++;
         }
 
